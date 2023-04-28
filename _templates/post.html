@@ -1,21 +1,22 @@
 {% extends 'layout.html' %}
 
 
-{% set title = item.title ~ ' : Blog' %}
+{% set title = item.title %}
 
 {% block breadcrumbs %}
-    <ul id="breadcrumbs">
-        <li><a href="{{ get_url() }}">Blog</a></li>
-        <li>{{ item.title|truncate(75) }}</li>
-    </ul>
+    <div id="breadcrumbs">
+        <a href="{{ get_url() }}">Home</a><span> » </span>
+        <a href="{{ get_url(posts.tags[item.path1].url) }}">{{ item.path1 }}</a><span> » </span>
+        <a href="{{ get_url(posts.tags[item.path2].url) }}">{{ item.path2 }}</a><span> » </span>
+        <a href="{{ get_url(posts.tags[item.path3].url) }}">{{ item.path3 }}</a><span> » </span>
+    </div>
 {% endblock %}
 
 {% block content %}
     <div class="post">
         <h1 class="post-title">{{ item.title }}</h1>
-        <h2 class="post-meta">{{ item.date }}{% if item.tags %} <span>»</span> {% for tag in item.tags %}<a href="{{ get_url(posts.tags[tag].url) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</h2>
-
         {{ item.content }}
+        <h2 class="post-meta">{{ item.date }}</h2>
     </div>
 {% endblock %}
 

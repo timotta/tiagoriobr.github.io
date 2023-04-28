@@ -21,15 +21,15 @@ domain:
 #
 
 # Used in header meta tags and the site feed. (required to generate a valid feed)
-author: author
+author: Tiago Albineli Motta
 # A description of your site to be used in header meta tags.
 description:
 # Used in the site feed.
 email:
 # Your site's subtitle.
-subtitle: subtitle
+subtitle:
 # Your site's title. (required to generate a valid feed)
-title: title
+title: timotta.github.io
 
 
 #
@@ -40,3 +40,4 @@ archives_url: /archives/
 tag_layout: tag.html
 tags_url: /archives/
 
+posts_url: /<path1>/<path2>/<path3>/<slug>/

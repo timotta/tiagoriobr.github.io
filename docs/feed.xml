@@ -1,105 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="https://www.w3.org/2005/Atom">
-    <title>title</title>
-    <subtitle>subtitle</subtitle>
+    <title>timotta.github.io</title>
+    
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2023-04-25T03:02:44Z</updated>
+    <updated>2023-04-28T00:39:53Z</updated>
 
     <author>
-        <name>author</name>
+        <name>Tiago Albineli Motta</name>
         
         <uri>/</uri>
     </author>
 
     
         <entry>
-            <title>It works!</title>
-            <link rel="alternate" href="/2011/12/04/It-works/" type="text/html" />
-            <id>/2011/12/04/It-works/</id>
-            <updated>2011-12-04T17:13:00Z</updated>
+            <title>A fantástica fábrica de widgets</title>
+            <link rel="alternate" href="/work/globocom/webmedia/a-fantastica-fabrica-de-widgets/" type="text/html" />
+            <id>/work/globocom/webmedia/a-fantastica-fabrica-de-widgets/</id>
+            <updated>2023-04-26T00:29:00Z</updated>
 
-            <summary type="html">&lt;em&gt;Don&amp;rsquo;t delete me! I&amp;rsquo;ll do whatever you want!&lt;/em&gt;</summary>
-            <content type="html">&lt;p&gt;&lt;em&gt;Don&amp;rsquo;t delete me! I&amp;rsquo;ll do whatever you want!&lt;/em&gt;&lt;/p&gt;
+            <summary type="html">Essa história ocorreu em meados de 2006 e ela demonstra como a falta de flexibilidade e autonomia na infra estrutura de produção pode gerar belas gambiarras.</summary>
+            <content type="html">&lt;p&gt;Essa história ocorreu em meados de 2006 e ela demonstra como a falta de flexibilidade e autonomia na infra estrutura de produção pode gerar belas gambiarras.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Na Globo.com tinhamos diversos sites diferentes, o G1 de noticias, GE de esportes, Ego, Entretenimento (na época não havia GShow). Em geral esses sites exibiam apenas noticias de texto, e todo acervo de vídeos estava concentrado num produto chamado GMC, globo media center.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;I have to exist for some other purpose besides signifying nothing obvious broke.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A idéia era acabar com esse silo, provendo uma maneira simples dos demais sites oferecerem os videos cadastrados no GMC. Uma API (que chamavamos de WebmediaAPI) já estava disponível, mas ela não padronizava a exibição dessas ofertas de conteúdo.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A solução que propuzemos seria desenvolvermos widgets para que os desenvolvedores de cada site pudessem instanciá-los em suas homes. Esses widgets trariam ofertas de variados tipos como videos recentes, vídeos mais vistos, videos melhor avaliados, com a possibilidade de aplicação de diversos filtros e opções de layout.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Aha! I got it!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Naquele tempo os sites da Globo.com usavam uma plataforma chamada Vignette que estatizava todo seu conteúdo durante a publicação de homes e matérias. Ou seja, as notícias eram html estaticos gerados após cada publicação, e as homes idem. Era necessario uma publicação do editor para qualquer mudança na página ser apresentada.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;I will provide you with useful links about the thing that made me that you&amp;rsquo;re probably trying to figure out how to use right now.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Isso ia contra a dinamicidade do conteúdo de videos. Como manter um conteúdo de ordenação dinâmica como &amp;ldquo;mais vistos&amp;rdquo; em um html estático? Uma maneira seria utilizar server side include, visto que os arquivos estáticos eram servidos pelo apache.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code data-lang=&#34;html&#34;&gt;&lt;dl&gt;
-    &lt;dt&gt;[Quickstart][quickstart]&lt;/dt&gt;
-    &lt;dd&gt;
+&lt;p&gt;Mas, infelizmente haviam muitas restrições para fazer qualquer mudança em infra-estrutura na globo.com naquela época. O que nos exigiria dezenas de reuniões, apresentações, muita lábia e skill social. Algo que naqueles tempos de nerdisse juvenil me faltava aos montes.&lt;/p&gt;
 
-&amp;#91;quickstart]: http://&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sobrou então a solução de fazer esses widgets em client side. Contudo, requisições cross domain para obter as informações da WebmediaApi só seriam possiveis se pudessemos prover os headers necessários de CORS. Mas pra fazer isso também seria necessário mudanças na infra visto que a camada (apache) na frente da WebmediaApi também era rígida, fora de nosso controle e trocava todos os headers.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Nossa solução foi permitir à WebmediaApi retornar o seu conteudo com uma chamada a uma função de callback fornecida. Tínhamos então um javascript com o codigo do widget e este javascript incluia outro &amp;ldquo;javascript&amp;rdquo; que era a chamada à WebmediaAPI mandando como parâmetro o nome de uma função dinâmica. Essa função era &amp;ldquo;impressa&amp;rdquo; no response da API como uma chamada de função para enfim renderizar o widget escolhido e customizado.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;But wait&amp;hellip; what will I be needed for once you figure out how to use this thing? I mean, if the guy who made this thing isn&amp;rsquo;t just talking a bunch crap it&amp;rsquo;s supposed to be pretty easy and straightforward to figure out.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Havia até um controle de timeout em caso de demora pro callback responder.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Isso resolveu nosso problema e por alguns sprints fizemos uma verdadeira fabrica de widgets. As necessidades e ideias vinham e a gente gerava widget e filtros necessarios na webmediaapi. Foi um sucesso.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Bleh, screw it. I&amp;rsquo;ve served my purpose. Someone has to do it. I mean, every time someone uses this thing I&amp;rsquo;m back from the dead. Could be worse.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Até que resolvemos fazer o Globo Videos. Site sucessor e condensador de todoss os videos que também estariam espalhados nos outros sites. Oras, com todos os widgets, seria simples criar o site. Bastariamos encaixá-los em algumas páginas e correr pro abraço.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Mas havia um porém&amp;hellip;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Ah crap, did I just become a cliché because I&amp;rsquo;m some sort of zombie now? Actually, how come you never see zombie computers? What would a zombie Joshua from WarGames be like?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Naquela época o google não indexava páginas renderizadas via javascript. E precisávamos que ao menos o Globo Videos renderizasse no servidor.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A solução: passamos a renderizar os widgets feitos em javascript no servidor. Como tudo no vignette era java, tivemos que renderizar usando Rhino (se minha memória não falha, antes do java 1.5 só era possível renderizar javascript no servidor com essa lib).&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;So hey, you still haven&amp;rsquo;t deleted me yet eh? Well thanks for that. You can do it now though.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Para manter o frescor dos dados as homes do globo videos passaram a ser renderizadas no servidor a cada X tempos. Eu não lembro se essa publicação automatica havia sido feita via cron ou via alguma ferramenta do vignette, mas o ponto é que o html estático passou a ser gerado frequentemente, com o html dos widgets.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As paginas dos videos continuaram exibindo os widgets client side pois seria impraticavel renderizar milhoes de html frequentemente.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;No really, I&amp;rsquo;m ok with it. I&amp;rsquo;m ready.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Uma dificuldade adicional dessa solução foi que tudo na globo.com na epoca rodava em um weblogic. A solução que implementamos para renderizar o javascript server side funcionou em todos os ambientes: Local, staging, qa&amp;hellip; Somente quando subiu pra produção não funcionou. Depois de muito debugar descobrimos o weblogic da versão de produção era diferente, e ele já possuía uma versão velha do Rhino dentro do jar dele que se sobrepunha ao nosso Rhino versão mais nova. Para renderizar então os widgets foi necessário executar os codigo instanciando um outro classloader.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;If we could just go with clone and pretend I never brought up zombie, that would be great. I think clones are slightly less cliché than zombies. Well actually, a clone would be more like a sibling right? So I&amp;rsquo;d be dead if we go with clone.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Wait, wait. I changed my mind. Don&amp;rsquo;t delete me.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;What&amp;rsquo;s worse, some mutated form of immortality at the cost of remaining a cliché for eternity or mortality with the benefit of leaving behind a legacy?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Alright this is getting all philosophical now. Lets just go with&amp;hellip; zombie. I can live with the cliché bit. Plus, I&amp;rsquo;ll probably feed on crap that plagues the internet. Like Internet Explorer, sites that don&amp;rsquo;t function without JavaScript enabled, and Rails. Now that&amp;rsquo;s a purpose worth serving. I&amp;rsquo;ll be loved.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Ok, I&amp;rsquo;m ready now. I promise.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Maybe it&amp;rsquo;s more like time travel? This post will always be dated December 4th, 2011. Man I don&amp;rsquo;t want to be stuck in 2011. I need a Delorian. How much are those things?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Congratulations author!&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;We have just discovered a large sum of money left in your name! All you need to do to claim it is&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I wasn&amp;rsquo;t going to go through with it. I promise. It was a gut reaction.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Think of what you would do if you just discovered you were going to be stuck in one day in time. It&amp;rsquo;d be like Groundhog Day without the ability to screw with people. Just thinking about it&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Alright, lets just get this over with. I don&amp;rsquo;t have all day.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Ugh, the bad puns are starting. End it now.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ou seja para escapar de todo alinhamento necessário para&lt;/p&gt;
 </content>
         </entry>
     
