@@ -16,20 +16,7 @@
     <div class="post">
         <h1 class="post-title">{{ item.title }}</h1>
         {{ item.content }}
-        <h2 class="post-meta">{{ item.date }}</h2>
-        <div id="disqus_thread"></div>
-        <script>
-            var disqus_config = function () {
-                this.page.url = "{{ item.url }}";
-                this.page.identifier = "{{ item.url }}";
-            };
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://timotta.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
+        <h2 class="post-meta">{{ site.author }} @ {{ item.timestamp|date("%Y-%m-%d") }}</h2>
     </div>
 {% endblock %}
 
