@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2023-04-28T00:41:43Z</updated>
+    <updated>2023-04-28T03:29:04Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,10 +18,10 @@
             <title>A fantástica fábrica de widgets</title>
             <link rel="alternate" href="/work/globocom/webmedia/a-fantastica-fabrica-de-widgets/" type="text/html" />
             <id>/work/globocom/webmedia/a-fantastica-fabrica-de-widgets/</id>
-            <updated>2023-04-26T00:29:00Z</updated>
+            <updated>2023-04-26T03:28:00Z</updated>
 
-            <summary type="html">Essa história ocorreu em meados de 2006 e ela demonstra como a falta de flexibilidade e autonomia na infra estrutura de produção pode gerar belas gambiarras.</summary>
-            <content type="html">&lt;p&gt;Essa história ocorreu em meados de 2006 e ela demonstra como a falta de flexibilidade e autonomia na infra estrutura de produção pode gerar belas gambiarras.&lt;/p&gt;
+            <summary type="html">Essa história de sucesso e ao mesmo tempo fracasso, que ocorreu em meados de 2006.</summary>
+            <content type="html">&lt;p&gt;Essa história de sucesso e ao mesmo tempo fracasso, que ocorreu em meados de 2006.&lt;/p&gt;
 
 &lt;p&gt;Na Globo.com tinhamos diversos sites diferentes, o G1 de noticias, GE de esportes, Ego, Entretenimento (na época não havia GShow). Em geral esses sites exibiam apenas noticias de texto, e todo acervo de vídeos estava concentrado num produto chamado GMC, globo media center.&lt;/p&gt;
 
