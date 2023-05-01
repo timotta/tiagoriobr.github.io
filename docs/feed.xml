@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2023-05-01T03:36:30Z</updated>
+    <updated>2023-05-01T04:29:44Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>The fantastic widget factory</title>
             <link rel="alternate" href="/work/globocom/webmedia/the-fantastic-widget-factory/" type="text/html" />
             <id>/work/globocom/webmedia/the-fantastic-widget-factory/</id>
-            <updated>2023-04-29T03:10:00Z</updated>
+            <updated>2023-04-29T04:13:00Z</updated>
 
             <summary type="html">This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.</summary>
             <content type="html">&lt;p&gt;This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.&lt;/p&gt;
@@ -51,9 +51,9 @@
 
 &lt;p&gt;To maintain the freshness of the data, the Globo Vídeos homepage began to be rendered on the server every X period of time. I don&amp;rsquo;t remember if this automatic publication was done via cron or some Vignette tool, but the point is that static HTML began to be generated frequently, with the HTML of the widgets. However, the video pages continued to display client-side widgets as it would be impractical to render millions of HTML frequently.&lt;/p&gt;
 
-&lt;p&gt;An additional difficulty with this solution was that everything on Globo.com at the time was running on a WebLogic server. The solution we implemented to render server-side JavaScript worked in all environments: local, staging, QA&amp;hellip; Only when it was deployed to production did it not work. After much debugging, we discovered that the WebLogic version in production was different from the other environments, and it already had an older version of Rhino expanded inside its jar file that overrode our newer Rhino version. To render the widgets, it was necessary to execute the code by instantiating another classloader.&lt;/p&gt;
+&lt;p&gt;There was an added complexity to this solution as the process responsible for generating static HTML files on Globo.com was running on a WebLogic server. Although our server-side JavaScript rendering solution worked seamlessly in all other environments, including local, staging, and QA, it failed to function when deployed to production. After extensive debugging efforts, we discovered that the WebLogic version used in production differed from the other environments and contained an older Rhino version that superseded our newer one. To ensure proper widget rendering, we needed to execute the code by instantiating another classloader that loaded the correct Rhino jar version, which we successfully accomplished.&lt;/p&gt;
 
-&lt;p&gt;In the end, we successfully developed a client-side widget platform that enabled all websites to independently and consistently offer videos without duplicating code. Additionally, we created a server-side rendered video product that could be indexed by Google.&lt;/p&gt;
+&lt;p&gt;In the end, we were able to develop a client-side widget platform that empowers websites to offer videos independently and consistently, without having to duplicate code. Furthermore, we devised a server-side rendered video product that can be easily indexed by Google. These achievements were made possible by implementing a series of three engineering workarounds.&lt;/p&gt;
 </content>
         </entry>
     
