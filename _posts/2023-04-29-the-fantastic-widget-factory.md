@@ -13,7 +13,7 @@ The case occurred in mid-2006 at Globo.com. At that time, the portal was divided
 
 Our initial goal was to break down the silo in relation to video content, allowing developers from other sites to offer GMC registered videos in a simple and standardized way. At the time, an API was already available (known as WebmediaAPI), but it did not standardize the display of these content offerings, which would require additional effort from these teams for implementation.
 
-The solution we proposed would be to develop standardized visual widgets. These widgets would bring offers of various types such as recent videos, most viewed videos, best-rated videos, with the possibility of applying various filters and layout options. In this way, it would only be necessary to import a javascript into the page to offer video content in any Globo.com website.
+The solution we proposed would be to develop standardized visual widgets. These widgets would bring offers of various types such as recent videos, most viewed videos, best-rated videos, with the possibility of applying various filters and layout options. In this way, it would only be necessary to instantiate the widget into backend code page to offer video content in any Globo.com website.
 
 Here comes our first issue: At that time, Globo.com websites used a platform called Vignette, which made all its content static during the publication of homepages and articles. In other words, the news articles were static HTML generated after each publication, and the homepages were the same. Any changes to the page needed an editor to publish them for them to be displayed.
 
