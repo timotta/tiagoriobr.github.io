@@ -4,6 +4,7 @@ install:
 build:
 	rm -rf docs
 	mynt gen -f . docs
+	cp CNAME docs/CNAME
 
 start: build
 	mynt serve docs
