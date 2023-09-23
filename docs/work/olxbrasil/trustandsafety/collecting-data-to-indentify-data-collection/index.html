@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="Tiago Albineli Motta">
+
+<meta name="generator" content="mynt v0.4">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml">
+<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/css/screen.css">
+
+
+    <title>Collecting data to identify data collect – tiago.rio.br</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h1 id="title"><a href="/">tiago.rio.br</a></h1>
+            
+        </div>
+
+        
+    <div id="breadcrumbs">
+        <a href="/">Home</a><span> » </span>
+        <a href="/archives/work/">work</a><span> » </span>
+        <a href="/archives/olxbrasil/">olxbrasil</a><span> » </span>
+        <a href="/archives/trustandsafety/">trustandsafety</a><span> » </span>
+    </div>
+
+
+        <div id="content">
+            
+    <div class="post">
+        <h1 class="post-title">Collecting data to identify data collect</h1>
+        <p>This is the story of how we managed to prevent &ldquo;data collect&rdquo; fraud through a data collection!</p>
+
+<p>It happened in mid-2022. At the time, I had already been working for a year and a half in the Trust &amp; Safety area at OLX Brasil, and we had achieved significant success in reducing fraud attempts. Especially in a type of fraud known as &ldquo;False Payment&rdquo;. In fact, another type of fraud known as &ldquo;Data Collect&rdquo; has since become the highest number of reported cases.</p>
+
+<p>The problem with this other type of fraud is that the behavior of the fraudsters was very similar to that of another type of malicious user: the spammer. A modeling to identify this type of fraudster, done a few months earlier, failed for this reason. We were unable to separate the spammer from a fraudster of this type of fraud in any way.</p>
+
+<p>Then you may ask me, why not prevent both characters with the same model?</p>
+
+<p>The approach we had towards spammers was quite different from the approach towards a fraudster. I cannot go into detail about how these approaches because confidentiality is part of security, and making it public can assist both groups in finding ways to circumvent. But trust me, it was very important to distinguish our actions in dealing with these two groups.</p>
+
+<p>We were at an impasse, our last model was actually doing a good job at accurately distinguishing between legitimate users and these two groups, but we couldn&rsquo;t put it into production for making automatic decisions. We were missing the ability to identify which micro behaviors set one group apart from the other, and there was only one team in the company that could help us with that: the monitoring team.</p>
+
+<p>This team was a multidisciplinary team of fraud identification experts in the company. They were responsible for manually reviewing samples from automated models and operational team decisions regarding reports that were not handled automatically.</p>
+
+<p>We spoke with this team in an attempt to find any new criteria that could help us separate the cases. The conversation proved to be a not-so-effective tool, as the developers and monitors didn&rsquo;t seem to speak the same language. We couldn&rsquo;t objectively map out these determining factors through these unstructured conversation.</p>
+
+<p>To address this, we created a spreadsheet with a large sample of cases that the not so good model had identified as fraud (and within those cases, there were many spams) and added two columns: one to indicate whether it was fraud or spam, and another for free text where the operator could explain the reasons behind their conclusion. This spreadsheet was sent to the monitoring team for completion.</p>
+
+<p>The result could not be more satisfactory. In the first lines, the free text column started off more &ldquo;poetic&rdquo; and gradually, the repetitive pattern of the groups caused the monitors to write in a more concise and even repetitive manner, generating a clear pattern on new criteria that we could adopt for the machine learning model.</p>
+
+<p>Our data collection had worked. Our data collection had been successful.</p>
+
+<p>These pieces of information generated new feature calculations for a new machine learning model training. We sent new samples of the results from this new model for monitoring evaluation, which could assure us of high accuracy. For a few weeks, we kept the artifact in production without taking any action, only logging, just to monitor if the generated result would reflect the results obtained in the offline evaluation. Everything went smoothly.</p>
+
+<p>In the weeks after enabling the new model to take actions against the fraudsters, we experienced an average decrease of 33% in &ldquo;Data collect&rdquo; frauds per week. Another type of fraud, known as &ldquo;False Sale&rdquo;, also saw a 25% decrease, as it relies on a more complicated social engineering involving the execution of &ldquo;Data collect&rdquo; fraud at first place to be effective.</p>
+
+<p>So we data collected to avoid data collect successfully.</p>
+
+        <h2 class="post-meta">Tiago Albineli Motta @ 2023-08-19</h2>
+    </div>
+
+        </div>
+
+        <div id="footer">
+            © 2023 Tiago Albineli Motta
+        </div>
+    </div>
+</body>
+</html>
