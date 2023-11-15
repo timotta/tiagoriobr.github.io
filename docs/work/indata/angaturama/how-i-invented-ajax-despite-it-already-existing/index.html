@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="Tiago Albineli Motta">
+
+<meta name="generator" content="mynt v0.4">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml">
+<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/css/screen.css">
+
+
+    <title>How I invented Ajax despite it already existing – tiago.rio.br</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h1 id="title"><a href="/">tiago.rio.br</a></h1>
+            
+        </div>
+
+        
+    <div id="breadcrumbs">
+        <a href="/">Home</a><span> » </span>
+        <a href="/archives/work/">work</a><span> » </span>
+        <a href="/archives/indata/">indata</a><span> » </span>
+        <a href="/archives/angaturama/">angaturama</a><span> » </span>
+    </div>
+
+
+        <div id="content">
+            
+    <div class="post">
+        <h1 class="post-title">How I invented Ajax despite it already existing</h1>
+        <p>This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</p>
+
+<p>Between 2003 and 2004, I worked for a very small software company. There were only three developers, and each one worked separately on a group of softwares, as if they were three one-person teams. I had little experience and had recently graduated, and I also did not have the habit of reading books and articles to learn. All my learning until then was based on empirical experimentation, solving real problems from personal projects and the companies I was working for.</p>
+
+<p>At that time, the majority of websites and web applications would reload the entire pages every time a click or form submission occurred. And for me, that was indeed the only way to exchange information between the browser and the server. My knowledge was limited to that.</p>
+
+<p>However, one of the projects at Indata involved customizing a GIS project from Mexico. In this project, I noticed that information was loaded on the page without having to reload the entire page. I found that amazing, a revolution within my limited knowledge. I needed to learn that!</p>
+
+<p>Notice, at that time we didn&rsquo;t have Chrome&rsquo;s Web Developer Tools. We used Internet Explorer to debug websites. JavaScript errors were masked, there was no way to inspect anything. Additionally, the JavaScript code on the client side of this software was minified.</p>
+
+<p>Reading line by line of that obfuscated code I found the so-called XMLHttpRequest object where the magic was happening. But I didn&rsquo;t understand anything. To me, that was the end of the execution line. There was nothing more after it.</p>
+
+<p>I couldn&rsquo;t notice the callback that would be executed through it. It wasn&rsquo;t due to a total unawareness of the pattern, as at that time I had already developed some games in Java that used listeners in response to user actions, a similar pattern, but due to my lack of practice, I couldn&rsquo;t associate it.</p>
+
+<p>Nowadays, I try to understand why I couldn&rsquo;t associate one thing with another, and my only hypothesis is that the abstraction of a callback for user action made sense to me at the time, as it is an external interruption to the code&rsquo;s execution flow, while the callback within the execution flow didn&rsquo;t make sense in my limited brain at that time.</p>
+
+<p>Also, Google was not very popular in Brazil yet, and all search tools (in Portuguese because at the time I didn&rsquo;t have experience in other languages either) were directories and did not search internally within websites and texts. Neither did my colleagues at the company know that technology. So, for some time, I was stuck without understanding how that GIS software could load data from the server without reloading the page.</p>
+
+<p>So one day I remembered an HTML tag that I rarely used, but had learned in an online HTML and JavaScript course: the iframe. I noticed that with the iframe, I could communicate with the parent using JavaScript and exchange information. This was the solution I needed.</p>
+
+<p>With iframe, I would be able to retrieve information from the server and populate it in the parent through a function call, sending the data as a parameter. In fact, it was the same callback pattern used by XMLHttpRequest, but in this case, it made sense to me, as it was an interruption coming from another page being loaded.</p>
+
+<p>At the time, I was developing Angaturama, a receptive tourism company management system. I started using the &ldquo;Ajax&rdquo; technique through iframes, and as a result, the system became very user-friendly. We even created a shortcut key to display hidden iframes that were hidden by CSS containing the results for debugging purposes.</p>
+
+<p>A few years after I left the company, Google started to become more popular in Brazil. I learned English, developed the habit of reading books, technical articles, and participating in software discussion groups. During this period, I began to notice that there was a trending term called &ldquo;Ajax&rdquo;. Everywhere I looked, people were talking about it, and the infamous XMLHttpRequest. In 2006, jQuery was born and made everything even easier.</p>
+
+<p>When I discovered all of this, I felt like the boy from the movie <a href="https://www.imdb.com/title/tt0461804/">&ldquo;Mongolian ping pong&rdquo;</a> who is sent to school and finds a court with several other boys playing ping pong, with that ball he spent months trying to figure out what it was.</p>
+
+<p>In a later meeting of Indata employees, I remember us laughing about this makeshift job done on the Angaturama and how, due to our lack of knowledge at the time, I became famous among them for inventing &ldquo;Ajax&rdquo; despite its existence already.</p>
+
+        <h2 class="post-meta">Tiago Albineli Motta @ 2023-11-15</h2>
+    </div>
+
+        </div>
+
+        <div id="footer">
+            © 2023 Tiago Albineli Motta
+        </div>
+    </div>
+</body>
+</html>

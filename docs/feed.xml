@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2023-09-23T13:37:03Z</updated>
+    <updated>2023-11-15T14:45:53Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,49 @@
 
     
         <entry>
+            <title>How I invented Ajax despite it already existing</title>
+            <link rel="alternate" href="/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/" type="text/html" />
+            <id>/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/</id>
+            <updated>2023-11-15T14:45:00Z</updated>
+
+            <summary type="html">This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</summary>
+            <content type="html">&lt;p&gt;This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.&lt;/p&gt;
+
+&lt;p&gt;Between 2003 and 2004, I worked for a very small software company. There were only three developers, and each one worked separately on a group of softwares, as if they were three one-person teams. I had little experience and had recently graduated, and I also did not have the habit of reading books and articles to learn. All my learning until then was based on empirical experimentation, solving real problems from personal projects and the companies I was working for.&lt;/p&gt;
+
+&lt;p&gt;At that time, the majority of websites and web applications would reload the entire pages every time a click or form submission occurred. And for me, that was indeed the only way to exchange information between the browser and the server. My knowledge was limited to that.&lt;/p&gt;
+
+&lt;p&gt;However, one of the projects at Indata involved customizing a GIS project from Mexico. In this project, I noticed that information was loaded on the page without having to reload the entire page. I found that amazing, a revolution within my limited knowledge. I needed to learn that!&lt;/p&gt;
+
+&lt;p&gt;Notice, at that time we didn&amp;rsquo;t have Chrome&amp;rsquo;s Web Developer Tools. We used Internet Explorer to debug websites. JavaScript errors were masked, there was no way to inspect anything. Additionally, the JavaScript code on the client side of this software was minified.&lt;/p&gt;
+
+&lt;p&gt;Reading line by line of that obfuscated code I found the so-called XMLHttpRequest object where the magic was happening. But I didn&amp;rsquo;t understand anything. To me, that was the end of the execution line. There was nothing more after it.&lt;/p&gt;
+
+&lt;p&gt;I couldn&amp;rsquo;t notice the callback that would be executed through it. It wasn&amp;rsquo;t due to a total unawareness of the pattern, as at that time I had already developed some games in Java that used listeners in response to user actions, a similar pattern, but due to my lack of practice, I couldn&amp;rsquo;t associate it.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, I try to understand why I couldn&amp;rsquo;t associate one thing with another, and my only hypothesis is that the abstraction of a callback for user action made sense to me at the time, as it is an external interruption to the code&amp;rsquo;s execution flow, while the callback within the execution flow didn&amp;rsquo;t make sense in my limited brain at that time.&lt;/p&gt;
+
+&lt;p&gt;Also, Google was not very popular in Brazil yet, and all search tools (in Portuguese because at the time I didn&amp;rsquo;t have experience in other languages either) were directories and did not search internally within websites and texts. Neither did my colleagues at the company know that technology. So, for some time, I was stuck without understanding how that GIS software could load data from the server without reloading the page.&lt;/p&gt;
+
+&lt;p&gt;So one day I remembered an HTML tag that I rarely used, but had learned in an online HTML and JavaScript course: the iframe. I noticed that with the iframe, I could communicate with the parent using JavaScript and exchange information. This was the solution I needed.&lt;/p&gt;
+
+&lt;p&gt;With iframe, I would be able to retrieve information from the server and populate it in the parent through a function call, sending the data as a parameter. In fact, it was the same callback pattern used by XMLHttpRequest, but in this case, it made sense to me, as it was an interruption coming from another page being loaded.&lt;/p&gt;
+
+&lt;p&gt;At the time, I was developing Angaturama, a receptive tourism company management system. I started using the &amp;ldquo;Ajax&amp;rdquo; technique through iframes, and as a result, the system became very user-friendly. We even created a shortcut key to display hidden iframes that were hidden by CSS containing the results for debugging purposes.&lt;/p&gt;
+
+&lt;p&gt;A few years after I left the company, Google started to become more popular in Brazil. I learned English, developed the habit of reading books, technical articles, and participating in software discussion groups. During this period, I began to notice that there was a trending term called &amp;ldquo;Ajax&amp;rdquo;. Everywhere I looked, people were talking about it, and the infamous XMLHttpRequest. In 2006, jQuery was born and made everything even easier.&lt;/p&gt;
+
+&lt;p&gt;When I discovered all of this, I felt like the boy from the movie &lt;a href=&#34;https://www.imdb.com/title/tt0461804/&#34;&gt;&amp;ldquo;Mongolian ping pong&amp;rdquo;&lt;/a&gt; who is sent to school and finds a court with several other boys playing ping pong, with that ball he spent months trying to figure out what it was.&lt;/p&gt;
+
+&lt;p&gt;In a later meeting of Indata employees, I remember us laughing about this makeshift job done on the Angaturama and how, due to our lack of knowledge at the time, I became famous among them for inventing &amp;ldquo;Ajax&amp;rdquo; despite its existence already.&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Collecting data to identify data collect</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/</id>
-            <updated>2023-08-19T13:36:00Z</updated>
+            <updated>2023-08-19T13:37:00Z</updated>
 
             <summary type="html">This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!</summary>
             <content type="html">&lt;p&gt;This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!&lt;/p&gt;
