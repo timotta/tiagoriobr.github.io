@@ -15,7 +15,7 @@ To make this clearer, I will describe below two examples of changes that were ma
 
 Example 1: At some point, we began to give more importance to the brand and model attributes configured by the advertiser. Therefore, an advertisement for a cellphone marked with the brand "Samsung" and the model "Galaxy" would have a better chance of being found in a search for "Samsung Galaxy" than one that was not configured this way.
 
-In test AB, this experiment brought gains, but after the rollout, advertisers noticed, and began advertising cell phones with different brands in the most searched brands. So, his ad started to appear in two different searches. In addition, advertisers of services and jobs started placing their ads in other categories that contained the brand and model attributes to appear in searches for the service title as well as in random searches.
+In AB test, this experiment brought gains, but after the rollout, advertisers noticed, and began advertising cell phones with different brands in the most searched brands. So, his ad started to appear in two different searches. In addition, advertisers of services and jobs started placing their ads in other categories that contained the brand and model attributes to appear in searches for the service title as well as in random searches.
 
 Example 2: In another period, through a precision analysis using Bayesian optimization, we defined automatic weights for each attribute of the ad. It so happened that the title obviously had a higher score. Some months after the AB test, advertisers realized that if they repeated the most important words in the title, it would have a higher chance of being elevated to the top of the search results, because of the BM25.
 
