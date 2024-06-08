@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-03-31T16:09:09Z</updated>
+    <updated>2024-06-08T17:50:19Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,80 @@
 
     
         <entry>
+            <title>Podium: The algorithm that defeated BM25</title>
+            <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
+            <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
+            <updated>2024-06-08T17:43:00Z</updated>
+
+            <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
+            <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
+
+&lt;p&gt;In previous years, our search team at OLX has tried various approaches to optimize search and bring more accurate results. With each change, there was an observed improvement in short-term AB testing, but in the medium term, advertisers adapted to increase impressions of their ads by exploiting algorithm loopholes, consequently worsening the accuracy of the results.&lt;/p&gt;
+
+&lt;p&gt;To make this clearer, I will describe below two examples of changes that were made and caused harmful reactions from advertisers:&lt;/p&gt;
+
+&lt;p&gt;Example 1: At some point, we began to give more importance to the brand and model attributes configured by the advertiser. Therefore, an advertisement for a cellphone marked with the brand &amp;ldquo;Samsung&amp;rdquo; and the model &amp;ldquo;Galaxy&amp;rdquo; would have a better chance of being found in a search for &amp;ldquo;Samsung Galaxy&amp;rdquo; than one that was not configured this way.&lt;/p&gt;
+
+&lt;p&gt;In test AB, this experiment brought gains, but after the rollout, advertisers noticed, and began advertising cell phones with different brands in the most searched brands. So, his ad started to appear in two different searches. In addition, advertisers of services and jobs started placing their ads in other categories that contained the brand and model attributes to appear in searches for the service title as well as in random searches.&lt;/p&gt;
+
+&lt;p&gt;Example 2: In another period, through a precision analysis using Bayesian optimization, we defined automatic weights for each attribute of the ad. It so happened that the title obviously had a higher score. Some months after the AB test, advertisers realized that if they repeated the most important words in the title, it would have a higher chance of being elevated to the top of the search results, because of the BM25.&lt;/p&gt;
+
+&lt;p&gt;In this way ads like &amp;ldquo;freight freight freight&amp;rdquo; and &amp;ldquo;invicta watch invicta watch invicta watch&amp;rdquo; were always at the top of their respective searches, disturbing the lives of buyers and advertisers less focused on SEO at OLX. As a temporary solution, we penalized ads with duplicate terms and standardized the internal title used in the search. However, there was still a loophole for cases of derived words, which internally in Elastic Search were considered the same word due to Stemming.&lt;/p&gt;
+
+&lt;p&gt;These were just two examples of several of our attempts to optimize the search of OLX Brazil using BM25.&lt;/p&gt;
+
+&lt;p&gt;However, they demonstrate that we would never achieve a good result with BM25, as the mathematical intuition behind this algorithm does not make sense for the C2C marketplace, due to two things:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In the numerator of BM25 there is the quantity of matches of the searched words.&lt;/li&gt;
+&lt;li&gt;In the denominator, one of the components is the size of the document.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That is, BM25 always favors smaller documents with the highest number of matches. In this case, if a search for &amp;ldquo;bicycle&amp;rdquo; is done on a C2C marketplace, the ads with the highest match will be those whose title is simply &amp;ldquo;bicycle&amp;rdquo;. And if the ad description is included in the calculation, the highest matches will be those with the fewest words in that description and with the most repetitions of the word. In other words, the least informative, least creative, and poorest ads in terms of information will have the best score.&lt;/p&gt;
+
+&lt;p&gt;During this period when we were studying a way to improve search, we were in love to an &lt;a href=&#34;https://pages.cs.wisc.edu/%7Eanhai/papers/chimera-vldb14.pdf&#34;&gt;Wallmart paper&lt;/a&gt; about product classification, and based on it we created a system called Guanabara (in honor to a famous supermarket in Rio de Janeiro). One of the ideas from the paper is a hybrid system of regexes, machine learning models, and human in the loop to identify products.&lt;/p&gt;
+
+&lt;p&gt;While we were creating the regexes for this system, we noticed that there was a pattern in the title of the ads that we could observe for portuguese language. Ignoring some irrelevant words at the beginning of each title, such as &amp;ldquo;vendo&amp;rdquo;, &amp;ldquo;novo&amp;rdquo;, &amp;ldquo;lindo&amp;rdquo; among others, the order of the words indicated the real relevance of an ad for a certain term, in portuguese.&lt;/p&gt;
+
+&lt;p&gt;Ads like &amp;ldquo;Vendo Samsung Galaxy&amp;rdquo;, &amp;ldquo;Samsung Galaxy s10&amp;rdquo; and &amp;ldquo;Samsung galaxy novo&amp;rdquo;, should have the same relevance to each other, but a higher relevance than &amp;ldquo;Fone de Samsung galaxy&amp;rdquo; in a search for &amp;ldquo;Samsung galaxy&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;And so the idea arose: What if we gave a higher score to matches based on the position of the term in the ad and the position of the term in the searched text?&lt;/p&gt;
+
+&lt;p&gt;Based on this idea, we created the Podium algorithm:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/assets/images/podium-math.gif&#34; alt=&#34;/assets/images/podium-math.gif&#34;&gt;&lt;/p&gt;
+
+&lt;!-- \sum_{k&lt;3}^{k=0}\sum_{i&lt;3}^{i=0} match(P_i,Q_k) * S/2^^{i+k} --&gt;
+
+&lt;p&gt;Where &lt;strong&gt;P&lt;/strong&gt; is the list of the first three relevant words from the ad, and &lt;strong&gt;Q&lt;/strong&gt; is the list of the first three relevant words from the search made, &lt;strong&gt;S&lt;/strong&gt; is an initial higher score (currently at 200k) and &lt;strong&gt;match&lt;/strong&gt; is a function that returns 1 or 0 if the terms are equal.&lt;/p&gt;
+
+&lt;p&gt;This is a base calculation. The other texts from the ad and the query are also used, but with lower scores and not as important for the intuition behind the algorithm. In addition, the terms in the ad and the query are deduplicated through stemming in advance.&lt;/p&gt;
+
+&lt;p&gt;One of the most important things about this algorithm is that it purposely causes ties in ads where the accuracy between the search terms and the terms present are the same. So in the example given, a search for &amp;ldquo;Samsung Galaxy S10&amp;rdquo;, the ads &amp;ldquo;Vendo Samsung Galaxy&amp;rdquo; and &amp;ldquo;Samsung Galaxy novo&amp;rdquo; all have the same score, allowing us to reorder them by relevance, which is another very important factor in a C2C marketplace.&lt;/p&gt;
+
+&lt;p&gt;Before that, with BM25, to achieve good recency in the results, we would apply a score decay function relative to how old the ad was. This decay often caused a loss of precision, especially in cases of products with low inventory. A classic example we used to demonstrate the problem was searching for &amp;ldquo;torno mecânico&amp;rdquo; in a certain region there were only 2 &amp;ldquo;torno mecânico&amp;rdquo; ads, but they were not recent. When searching for it with BM25 plus the decay function, these ads would appear in the last results.&lt;/p&gt;
+
+&lt;p&gt;With Podium forcing ties in similar matches, we achieved a good balance between recency but only in ads with good accuracy, without needing a decay function.&lt;/p&gt;
+
+&lt;p&gt;With that, our qualitative &lt;a href=&#34;https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f&#34;&gt;R-DCG&lt;/a&gt; increased by &lt;strong&gt;3.8%&lt;/strong&gt;. And this result was accompanied by a &lt;strong&gt;3.6%&lt;/strong&gt; increase in contact intentions and a &lt;strong&gt;2.9%&lt;/strong&gt; increase in clicks on the top 5 positions of textual searches.&lt;/p&gt;
+
+&lt;p&gt;And most importantly, after years, advertisers have not been able to find a relevant loophole in Podum to increase their impressions and disturb OLX&amp;rsquo;s search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a concern.&lt;/p&gt;
+
+&lt;p&gt;It is worth noting that after Podium went live, several search improvements were implemented, including the inclusion of synonyms, spellers and much more.&lt;/p&gt;
+
+&lt;p&gt;More recently we lauched a new version of Podium, the Podium-N. In this update, we solved the issue of ads that should have the same relevance but didn&amp;rsquo;t with the original Podium. Example: &amp;ldquo;Vendo samsung galaxy&amp;rdquo; and &amp;ldquo;Vendo galaxy da samsung&amp;rdquo; for the search &amp;ldquo;Galaxy&amp;rdquo;. But that&amp;rsquo;s for another post.&lt;/p&gt;
+
+&lt;p&gt;In addition, we are finalizing the integration of semantic search together with Podiun-N, in a hybrid search, which is already showing great results. But that will also be discussed in a future post.&lt;/p&gt;
+
+&lt;p&gt;Podium was a collaborative solution made by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardowajnsztok/&#34;&gt;Leonardo Wajnsztok&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/filipecasal/&#34;&gt;Filipe Casal&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/rogeriofrodrigues/&#34;&gt;Rogério Rodrigues&lt;/a&gt; and the product manager and who gave the name for the child was &lt;a href=&#34;https://www.linkedin.com/in/pedrotangari/&#34;&gt;Pedro Tangari&lt;/a&gt;,&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Random recommendation due to concurrency</title>
             <link rel="alternate" href="/work/globocom/recommendation/random-recommendation-due-to-concurrency/" type="text/html" />
             <id>/work/globocom/recommendation/random-recommendation-due-to-concurrency/</id>
-            <updated>2024-03-31T16:05:00Z</updated>
+            <updated>2024-03-31T14:55:00Z</updated>
 
             <summary type="html">This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.</summary>
             <content type="html">&lt;p&gt;This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.&lt;/p&gt;
@@ -59,7 +129,7 @@
 
 &lt;p&gt;This reminded me of a problem in the past also at Globo.com, but in this case caused by me: I used a HashMap as cache in a multithread service, and this caused several locks in the application, for the same reason: HashMap is not thread safe. The problem was only identified with thread dumps and the solution was to use a ConcurrentHashMap instead.&lt;/p&gt;
 
-&lt;p&gt;Finally, the lesson is: There is no doubt that it is easier to learn by doing, but to put it into production, it is important to carefully read the specifications of the libraries, frameworks, and environments we are using. And in case of a difficult analysis problem, it is worth trying simple and potentially ineffective solutions, but that may lead you to a greater understanding of the real problem.&lt;/p&gt;
+&lt;p&gt;Finally, the lesson is: There is no doubt that it is easier to learn by doing, but to put it into production, it is important to carefully read the specifications of the libraries, frameworks, and environments we are using. And in case of a difficult analysis problem, it is worth trying simple and potentially ineffective solutions, because that may lead you to a greater understanding of the real problem.&lt;/p&gt;
 </content>
         </entry>
     
@@ -67,7 +137,7 @@
             <title>The rise, peak and downfall of Web Democracy</title>
             <link rel="alternate" href="/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/" type="text/html" />
             <id>/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/</id>
-            <updated>2023-12-26T15:48:00Z</updated>
+            <updated>2023-12-26T14:55:00Z</updated>
 
             <summary type="html">This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.</summary>
             <content type="html">&lt;p&gt;This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.&lt;/p&gt;
@@ -116,7 +186,7 @@
             <title>How I invented Ajax despite it already existing</title>
             <link rel="alternate" href="/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/" type="text/html" />
             <id>/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/</id>
-            <updated>2023-11-15T14:47:00Z</updated>
+            <updated>2023-11-15T14:55:00Z</updated>
 
             <summary type="html">This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</summary>
             <content type="html">&lt;p&gt;This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.&lt;/p&gt;
@@ -155,7 +225,7 @@
             <title>Collecting data to identify data collect</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/</id>
-            <updated>2023-08-19T13:37:00Z</updated>
+            <updated>2023-08-19T14:55:00Z</updated>
 
             <summary type="html">This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!</summary>
             <content type="html">&lt;p&gt;This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!&lt;/p&gt;
@@ -192,7 +262,7 @@
             <title>The fantastic widget factory</title>
             <link rel="alternate" href="/work/globocom/webmedia/the-fantastic-widget-factory/" type="text/html" />
             <id>/work/globocom/webmedia/the-fantastic-widget-factory/</id>
-            <updated>2023-04-29T14:16:00Z</updated>
+            <updated>2023-04-29T14:55:00Z</updated>
 
             <summary type="html">This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.</summary>
             <content type="html">&lt;p&gt;This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.&lt;/p&gt;

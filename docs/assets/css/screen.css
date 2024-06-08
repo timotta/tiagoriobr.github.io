@@ -111,15 +111,19 @@ li {
 }
 ol > li:before, ul > li:before {
   position: absolute;
-  color: #e6db74;
+  color: #0B6E47;
 }
 ol > li {
-  left: 22px;
+  left: 60px;
   margin-right: 22px;
   counter-increment: item;
+  font-size: 36px;
+  line-height: 64px;
+  margin-bottom: 56px;
+  letter-spacing: 1px;
 }
 ol > li:before {
-  left: -22px;
+  left: -50px;
   width: 17px;
   text-align: right;
   content: counter(item,decimal) ".";

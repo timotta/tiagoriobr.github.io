@@ -74,7 +74,7 @@
 
 <p>This reminded me of a problem in the past also at Globo.com, but in this case caused by me: I used a HashMap as cache in a multithread service, and this caused several locks in the application, for the same reason: HashMap is not thread safe. The problem was only identified with thread dumps and the solution was to use a ConcurrentHashMap instead.</p>
 
-<p>Finally, the lesson is: There is no doubt that it is easier to learn by doing, but to put it into production, it is important to carefully read the specifications of the libraries, frameworks, and environments we are using. And in case of a difficult analysis problem, it is worth trying simple and potentially ineffective solutions, but that may lead you to a greater understanding of the real problem.</p>
+<p>Finally, the lesson is: There is no doubt that it is easier to learn by doing, but to put it into production, it is important to carefully read the specifications of the libraries, frameworks, and environments we are using. And in case of a difficult analysis problem, it is worth trying simple and potentially ineffective solutions, because that may lead you to a greater understanding of the real problem.</p>
 
         <h2 class="post-meta">Tiago Albineli Motta @ 2024-03-31</h2>
     </div>
