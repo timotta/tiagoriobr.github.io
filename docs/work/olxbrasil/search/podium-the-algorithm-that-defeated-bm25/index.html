@@ -79,15 +79,15 @@
 
 <p>This is a base calculation. The other texts from the ad and the query are also used, but with lower scores and not as important for the intuition behind the algorithm. In addition, the terms in the ad and the query are deduplicated through stemming in advance.</p>
 
-<p>One of the most important things about this algorithm is that it purposely causes ties in ads where the accuracy between the search terms and the terms present are the same. So in the example given, a search for &ldquo;Samsung Galaxy S10&rdquo;, the ads &ldquo;Vendo Samsung Galaxy&rdquo; and &ldquo;Samsung Galaxy novo&rdquo; all have the same score, allowing us to reorder them by relevance, which is another very important factor in a C2C marketplace.</p>
+<p>One of the most important things about this algorithm is that it purposely causes ties in ads where the accuracy between the search terms and the terms present are the same. So in the example given, a search for &ldquo;Samsung Galaxy&rdquo;, the ads &ldquo;Vendo Samsung Galaxy&rdquo;, &ldquo;Samsung Galaxy s10&rdquo; and &ldquo;Samsung Galaxy novo&rdquo; all have the same score, allowing us to reorder them by relevance, which is another very important factor in a C2C marketplace.</p>
 
 <p>Before that, with BM25, to achieve good recency in the results, we would apply a score decay function relative to how old the ad was. This decay often caused a loss of precision, especially in cases of products with low inventory. A classic example we used to demonstrate the problem was searching for &ldquo;torno mecânico&rdquo; in a certain region there were only 2 &ldquo;torno mecânico&rdquo; ads, but they were not recent. When searching for it with BM25 plus the decay function, these ads would appear in the last results.</p>
 
 <p>With Podium forcing ties in similar matches, we achieved a good balance between recency but only in ads with good accuracy, without needing a decay function.</p>
 
-<p>With that, our qualitative <a href="https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f">R-DCG</a> increased by <strong>3.8%</strong>. And this result was accompanied by a <strong>3.6%</strong> increase in contact intentions and a <strong>2.9%</strong> increase in clicks on the top 5 positions of textual searches.</p>
+<p>With that, our qualitative <a href="https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f">R-DCG, a ranking metric we have explained in a previously post,</a> increased by <strong>3.8%</strong>. And this result was accompanied by a <strong>3.6%</strong> increase in contact intentions and a <strong>2.9%</strong> increase in clicks on the top 5 positions of textual searches.</p>
 
-<p>And most importantly, after years, advertisers have not been able to find a relevant loophole in Podum to increase their impressions and disturb OLX&rsquo;s search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a concern.</p>
+<p>And most importantly, after years, advertisers have not been able to find a relevant loophole in Podum to increase their impressions and disturb OLX&rsquo;s search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a major concern.</p>
 
 <p>It is worth noting that after Podium went live, several search improvements were implemented, including the inclusion of synonyms, spellers and much more.</p>
 
@@ -95,7 +95,7 @@
 
 <p>In addition, we are finalizing the integration of semantic search together with Podiun-N, in a hybrid search, which is already showing great results. But that will also be discussed in a future post.</p>
 
-<p>Podium was a collaborative solution made by <a href="https://www.linkedin.com/in/timotta/">me</a>, <a href="https://www.linkedin.com/in/leonardowajnsztok/">Leonardo Wajnsztok</a>, <a href="https://www.linkedin.com/in/filipecasal/">Filipe Casal</a> and <a href="https://www.linkedin.com/in/daniel-correa-araujo/">Daniel Araújo</a>. The engineering manager at the time was <a href="https://www.linkedin.com/in/rogeriofrodrigues/">Rogério Rodrigues</a> and the product manager and who gave the name for the child was <a href="https://www.linkedin.com/in/pedrotangari/">Pedro Tangari</a>,</p>
+<p>Podium was a collaborative solution made by <a href="https://www.linkedin.com/in/timotta/">me</a>, <a href="https://www.linkedin.com/in/leonardowajnsztok/">Leonardo Wajnsztok</a>, <a href="https://www.linkedin.com/in/filipecasal/">Filipe Casal</a> and <a href="https://www.linkedin.com/in/daniel-correa-araujo/">Daniel Araújo</a>. The engineering manager at the time was <a href="https://www.linkedin.com/in/rogeriofrodrigues/">Rogério Rodrigues</a> followed by <a href="https://www.linkedin.com/in/gumaestri/">Gustavo Maestri</a> and the product manager and who gave the name for the child was <a href="https://www.linkedin.com/in/pedrotangari/">Pedro Tangari</a>,</p>
 
         <h2 class="post-meta">Tiago Albineli Motta @ 2024-06-08</h2>
     </div>
