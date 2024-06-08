@@ -56,7 +56,7 @@ With Podium forcing ties in similar matches, we achieved a good balance between 
 
 With that, our qualitative [R-DCG, a ranking metric we have explained in a previously post,](https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f) increased by **3.8%**. And this result was accompanied by a **3.6%** increase in contact intentions and a **2.9%** increase in clicks on the top 5 positions of textual searches.
 
-And most importantly, after years, advertisers have not been able to find a relevant loophole in Podum to increase their impressions and disturb OLX's search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a major concern.
+And most importantly, after years, advertisers have not been able to find a relevant loophole in Podium to increase their impressions and disturb OLX's search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a major concern.
 
 It is worth noting that after Podium went live, several search improvements were implemented, including the inclusion of synonyms, spellers and much more.
 
