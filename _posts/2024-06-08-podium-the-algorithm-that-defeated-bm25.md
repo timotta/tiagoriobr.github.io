@@ -19,7 +19,7 @@ In AB test, this experiment brought gains, but after the rollout, advertisers no
 
 Example 2: In another period, through a precision analysis using Bayesian optimization, we defined automatic weights for each attribute of the ad. It so happened that the title obviously had a higher score. Some months after the AB test, advertisers realized that if they repeated the most important words in the title, it would have a higher chance of being elevated to the top of the search results, because of the BM25.
 
-In this way ads like "freight freight freight" and "invicta watch invicta watch invicta watch" were always at the top of their respective searches, disturbing the lives of buyers and advertisers less focused on SEO at OLX. As a temporary solution, we penalized ads with duplicate terms and standardized the internal title used in the search. However, there was still a loophole for cases of derived words, which internally in Elastic Search were considered the same word due to Stemming.
+In this way ads like "freight freight freight" and "invicta watch invicta watch invicta watch" were always at the top of their respective searches, disturbing the lives of buyers and advertisers less focused on SEO at OLX. As a temporary solution, we penalized ads with duplicate terms and standardized the internal title used in the search. However, there was still a loophole for cases of derived words, which internally in Elastic Search were considered the same word due to Stemming, and the search result become boring with a lot of ad with the same title.
 
 These were just two examples of several of our attempts to optimize the search of OLX Brazil using BM25.
 
