@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-06-09T00:54:57Z</updated>
+    <updated>2024-06-09T01:00:48Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>Podium: The algorithm that defeated BM25</title>
             <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
             <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
-            <updated>2024-06-08T21:36:00Z</updated>
+            <updated>2024-06-08T01:00:00Z</updated>
 
             <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
             <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
@@ -64,7 +64,7 @@
 
 &lt;p&gt;This is a base calculation. The other texts from the ad and the query are also used, but with lower scores and not as important for the intuition behind the algorithm. In addition, the terms in the ad and the query are deduplicated through stemming in advance.&lt;/p&gt;
 
-&lt;p&gt;One of the most important things about this algorithm is that it purposely causes ties in ads where the accuracy between the search terms and the terms present are the same. So in the example given, a search for &amp;ldquo;Samsung Galaxy&amp;rdquo;, the ads &amp;ldquo;Vendo Samsung Galaxy&amp;rdquo;, &amp;ldquo;Samsung Galaxy s10&amp;rdquo; and &amp;ldquo;Samsung Galaxy novo&amp;rdquo; all have the same score, allowing us to reorder them by relevance, which is another very important factor in a C2C marketplace.&lt;/p&gt;
+&lt;p&gt;One of the most important things about this algorithm is that it purposely causes ties in ads where the accuracy between the search terms and the terms present are the same. So in the example given, a search for &amp;ldquo;Samsung Galaxy&amp;rdquo;, the ads &amp;ldquo;Vendo Samsung Galaxy&amp;rdquo;, &amp;ldquo;Samsung Galaxy s10&amp;rdquo; and &amp;ldquo;Samsung Galaxy novo&amp;rdquo; all have the same score, allowing us to reorder them by recency, which is another very important factor in a C2C marketplace.&lt;/p&gt;
 
 &lt;p&gt;Before that, with BM25, to achieve good recency in the results, we would apply a score decay function relative to how old the ad was. This decay often caused a loss of precision, especially in cases of products with low inventory. A classic example we used to demonstrate the problem was searching for &amp;ldquo;torno mecânico&amp;rdquo; in a certain region there were only 2 &amp;ldquo;torno mecânico&amp;rdquo; ads, but they were not recent. When searching for it with BM25 plus the decay function, these ads would appear in the last results.&lt;/p&gt;
 
