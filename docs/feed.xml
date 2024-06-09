@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-06-08T21:15:26Z</updated>
+    <updated>2024-06-09T00:54:57Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>Podium: The algorithm that defeated BM25</title>
             <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
             <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
-            <updated>2024-06-08T21:14:00Z</updated>
+            <updated>2024-06-08T21:36:00Z</updated>
 
             <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
             <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
@@ -29,11 +29,11 @@
 
 &lt;p&gt;Example 1: At some point, we began to give more importance to the brand and model attributes configured by the advertiser. Therefore, an advertisement for a cellphone marked with the brand &amp;ldquo;Samsung&amp;rdquo; and the model &amp;ldquo;Galaxy&amp;rdquo; would have a better chance of being found in a search for &amp;ldquo;Samsung Galaxy&amp;rdquo; than one that was not configured this way.&lt;/p&gt;
 
-&lt;p&gt;In test AB, this experiment brought gains, but after the rollout, advertisers noticed, and began advertising cell phones with different brands in the most searched brands. So, his ad started to appear in two different searches. In addition, advertisers of services and jobs started placing their ads in other categories that contained the brand and model attributes to appear in searches for the service title as well as in random searches.&lt;/p&gt;
+&lt;p&gt;In AB test, this experiment brought gains, but after the rollout, advertisers noticed, and began advertising smartphones with different brands in the most searched brands. So, his ad started to appear in two different searches. In addition, advertisers of services and jobs started placing their ads in other categories that contained the brand and model attributes to appear in searches for the service title as well as in random searches.&lt;/p&gt;
 
 &lt;p&gt;Example 2: In another period, through a precision analysis using Bayesian optimization, we defined automatic weights for each attribute of the ad. It so happened that the title obviously had a higher score. Some months after the AB test, advertisers realized that if they repeated the most important words in the title, it would have a higher chance of being elevated to the top of the search results, because of the BM25.&lt;/p&gt;
 
-&lt;p&gt;In this way ads like &amp;ldquo;freight freight freight&amp;rdquo; and &amp;ldquo;invicta watch invicta watch invicta watch&amp;rdquo; were always at the top of their respective searches, disturbing the lives of buyers and advertisers less focused on SEO at OLX. As a temporary solution, we penalized ads with duplicate terms and standardized the internal title used in the search. However, there was still a loophole for cases of derived words, which internally in Elastic Search were considered the same word due to Stemming.&lt;/p&gt;
+&lt;p&gt;In this way ads like &amp;ldquo;freight freight freight&amp;rdquo; and &amp;ldquo;invicta watch invicta watch invicta watch&amp;rdquo; were always at the top of their respective searches, disturbing the lives of buyers and advertisers less focused on SEO at OLX. As a temporary solution, we penalized ads with duplicate terms and standardized the internal title used in the search. However, there was still a loophole for cases of derived words, which internally in Elastic Search were considered the same word due to Stemming, and the search result become boring with a lot of ad with the same title.&lt;/p&gt;
 
 &lt;p&gt;These were just two examples of several of our attempts to optimize the search of OLX Brazil using BM25.&lt;/p&gt;
 
@@ -72,7 +72,7 @@
 
 &lt;p&gt;With that, our qualitative &lt;a href=&#34;https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f&#34;&gt;R-DCG, a ranking metric we have explained in a previously post,&lt;/a&gt; increased by &lt;strong&gt;3.8%&lt;/strong&gt;. And this result was accompanied by a &lt;strong&gt;3.6%&lt;/strong&gt; increase in contact intentions and a &lt;strong&gt;2.9%&lt;/strong&gt; increase in clicks on the top 5 positions of textual searches.&lt;/p&gt;
 
-&lt;p&gt;And most importantly, after years, advertisers have not been able to find a relevant loophole in Podum to increase their impressions and disturb OLX&amp;rsquo;s search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a major concern.&lt;/p&gt;
+&lt;p&gt;And most importantly, after years, advertisers have not been able to find a relevant loophole in Podium to increase their impressions and disturb OLX&amp;rsquo;s search accuracy. It is still possible to do so through tags in ad descriptions, which increases impressions in case of low inventory in specific locations, but since there was already no inventory, it is not a major concern.&lt;/p&gt;
 
 &lt;p&gt;It is worth noting that after Podium went live, several search improvements were implemented, including the inclusion of synonyms, spellers and much more.&lt;/p&gt;
 
@@ -80,7 +80,7 @@
 
 &lt;p&gt;In addition, we are finalizing the integration of semantic search together with Podiun-N, in a hybrid search, which is already showing great results. But that will also be discussed in a future post.&lt;/p&gt;
 
-&lt;p&gt;Podium was a collaborative solution made by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardowajnsztok/&#34;&gt;Leonardo Wajnsztok&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/filipecasal/&#34;&gt;Filipe Casal&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/rogeriofrodrigues/&#34;&gt;Rogério Rodrigues&lt;/a&gt; followed by &lt;a href=&#34;https://www.linkedin.com/in/gumaestri/&#34;&gt;Gustavo Maestri&lt;/a&gt; and the product manager and who gave the name for the child was &lt;a href=&#34;https://www.linkedin.com/in/pedrotangari/&#34;&gt;Pedro Tangari&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;Podium was a collaborative solution made by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardowajnsztok/&#34;&gt;Leonardo Wajnsztok&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/filipecasal/&#34;&gt;Filipe Casal&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/rogeriofrodrigues/&#34;&gt;Rogério Rodrigues&lt;/a&gt; followed by &lt;a href=&#34;https://www.linkedin.com/in/gumaestri/&#34;&gt;Gustavo Maestri&lt;/a&gt; and the product manager and who gave the name for the child was &lt;a href=&#34;https://www.linkedin.com/in/pedrotangari/&#34;&gt;Pedro Tangari&lt;/a&gt;. Please accept my apologies if I inadvertently leave anyone out. It happened three years ago&amp;hellip;&lt;/p&gt;
 </content>
         </entry>
     
