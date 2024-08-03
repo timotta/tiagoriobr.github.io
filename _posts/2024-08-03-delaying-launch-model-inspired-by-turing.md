@@ -19,7 +19,7 @@ A group of regex would be a list of regex that already existed in the old proces
 
 In the middle of the implementation, we realized the opportunity, if we left the model code generic enough and with good guardrails for threshold verification to obtain high precision in cross-validation, we could make a "factory" of models.
 
-We then created a command line that receive as parameter a group of regexes, the command downloads and prepares the dataset separating it into training and testing, optimizes the model's hyperparameters using cross-validation on the training dataset trying to reach a threshold with high precision >=99% for refusal and for acceptance. Then it is validated on the test dataset if this same threshold would achieve the same precision. If yes, the model is used, if not, the model is discarded for this group of regexes.
+We then created a command line that receive as parameter a group of regexes. The command downloads and prepares the dataset separating it into training and testing, optimizes the model's hyperparameters using cross-validation on the training dataset trying to reach thresholds with high precision >=99% for refusal and for acceptance. Then it is validated on the test dataset if these same thresholds would achieve the same precision. If yes, the model is used, if not, the model is discarded for this group of regexes.
 
 With this process, we quickly generated 26 models, with an estimate of reducing 5% of the operators' work due to the automatic decision. We put the model into production but without really making the decision, just to observe if the good precision result in offline evaluations would hold up in production, and it was also a success.
 
