@@ -1,0 +1,40 @@
+---
+layout: post.html
+title: "How Turing inspired the delay of deploy of a machine learning model"
+tags: [work, olxbrasil, search]
+path1: work
+path2: olxbrasil
+path3: search
+---
+
+Como Turing nos inspirou a atrasar o deploy de uma fábrida de machine learning
+
+
+Essa é a história de como construimos uma fábrica de modelos de machine learning, e inspirados no filme O Jogo da Imitação, decidimos não colocar no ar até que outra mudança fosse feita. E essa segunda mudança teve um resultado tão bom que a tal fábrica obteve um resultado bem menor do que originalmente haviamos programado, mas sem ela, não teriamos caminhado a jornada completa. Esse caso ocorreu entre o primeiro e o segundo trimestre de 2023.
+
+O caso que precisavamos resolver era o alto número de anúncios de itens proibidos sendo inseridos na plataforma da OLX Brasil. Itens proibidos são produtos cuja venda são proibidos, são de venda controlada, requerem permissão especial ou são fruto de pirataria. Exemplos de itens proibidos seriam armas, botijão de gás, animais silvestres, roupas de marca falsificados, contas de streaming entre outros.
+
+Naquela época já havia toda uma estrutura para prevenir a entrada desse tipo de anúncio através de um enorme conjunto de regexes que eram constantemente incrementados. Essas regexes moviam os anuncios para uma fila de análise manual e uma equipe de operadores analisava anúncio a anúncio identificado por essas regexes para evitar a entrada deles. O trabalho desses operadores estava a cada dia aumentando mais, e precisávamos fazer alguma coisa para reduzir esse verificação manual.
+
+A idéia foi criar um modelo de machine learning para identificar um certo percentual com alto grau de certeza para aprovar e reprovar automaticamente. Essa idéia surgiu de um hackday feito pelo time para avaliar se para algum grupo de regexes seria possível fazer algum modelo simples que identificasse um bom percentual com alto grau de certeza (>99% de precisão).
+
+Um grupo de regex seria uma lista de regex que já existiam no processo antigo e que identificam um tipo de item proibido. Nós tinhamos histórico de anos no datalake de regexes que deram matches e se o anuncio em questão havia sido aprovado ou reprovado pelos operadores. Como o modelo feito no hackday deu resultado, resolvemos implementar uma POC com o grupo de regex avaliado.
+
+No meio da implementação percebemos a oportunidade, se deixasssemos o código do modelo genérico o suficiente e com bons guardrails de verificação de thresholds para obtenção de uma alta precisão na validação cruzada, poderiamos fazer uma "fábrica" de modelos.
+
+Criamos então um código em linha de comando em que indicando um grupo de regexes, o comando baixa e prepara o dataset separando em treino e teste, otimiza os hiperparametros do modelo usando validação cruzada no dataset de treino tentando alcançar um threshold com alta precisão >99% para recusa e para aceite. Depois é validado no dataset de teste se este mesmo threshold alcançaria a mesma precisão. Se sim o modelo é usado, se não o modelo é descartado para este grupo de regexes.
+
+Com esse processo conseguimos gerar 26 modelos rapidamente, com uma estimativa de redução de 5% no trabalho dos operadores por conta da decisão automática. Botamos em produção o modelo mas sem realmente tomar a decisão, apenas para observar se o bom resultado de precisão nas avaliações offline se manteriam em produção, e também foi um sucesso.
+
+Nosso drama começou então quando percebemos que se botassemos os modelos para realmente tomarem decisões, os usuários rapidamente aprenderiam o que fazer para escapar, e a economia de trabalho de operadores não seria consumada. Isso porque a decisão do operador costuma ser mais devagar, e menos deterministica, do que a do modelo. Isso impede o usuário de ficar testando maneiras de burlar. Um feedback rápido de recusa ou aprovação poderia causar ainda mais trabalho aos operadores.
+
+Nas reuniões que falavamos sobre isso com aquela pressão para colocar logo em produção a gente citava o filme O Jogo da Imitação, em que Turing mencionava estratégia semelhante. O "inimigo" não poderia perceber o que estava acontecendo. Uma idéia simples seria causar um delay na resposta do moddelo. Mas outra idéia estava mais quente e mais promissora na nossa cabeça, algo que já ventilávamos a tempos: O bloqueio temporário do usuário para inserir anuncios de acordo com a quantidade de "faltas" que ele cometesse, com possível progressão.
+
+A complexidade dessa mudança vinha do fato de que deveriamos criar comunicações explicando o que estivesse acontecendo, tanto para o momento do acontecido como para o momento da tentativa de inserir anuncio (ou logar). Além da análise para definição de qual tempo ideal entre uma tentativa e outra, quanto tempo ideal de bloqueio, bem como o trabalho natural da tarefa, para armazenamento de estado e expiração da janela de tempo das tentativas e intervenções nos locais necessários para impedir que o usuário temporariamente bloqueado pudesse agir.
+
+Neste momento em que estávamos decididos a apostar nessa solução, inspirados em Turing, eu já estava de saída do squad, o que deu aquela dorzinha. Participei apenas dos debates para que essa fossa a solução a adotada antes de botar o modelo de itens proibidos pra tomar decisões, e também as dicussões de arquitetura iniciais. O squad só tinha desenvolvedor fera, então rapidamente eles colocaram a solução no ar e tivemos um resultado incrivel.
+
+A solução trouxe uma redução de 48% no indice de itens proibido, o que reduziu muito o trabalho dos operadores para este problema específico, e consequentemente fez com o que o modelo de itens proibidos, posteriormente ligado tivesse um resultado menor do que o inicialmente esperávamos: Ainda tomando decisão em 5% dos casos, mas de muitos menos casos. O interessante é que a precisão do modelo, 1 ano depois continua em 99%, provavelmente pela estratégia que não deixa o usuário se adaptar.
+
+Naquela época o squad era composto por [me](https://www.linkedin.com/in/timotta/), [Leticia Garcez](https://www.linkedin.com/in/let%C3%ADciagarcez/), [Robson Rocha](https://www.linkedin.com/in/robson-rocha-512a5b16/), [Lucas Carvalho](https://www.linkedin.com/in/carvalho-lucas/), [Victor Lyra](https://www.linkedin.com/in/victorseidl/), [Leonardo Campos](https://www.linkedin.com/in/leonardopereiracampos/), [Andre de Geus](https://www.linkedin.com/in/geusandre/),  Natalia Maria Karmierczak, [Daniel Freitas](https://www.linkedin.com/in/daniel-freitas-7487b5136/), [Debora Jansem](https://www.linkedin.com/in/debora-algamis-jansen-273187106/) e [Débora Cordeiro](https://www.linkedin.com/in/deborah-cordeiro-568298121/)
+
