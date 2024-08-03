@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-08-03T17:01:48Z</updated>
+    <updated>2024-08-03T17:06:17Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>Delaying the launch of a model inspired by Turing</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/</id>
-            <updated>2024-08-03T17:01:00Z</updated>
+            <updated>2024-08-03T17:06:00Z</updated>
 
             <summary type="html">This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.</summary>
             <content type="html">&lt;p&gt;This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.&lt;/p&gt;
@@ -47,7 +47,7 @@
 
 &lt;p&gt;The solution brought a &lt;strong&gt;48%&lt;/strong&gt; reduction in the index of prohibited items, which greatly reduced the work of the operators for this specific problem, and consequently made the model of prohibited items, later turned on, have a lower result than we initially expected: Still making decisions in &lt;strong&gt;~5%&lt;/strong&gt; of the cases, but from many fewer cases. Interestingly, the precision of the model, 1 year later, continues at &lt;strong&gt;~99%&lt;/strong&gt;, probably due to the strategy that does not let the user adapt.&lt;/p&gt;
 
-&lt;p&gt;The people envolved in the development of both solutions were: &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/let%C3%ADciagarcez/&#34;&gt;Leticia Garcez&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/robson-rocha-512a5b16/&#34;&gt;Robson Rocha&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/carvalho-lucas/&#34;&gt;Lucas Carvalho&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/victorseidl/&#34;&gt;Victor Lyra&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardopereiracampos/&#34;&gt;Leonardo Campos&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/geusandre/&#34;&gt;Andre de Geus&lt;/a&gt;,  Natalia Maria Karmierczak, &lt;a href=&#34;https://www.linkedin.com/in/daniel-freitas-7487b5136/&#34;&gt;Daniel Freitas&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/debora-algamis-jansen-273187106/&#34;&gt;Debora Jansem&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/deborah-cordeiro-568298121/&#34;&gt;Débora Cordeiro&lt;/a&gt;. An amazing group of people.&lt;/p&gt;
+&lt;p&gt;The people envolved in the development of both solutions were: &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/let%C3%ADciagarcez/&#34;&gt;Leticia Garcez&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/robson-rocha-512a5b16/&#34;&gt;Robson Rocha&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/carvalho-lucas/&#34;&gt;Lucas Carvalho&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/victorseidl/&#34;&gt;Victor Lyra&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardopereiracampos/&#34;&gt;Leonardo Campos&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/geusandre/&#34;&gt;Andre de Geus&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/nataliakarmierczak&#34;&gt;Natalia Maria Karmierczak&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/daniel-freitas-7487b5136/&#34;&gt;Daniel Freitas&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/debora-algamis-jansen-273187106/&#34;&gt;Debora Jansem&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/deborah-cordeiro-568298121/&#34;&gt;Débora Cordeiro&lt;/a&gt;. An amazing group of people.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/assets/images/turing.png&#34; alt=&#34;/assets/images/turing.png&#34;&gt;&lt;/p&gt;
 </content>
