@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-08-03T17:06:17Z</updated>
+    <updated>2024-09-28T14:56:27Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,49 @@
 
     
         <entry>
+            <title>No one cared about Multi Armed Bandit’s tech</title>
+            <link rel="alternate" href="/work/globocom/recommendation/mab/" type="text/html" />
+            <id>/work/globocom/recommendation/mab/</id>
+            <updated>2024-09-28T14:55:00Z</updated>
+
+            <summary type="html">In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.</summary>
+            <content type="html">&lt;p&gt;In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.&lt;/p&gt;
+
+&lt;p&gt;The algorithms explained in the book are relatively simple. Epsilon-Greedy, Softmax, and UCB are simple statistical calculations that do not require a great processing power or historical storage. So technically it would be possible to aggregate the necessary information in the memory of the service itself, avoiding any IO, enabling the service to have very low latency.&lt;/p&gt;
+
+&lt;p&gt;To keep everything in memory and maintain consistency, a first alternative would be to handle all requests on a single server scaled vertically. We know how dangerous this is in terms of resilience. So, a second alternative would be to have multiple servers behind a load balancer, reducing the consistency of aggregations slightly, and relying on the fact that the site&amp;rsquo;s huge audience will bring the numbers recorded on each server closer together.&lt;/p&gt;
+
+&lt;p&gt;These two possible alternatives would also require that the servers be pre-scaled for the most critical peak moments of the portal. At dawn, for example, when there were very few accesses, we would continue with the same cost as the periods of the most absurd traffic. Something we do not desire.&lt;/p&gt;
+
+&lt;p&gt;The ideal alternative would be to try to use concepts like autoscaling and multiple containers, which are already default decisions in the deployment of new services today. At Globo.com, we already had an internal PaaS called &lt;a href=&#34;https://tsuru.io/&#34;&gt;Tsuru&lt;/a&gt;, which is open source, and I have not seen anything better in any other company to this day.&lt;/p&gt;
+
+&lt;p&gt;However, for a service that is not stateless, the autoscaling process can be painful.&lt;/p&gt;
+
+&lt;p&gt;Imagine the situation where we have 20 pods in the air serving requests, all of them already have their aggregated numbers stabilized and generating the best results for each experiment. Then a peak time starts, new pods are allocated, and we go to 30 pods. At this peak moment, a very important moment for the site, 33% of requests no longer have the most optimized version in terms of results.&lt;/p&gt;
+
+&lt;p&gt;In other words, the regret metric we aim to minimize does not get reduced to the desired extent in the case of a stateful service with autoscaling.&lt;/p&gt;
+
+&lt;p&gt;The solution found was to create a periodic sync of each service instance with a common Redis. So, in addition to storing in the service&amp;rsquo;s memory the total number of events and the total number of successes for each experiment, we also started storing in the service&amp;rsquo;s memory the values found in the common memory represented by Redis. In this sync, the service increment Redis keys with the difference between the current state and what was in the last sync, updating the common memory. After this, the sync gets those keys from Redis updating its internal states. Always using atomic variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/assets/images/mab.png&#34; alt=&#34;/assets/images/mab.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;With this, when a new pod is created due to auto scaling, we start it reading those keys from redis, so it is born with the necessary aggregated data for a more optimal choice that reduces regret for each experiment.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s been over seven years and I know that Multi Armed Bandit is still used at Globo.com because it is possible to observe the service requests when accessing the Portal. However, I believe that the service may have been completely modified by now. It was initially created in a hackday withou any test, written using Scala and Finagle, and was used for various optimizations at Globo.com, from choosing a photo to selecting the best position to place advertising.&lt;/p&gt;
+
+&lt;p&gt;When I presented it at hackday, I wanted to emphasize this technological solution involving low latency and scalable eventual consistency for its operation as the interesting part of the project. In my mind, the calculations were so simple that they didn&amp;rsquo;t even deserve much attention because it is very simple to replicate them either all in memory, or by spending latency using IO massively.&lt;/p&gt;
+
+&lt;p&gt;However, the technological aspect of this solution did not receive the attention that I thought it deserved. What most sparked interest, obviously, were the expectations of use for improving usability that such a project could bring to users and all its possibilities. In other words, no one cares about the technological solution explicitly, but implicitly, they were crucial for maximizing results, minimizing regret in periods of auto scaling, reducing costs, and reducing latency.&lt;/p&gt;
+
+&lt;p&gt;I like to believe, in the depths of my being, that without this technological solution, the project would not have been used by so many products with as much success as it was. But is that really true?&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Delaying the launch of a model inspired by Turing</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/</id>
-            <updated>2024-08-03T17:06:00Z</updated>
+            <updated>2024-08-03T13:37:00Z</updated>
 
             <summary type="html">This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.</summary>
             <content type="html">&lt;p&gt;This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.&lt;/p&gt;
@@ -27,25 +66,25 @@
 
 &lt;p&gt;At that time, there was already a structure in place to prevent the entry of such ads through a huge set of regexes that were constantly being incremented. These regexes moved the ads to a manual review queue, and a team of operators analyzed each ad identified by those regexes. The work of these operators was increasing day by day, and we needed to do something to reduce this manual verification.&lt;/p&gt;
 
-&lt;p&gt;The idea was to create a machine learning model to identify a certain percentage of ads with a high degree of certainty to automatically approve or reject it. This idea came from a hackday held by the squad to evaluate if for some group of regexes it would be possible to make a simple model that identified a good percentage with high certainty (&amp;gt;99% precision).&lt;/p&gt;
+&lt;p&gt;The idea was to create a machine learning model to identify a certain percentage of ads with a high degree of certainty to automatically approve or reject it. This idea came from a hackday held by the squad to evaluate if for some group of regexes it would be possible to make a simple model that identified a good percentage with high certainty (&amp;gt;=99% precision).&lt;/p&gt;
 
 &lt;p&gt;A group of regex would be a list of regex that already existed in the old process and that identify a type of prohibited item. We had years of history in the datalake of regexes that matched and whether the ad in question had been approved or rejected by the operators. As the model made on hackday worked, we decided to implement a POC with the evaluated group of regexes.&lt;/p&gt;
 
 &lt;p&gt;In the middle of the implementation, we realized the opportunity, if we left the model code generic enough and with good guardrails for threshold verification to obtain high precision in cross-validation, we could make a &amp;ldquo;factory&amp;rdquo; of models.&lt;/p&gt;
 
-&lt;p&gt;We then created a command line that receive as parameter a group of regexes, the command downloads and prepares the dataset separating it into training and testing, optimizes the model&amp;rsquo;s hyperparameters using cross-validation on the training dataset trying to reach a threshold with high precision &amp;gt;99% for refusal and for acceptance. Then it is validated on the test dataset if this same threshold would achieve the same precision. If yes, the model is used, if not, the model is discarded for this group of regexes.&lt;/p&gt;
+&lt;p&gt;We then created a command line that receive as parameter a group of regexes. The command downloads and prepares the dataset separating it into training and testing, optimizes the model&amp;rsquo;s hyperparameters using cross-validation on the training dataset trying to reach thresholds with high precision &amp;gt;=99% for refusal and for acceptance. Then it is validated on the test dataset if these same thresholds would achieve the same precision. If yes, the model is used, if not, the model is discarded for this group of regexes.&lt;/p&gt;
 
 &lt;p&gt;With this process, we quickly generated 26 models, with an estimate of reducing 5% of the operators&amp;#39; work due to the automatic decision. We put the model into production but without really making the decision, just to observe if the good precision result in offline evaluations would hold up in production, and it was also a success.&lt;/p&gt;
 
-&lt;p&gt;Our drama then began when we realized that if we really let the models make decisions, users would quickly learn what to do to escape, and the labor savings of operators would not be consummated. This is because the operator&amp;rsquo;s decision tends to be slower, and less deterministic, than that of the model. This prevents the user from testing ways to circumvent. Quick feedback of refusal or approval could cause even more work for the operators.&lt;/p&gt;
+&lt;p&gt;Our drama then began when we realized that if we really let the models make decisions, users would quickly learn how to escape, and the labor savings of operators would not be consummated. This is because the operator&amp;rsquo;s decision tends to be slower, and less deterministic, than that of the model. This prevents the user from testing ways to circumvent. Quick feedback of refusal or approval could cause even more work for the operators.&lt;/p&gt;
 
-&lt;p&gt;In the meetings where we talked about this with that pressure to put it into production soon, we cited the movie &amp;ldquo;The Imitation Game,&amp;rdquo; where Turing mentioned a similar strategy. The &amp;ldquo;enemy&amp;rdquo; could not perceive what was happening. A simple idea would be to cause a delay in the model&amp;rsquo;s response. But another idea was hotter and more promising in our minds, something we had been ventilating for a long time: The temporary blocking of the user from posting ads according to the number of &amp;ldquo;fouls&amp;rdquo; he committed, with possible progression.&lt;/p&gt;
+&lt;p&gt;In the meetings where we talked about this, with all that pressure to put it into production soon, we cited the movie &amp;ldquo;The Imitation Game,&amp;rdquo; where Turing mentioned a similar strategy. The &amp;ldquo;enemy&amp;rdquo; could not perceive what was happening. A simple idea would be to cause a delay in the model&amp;rsquo;s response. But another idea was hotter and more promising in our minds, something we had been ventilating for a long time: The temporary blocking of the user from posting ads according to the number of &amp;ldquo;fouls&amp;rdquo; he committed, with possible progression.&lt;/p&gt;
 
 &lt;p&gt;The complexity of this change came from the fact that we should create communications explaining what was happening, both for the moment of the event and for the moment of trying to post an ad (or login). Besides the analysis to define the ideal time between one attempt and another, how much ideal blocking time, as well as the natural work of the task, for state storage and expiration of the time window of attempts and interventions in the necessary places to prevent the temporarily blocked user from acting.&lt;/p&gt;
 
 &lt;p&gt;At this moment when we were determined to bet on this solution, inspired by Turing, I was already leaving the squad to a mission in the search squad. I participated only in the debates so that this would be the solution adopted before enabling the prohibited items model, and also the initial architecture discussions. The squad only had top developers, so they quickly put the solution into production and we had an incredible result.&lt;/p&gt;
 
-&lt;p&gt;The solution brought a &lt;strong&gt;48%&lt;/strong&gt; reduction in the index of prohibited items, which greatly reduced the work of the operators for this specific problem, and consequently made the model of prohibited items, later turned on, have a lower result than we initially expected: Still making decisions in &lt;strong&gt;~5%&lt;/strong&gt; of the cases, but from many fewer cases. Interestingly, the precision of the model, 1 year later, continues at &lt;strong&gt;~99%&lt;/strong&gt;, probably due to the strategy that does not let the user adapt.&lt;/p&gt;
+&lt;p&gt;The solution brought a &lt;strong&gt;48%&lt;/strong&gt; reduction in the index of prohibited items, which greatly reduced the work of the operators for this specific problem, and consequently made the model of prohibited items, later turned on, have a lower result than we initially expected: Still making decisions in &lt;strong&gt;~5%&lt;/strong&gt; of the cases, but from many fewer cases. Interestingly, the precision of the model, one year later, continues at &lt;strong&gt;~99%&lt;/strong&gt;, probably due to the strategy that does not let the user adapt.&lt;/p&gt;
 
 &lt;p&gt;The people envolved in the development of both solutions were: &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/let%C3%ADciagarcez/&#34;&gt;Leticia Garcez&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/robson-rocha-512a5b16/&#34;&gt;Robson Rocha&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/carvalho-lucas/&#34;&gt;Lucas Carvalho&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/victorseidl/&#34;&gt;Victor Lyra&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardopereiracampos/&#34;&gt;Leonardo Campos&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/geusandre/&#34;&gt;Andre de Geus&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/nataliakarmierczak&#34;&gt;Natalia Maria Karmierczak&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/daniel-freitas-7487b5136/&#34;&gt;Daniel Freitas&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/debora-algamis-jansen-273187106/&#34;&gt;Debora Jansem&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/deborah-cordeiro-568298121/&#34;&gt;Débora Cordeiro&lt;/a&gt;. An amazing group of people.&lt;/p&gt;
 
@@ -57,7 +96,7 @@
             <title>Podium: The algorithm that defeated BM25</title>
             <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
             <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
-            <updated>2024-06-08T01:00:00Z</updated>
+            <updated>2024-06-08T13:37:00Z</updated>
 
             <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
             <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
@@ -127,7 +166,7 @@
             <title>Random recommendation due to concurrency</title>
             <link rel="alternate" href="/work/globocom/recommendation/random-recommendation-due-to-concurrency/" type="text/html" />
             <id>/work/globocom/recommendation/random-recommendation-due-to-concurrency/</id>
-            <updated>2024-03-31T14:55:00Z</updated>
+            <updated>2024-03-31T13:37:00Z</updated>
 
             <summary type="html">This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.</summary>
             <content type="html">&lt;p&gt;This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.&lt;/p&gt;
@@ -176,7 +215,7 @@
             <title>The rise, peak and downfall of Web Democracy</title>
             <link rel="alternate" href="/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/" type="text/html" />
             <id>/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/</id>
-            <updated>2023-12-26T14:55:00Z</updated>
+            <updated>2023-12-26T13:37:00Z</updated>
 
             <summary type="html">This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.</summary>
             <content type="html">&lt;p&gt;This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.&lt;/p&gt;
@@ -225,7 +264,7 @@
             <title>How I invented Ajax despite it already existing</title>
             <link rel="alternate" href="/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/" type="text/html" />
             <id>/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/</id>
-            <updated>2023-11-15T14:55:00Z</updated>
+            <updated>2023-11-15T13:37:00Z</updated>
 
             <summary type="html">This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</summary>
             <content type="html">&lt;p&gt;This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.&lt;/p&gt;
@@ -264,7 +303,7 @@
             <title>Collecting data to identify data collect</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/</id>
-            <updated>2023-08-19T14:55:00Z</updated>
+            <updated>2023-08-19T13:37:00Z</updated>
 
             <summary type="html">This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!</summary>
             <content type="html">&lt;p&gt;This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!&lt;/p&gt;
@@ -301,7 +340,7 @@
             <title>The fantastic widget factory</title>
             <link rel="alternate" href="/work/globocom/webmedia/the-fantastic-widget-factory/" type="text/html" />
             <id>/work/globocom/webmedia/the-fantastic-widget-factory/</id>
-            <updated>2023-04-29T14:55:00Z</updated>
+            <updated>2023-04-29T13:37:00Z</updated>
 
             <summary type="html">This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.</summary>
             <content type="html">&lt;p&gt;This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.&lt;/p&gt;
