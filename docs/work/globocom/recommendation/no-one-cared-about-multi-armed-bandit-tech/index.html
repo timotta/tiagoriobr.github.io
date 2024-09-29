@@ -58,7 +58,7 @@
 
 <p>With this, when a new pod is created due to auto scaling, we start it reading those keys from redis, so it is born with the necessary aggregated data for a more optimal choice that reduces regret for each experiment.</p>
 
-<p>It&rsquo;s been over seven years and I know that Multi Armed Bandit is still used at Globo.com because it is possible to observe the service requests when accessing the Portal. However, I believe that the service may have been completely modified by now. It was initially created in a hackday withou any test, written using Scala and Finagle, and was used for various optimizations at Globo.com, from choosing a photo to selecting the best position to place advertising.</p>
+<p>It&rsquo;s been over seven years and I know that Multi Armed Bandit is still used at Globo.com because it is possible to observe the service requests when accessing the Portal. However, I believe that the service may have been completely modified by now. It was initially created in single day during a hackday, written using Scala and Finagle, and after that was used for various optimizations at Globo.com, from choosing a photo to selecting the best position to place advertising.</p>
 
 <p>When I presented it at hackday, I wanted to emphasize this technological solution involving low latency and scalable eventual consistency for its operation as the interesting part of the project. In my mind, the calculations were so simple that they didn&rsquo;t even deserve much attention because it is very simple to replicate them either all in memory, or by spending latency using IO massively.</p>
 
