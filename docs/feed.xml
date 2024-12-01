@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-12-01T13:34:01Z</updated>
+    <updated>2024-12-01T13:39:20Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,10 @@
 
     
         <entry>
-            <title>Resources that help me to learn data science</title>
+            <title>Resources that help me learn data science</title>
             <link rel="alternate" href="/work/general/articles/resources-help-learn-data-science/" type="text/html" />
             <id>/work/general/articles/resources-help-learn-data-science/</id>
-            <updated>2024-11-30T13:24:00Z</updated>
+            <updated>2024-11-30T13:37:00Z</updated>
 
             <summary type="html">In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.</summary>
             <content type="html">&lt;p&gt;In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.&lt;/p&gt;
