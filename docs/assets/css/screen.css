@@ -129,8 +129,13 @@ ol > li:before {
   content: counter(item,decimal) ".";
 }
 ul > li {
-  left: 12px;
+  left: 36px;
   margin-right: 12px;
+  font-size: 36px;
+  line-height: 64px;
+  margin-bottom: 56px;
+  letter-spacing: 1px;
+  padding-left: 12px;
 }
 ul > li:before {
   left: -12px;

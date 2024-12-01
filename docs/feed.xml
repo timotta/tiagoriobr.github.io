@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2024-09-29T13:03:53Z</updated>
+    <updated>2024-12-01T13:34:01Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -13,6 +13,49 @@
         <uri>/</uri>
     </author>
 
+    
+        <entry>
+            <title>Resources that help me to learn data science</title>
+            <link rel="alternate" href="/work/general/articles/resources-help-learn-data-science/" type="text/html" />
+            <id>/work/general/articles/resources-help-learn-data-science/</id>
+            <updated>2024-11-30T13:24:00Z</updated>
+
+            <summary type="html">In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.</summary>
+            <content type="html">&lt;p&gt;In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.&lt;/p&gt;
+
+&lt;p&gt;About 10 years ago, I started studying Machine Learning casually and purely out of curiosity. Over time, I began working with data science in various roles across different companies. Most of my learning came through hands-on experience in projects that challenged my limited knowledge, forcing me to study further, ask questions to dozens of professionals, read articles, attend conferences, and, most importantly, experiment and learn from mistakes.&lt;/p&gt;
+
+&lt;p&gt;In this journey, I participated in modeling systems for &lt;a href=&#34;/archives/recommendation/&#34;&gt;recommendation&lt;/a&gt;, churn identification, advertising segmentation, &lt;a href=&#34;/archives/trustandsafety/&#34;&gt;fraud prevention&lt;/a&gt;, &lt;a href=&#34;/archives/search/&#34;&gt;search&lt;/a&gt;, judicial decision prediction, and many other auxiliary classifications. This extensive experience, which demanded continuous learning, shaped me into what is now called a hybrid developer—someone who is both a software engineer and a data scientist.&lt;/p&gt;
+
+&lt;p&gt;This brief introduction about myself is meant to provide a clearer response to the developers who often ask me how to become a hybrid developer like me. The answer is not straightforward, as my experience has been quite erratic. There was no clear learning path. As I’ve explained, most of my learning was unstructured and driven by business needs.&lt;/p&gt;
+
+&lt;p&gt;However, there are indeed some courses and books that helped me along the way to hybridizing my knowledge. Without further ado, here are the main courses that helped me:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/specializations/machine-learning-introduction&#34;&gt;Machine Learning&lt;/a&gt; by Stanford: This was the first course I took, and it helped me understand the entire theory behind models by implementing algorithms that are now abstracted by various libraries. Without the intuitive knowledge of these algorithms, I believe using these abstractions can lead to false results.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/learn/recommender-systems&#34;&gt;Introduction to Recommender Systems&lt;/a&gt; by the University of Minnesota: My first hybrid role in development and data science was working on the &lt;a href=&#34;/archives/recommendation/&#34;&gt;recommendation system&lt;/a&gt; at &lt;a href=&#34;/archives/globocom/&#34;&gt;Globo.com&lt;/a&gt;. I studied this course to understand this field, and I consider it a must for anyone working with recommendation systems.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/learn/game-theory-1&#34;&gt;Game Theory&lt;/a&gt; by Stanford: I took this course purely out of curiosity and don’t regret it. The mathematical knowledge I gained frequently helps me think probabilistically and even design proper incentives and disincentives for features that go beyond data science.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/projects/statistics-data-science&#34;&gt;Statistics for Data Science&lt;/a&gt; by Project Network: I enrolled in this course to deepen my statistical knowledge, which is essential for better understanding model results, research evaluations, and analyses. I constantly apply what I learned here.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/account/accomplishments/specialization/F8SQK79VWVJ2&#34;&gt;Mathematics for Machine Learning&lt;/a&gt; by Imperial College: I took this course to deepen my understanding of the mathematics behind the models I had been using for some time. It was particularly important for understanding the workings of deep learning models and recent LLMs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Equally important, below is a list of the most significant books in my data science journey:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/vwang0/recommender_system/blob/master/Recommender%20Systems%20Handbook.pdf&#34;&gt;Recommender System Handbook&lt;/a&gt;: To delve deeper into the concepts of recommendation systems.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.manning.com/books/relevant-search&#34;&gt;Relevant Search&lt;/a&gt;: A prerequisite for anyone working with search systems.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rj.olx.com.br/rio-de-janeiro-e-regiao/livros-e-revistas/livro-generative-deep-learning-de-david-foster-1018413877?&#34;&gt;Generative Deep Learning&lt;/a&gt;: Essential for understanding the inner workings of new generative algorithm families.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com.br/Small-Data-Indicam-Grandes-Tend%C3%AAncias/dp/8569809719&#34;&gt;Small Data&lt;/a&gt;: Offers an opposing perspective on relying solely on big data for decision-making, showing how anecdotal examples can provide game-changing insights.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com.br/gp/product/B077Q3VZFR/&#34;&gt;Natural Language Processing with TensorFlow&lt;/a&gt;: Although I prefer PyTorch, this book is very interesting as it explains various text processing methods for machine learning.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I hope this list of books and courses helps you dive deeper into a new field, whether to work directly in it, as I do, or to simply bridge the communication gap that a lack of knowledge might cause when discussing with specialists.&lt;/p&gt;
+
+&lt;p&gt;But here&amp;rsquo;s a warning: These courses and books were essential, but what truly made me learn was practice and experience. Experiments, mistakes, and exchanges of ideas with the excellent professionals I had the privilege of encountering throughout my life were the real drivers of my knowledge.&lt;/p&gt;
+
+&lt;p&gt;And of course, remember: when starting to study, you may fall prey to the &lt;a href=&#34;https://thedecisionlab.com/biases/dunning-kruger-effect&#34;&gt;Dunning-Kruger Effect&lt;/a&gt;. It happened to me, and it can happen to you too, so be humble.&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>No one cared about Multi Armed Bandit’s tech</title>
