@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title: "Resources that help me to learn data science"
+title: "Resources that help me learn data science"
 tags: [work, general, articles]
 path1: work
 path2: general
