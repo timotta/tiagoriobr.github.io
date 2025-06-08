@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-06-08T12:48:22Z</updated>
+    <updated>2025-06-08T13:01:02Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>The Journey to Hybrid Search at OLX Brasil</title>
             <link rel="alternate" href="/work/olxbrasil/search/jouney-hybrid-search/" type="text/html" />
             <id>/work/olxbrasil/search/jouney-hybrid-search/</id>
-            <updated>2025-06-07T12:38:00Z</updated>
+            <updated>2025-06-07T13:01:00Z</updated>
 
             <summary type="html">This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.</summary>
             <content type="html">&lt;p&gt;This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.&lt;/p&gt;
@@ -66,6 +66,8 @@
 &lt;p&gt;After extensive experimentation, we concluded that a hybrid search strategy offered the best of both worlds. The offline results confirmed this: hybrid search provided the strongest balance between ranking precision and overall quality.&lt;/p&gt;
 
 &lt;h2&gt;Engineering the Hybrid Search Algorithm&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/assets/images/hybrid-search.png&#34; alt=&#34;/assets/images/podium-math.gif&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Once the concept was validated, we moved into an intensive algorithm analysis phase. We ran over 40 offline experiments, evaluating key relevance metrics such as freshness, diversity and &lt;a href=&#34;https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f&#34;&gt;R-DCG (ranking-aware precision)&lt;/a&gt;. During this phase, we validated several crucial parameters:&lt;/p&gt;
 
@@ -151,7 +153,7 @@
 
 &lt;h2&gt;The Minds Behind the Magic&lt;/h2&gt;
 
-&lt;p&gt;Just like &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium&lt;/a&gt;, the hybrid search was build collaborativelly by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/raphael-pinheiro-b6530a107/&#34;&gt;Raphael Pinheiro&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/paulohesilva/&#34;&gt;Paulo Silva&lt;/a&gt; and the product manager &lt;a href=&#34;https://www.linkedin.com/in/claudiabozza/&#34;&gt;Claudia Bozza&lt;/a&gt;. A special thanks to &lt;a href=&#34;https://www.linkedin.com/in/josehisse/&#34;&gt;José Hisse&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/denilsonjunior/&#34;&gt;Denilson Limoeiro&lt;/a&gt; who helped us putting the vector generation running under GPU. Please accept my apologies if I inadvertently leave anyone out.&lt;/p&gt;
+&lt;p&gt;Just like &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium&lt;/a&gt;, the hybrid search was build collaborativelly by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/raphael-pinheiro-b6530a107/&#34;&gt;Raphael Pinheiro&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/paulohesilva/&#34;&gt;Paulo Silva&lt;/a&gt; and the product manager &lt;a href=&#34;https://www.linkedin.com/in/claudiabozza/&#34;&gt;Claudia Bozza&lt;/a&gt;. A special thanks to &lt;a href=&#34;https://www.linkedin.com/in/josehisse/&#34;&gt;José Hisse&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/denilsonjunior/&#34;&gt;Denilson Limoeiro&lt;/a&gt; who helped us putting the vector generation running under GPU. Please accept my sincere apologies if I inadvertently omitted anyone.&lt;/p&gt;
 </content>
         </entry>
     

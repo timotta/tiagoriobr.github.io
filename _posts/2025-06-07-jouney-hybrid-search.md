@@ -53,6 +53,8 @@ After extensive experimentation, we concluded that a hybrid search strategy offe
 
 <h2>Engineering the Hybrid Search Algorithm</h2>
 
+![/assets/images/podium-math.gif](/assets/images/hybrid-search.png)
+
 Once the concept was validated, we moved into an intensive algorithm analysis phase. We ran over 40 offline experiments, evaluating key relevance metrics such as freshness, diversity and [R-DCG (ranking-aware precision)](https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f). During this phase, we validated several crucial parameters:
 
 * The number of items to retrieve from the vector search
@@ -130,4 +132,4 @@ Hybrid search may be gone from production, but the knowledge, progress, and coll
 
 <h2>The Minds Behind the Magic</h2>
 
-Just like [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/), the hybrid search was build collaborativelly by [me](https://www.linkedin.com/in/timotta/), [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/) and [Raphael Pinheiro](https://www.linkedin.com/in/raphael-pinheiro-b6530a107/). The engineering manager at the time was [Paulo Silva](https://www.linkedin.com/in/paulohesilva/) and the product manager [Claudia Bozza](https://www.linkedin.com/in/claudiabozza/). A special thanks to [José Hisse](https://www.linkedin.com/in/josehisse/) and [Denilson Limoeiro](https://www.linkedin.com/in/denilsonjunior/) who helped us putting the vector generation running under GPU. Please accept my apologies if I inadvertently leave anyone out.
+Just like [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/), the hybrid search was build collaborativelly by [me](https://www.linkedin.com/in/timotta/), [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/) and [Raphael Pinheiro](https://www.linkedin.com/in/raphael-pinheiro-b6530a107/). The engineering manager at the time was [Paulo Silva](https://www.linkedin.com/in/paulohesilva/) and the product manager [Claudia Bozza](https://www.linkedin.com/in/claudiabozza/). A special thanks to [José Hisse](https://www.linkedin.com/in/josehisse/) and [Denilson Limoeiro](https://www.linkedin.com/in/denilsonjunior/) who helped us putting the vector generation running under GPU. Please accept my sincere apologies if I inadvertently omitted anyone.
