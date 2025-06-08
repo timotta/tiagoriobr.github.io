@@ -17,7 +17,7 @@ That’s where it all started — with a hackday.
 
 During an internal experiment started by [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/), he tested the use of the OpenAI embeddings API to improve our ability to understand and respond to semantic queries. The idea was simple: what if search could understand concepts, not just strings?
 
-The first tests showed something powerful: it was able to return relevant results for queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.
+The first tests showed something powerful: it was able to return relevant results for many examples of queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.
 
 But there was skepticism.
 
