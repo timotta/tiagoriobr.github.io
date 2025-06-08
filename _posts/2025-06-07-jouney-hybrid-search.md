@@ -9,7 +9,7 @@ path3: search
 
 This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.
 
-We’ve always known that search is at the core of the user experience. When someone types something like “European football team shirt,” they’re not just entering keywords — they’re expressing intent. Our traditional lexical search engine, [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/)), handled direct matches well, but often failed when the query was more conceptual or abstract.
+We’ve always known that search is at the core of the user experience. When someone types something like “European football team shirt,” they’re not just entering keywords — they’re expressing intent. Our traditional lexical search engine, [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/), handled direct matches well, but often failed when the query was more conceptual or abstract.
 
 That’s where it all started — with a hackday.
 
@@ -94,7 +94,7 @@ Encouraged by these results, we decided to roll out the solution to 100% of user
 
 Initially, the hybrid search response time was a major concern: **P95 > 300ms**, compared to **~80ms** for pure lexical search. This made a full rollout unfeasible without quadrupling our infrastructure costs.
 
-To tackle this, we launched a series of 24 performance experiments, each focused on shaving off latency. Some of the key optimizations included:
+To tackle this, we launched a series of 24 performance experiments, each focused on shaving off latency. And for each experiment, we monitored key business metrics as guardrails to ensure we didn’t lose the gains we had previously achieved. Some of the key optimizations included:
 
 * Vector quantization
 * Increasing the number of shards
@@ -112,7 +112,7 @@ The biggest improvements came in conceptual and indirect searches, where vector 
 
 This perception didn’t exist in the pure Podium model — if a result didn’t match, it returned nothing. In the hybrid version, we had to deal with the qualitative nuance of returning something that might not feel useful to the user.
 
-That was the focus of our work in the last months I was there: tuning problematic cases and exploring ways to visually communicate that certain results might be "off", while still being the best semantic match available.
+That was the focus of our work during my final months there — work I didn’t get to finish: tuning problematic cases and exploring ways to visually communicate that certain results might be "off", while still being the best semantic match available.
 
 What stood out during this journey was the company’s willingness to invest — not only in research, but also financially — to improve user experience. Even with performance improvements, hybrid search required more computing power: more ElasticSearch resources and ongoing vector processing.
 
@@ -120,10 +120,14 @@ What stood out during this journey was the company’s willingness to invest —
 
 Recently, some friends who still work at OLX shared that hybrid search was eventually sunset, and OLX reverted back to [Podium’s](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/) pure lexical model due to infrastructure costs.
 
+As an active user of the platform, I had already noticed a drop in views and contacts on my OLX listings. I even tested the search myself to understand what was happening — and the absence of semantic understanding was immediately noticeable. [Raphael Pinheiro](https://www.linkedin.com/in/raphael-pinheiro-b6530a107/), who is not only a developer but also sells products made with his 3D printer, also noticed a sharp decline in views on his listings. He even mentioned it to me — without knowing that the hybrid search had been rolled back.
+
+Of course, these are anecdotal examples, and the overall impact was probably small enough to justify the decision — especially in core categories like real estate, vehicles, appliances, and furniture. But for smaller, more niche categories, the effect may have been significant. A 50% drop in views and replies in those segments might represent less than 1% of the total, but for that specific seller, it’s a huge impact.
+
 It’s unfortunate, because the progress was substantial and there was still room for optimization. All major players in search are investing in hybrid approaches, because they’re not only proven to deliver better results, but also offers better scalability for product development by avoiding manual tuning of lemmatization, synonyms, and other linguistic rules.
 
 Hybrid search may be gone from production, but the knowledge, progress, and collaboration built along the way remain one of the most impactful chapters of that journey.
 
 <h2>The Minds Behind the Magic</h2>
 
-Just like [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/) the hybrid search was build collaborativelly by [me](https://www.linkedin.com/in/timotta/), [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/), [Raphael Pinheiro](https://www.linkedin.com/in/raphael-pinheiro-b6530a107/). The engineering manager at the time was [Paulo Silva](https://www.linkedin.com/in/paulohesilva/) and the product manager [Claudia Bozza](https://www.linkedin.com/in/claudiabozza/). Please accept my apologies if I inadvertently leave anyone out.
+Just like [Podium](/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/), the hybrid search was build collaborativelly by [me](https://www.linkedin.com/in/timotta/), [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/) and [Raphael Pinheiro](https://www.linkedin.com/in/raphael-pinheiro-b6530a107/). The engineering manager at the time was [Paulo Silva](https://www.linkedin.com/in/paulohesilva/) and the product manager [Claudia Bozza](https://www.linkedin.com/in/claudiabozza/). A special thanks to [José Hisse](https://www.linkedin.com/in/josehisse/) and [Denilson Limoeiro](https://www.linkedin.com/in/denilsonjunior/) who helped us putting the vector generation running under GPU. Please accept my apologies if I inadvertently leave anyone out.

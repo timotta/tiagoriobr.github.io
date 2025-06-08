@@ -3,16 +3,17 @@
 
 {% block breadcrumbs %}
 <div id="breadcrumbs">
-    home
 </div>
 {% endblock %}
 
 {% block content %}
     <div class="post-list">
         {% for item in posts %}
-            <a href="{{ get_url(posts.tags[item.path1].url) }}">{{ item.path1 }}</a><span> » </span>
-            <a href="{{ get_url(posts.tags[item.path2].url) }}">{{ item.path2 }}</a><span> » </span>
-            <a href="{{ get_url(posts.tags[item.path3].url) }}">{{ item.path3 }}</a><span> » </span>
+            <span class="post-bread">
+                <a href="{{ get_url(posts.tags[item.path1].url) }}">{{ item.path1 }}</a><span> » </span>
+                <a href="{{ get_url(posts.tags[item.path2].url) }}">{{ item.path2 }}</a><span> » </span>
+                <a href="{{ get_url(posts.tags[item.path3].url) }}">{{ item.path3 }}</a><span> » </span>
+            </span>
             <h1 class="post-title"><a href="{{ get_url(item.url) }}">{{ item.title }}</a></h1>
         {% endfor %}
     </div>

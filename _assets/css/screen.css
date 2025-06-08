@@ -308,6 +308,7 @@ sup {
 .post-list > .post-title {
   padding-bottom: 0px;
   line-height: 32px;
+  margin-bottom: 52px;
 }
 .post-list > .post-meta {
   padding-top: 0px;
@@ -349,13 +350,13 @@ div.code > div {
 }
 
 #title {
-  font-size: 14px;
+  font-size: 24px;
 }
 #title > a {
-  color: #DDD;
+  color: #999;
 }
 #title > a:hover {
-  color: #999;
+  text-decoration: underline;
 }
 
 #menu {
@@ -481,4 +482,13 @@ div.code > div {
 
 .post ul {
   margin-bottom: 56px;
+}
+
+.post-bread > a, .post-bread > span {
+  font-size: 32px;
+  color: #999;
+}
+
+.post-bread > a:hover {
+  text-decoration: underline;
 }
