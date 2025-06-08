@@ -35,7 +35,7 @@ We built a quick solution in just two weeks: if a lexical search returned no res
 
 As the solution evolved, we decided to move away from OpenAI’s API. Response times were too high for real-time search. We also tested Google’s Gemini, and faced similar issues.
 
-Instead, we adopted local embedding generation using Sentence-Transformers, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.
+Instead, we adopted local embedding generation using [sentence-transformers](https://sbert.net/), giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.
 
 <h2>So why hybrid, and not purely semantic?</h2>
 
