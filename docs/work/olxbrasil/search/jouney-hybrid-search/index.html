@@ -46,7 +46,7 @@
 
 <p>During an internal experiment started by <a href="https://www.linkedin.com/in/daniel-correa-araujo/">Daniel Araújo</a>, he tested the use of the OpenAI embeddings API to improve our ability to understand and respond to semantic queries. The idea was simple: what if search could understand concepts, not just strings?</p>
 
-<p>The first tests showed something powerful: it was able to return relevant results for queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.</p>
+<p>The first tests showed something powerful: it was able to return relevant results for many examples of queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.</p>
 
 <p>But there was skepticism.</p>
 
@@ -64,7 +64,7 @@
 
 <p>As the solution evolved, we decided to move away from OpenAI’s API. Response times were too high for real-time search. We also tested Google’s Gemini, and faced similar issues.</p>
 
-<p>Instead, we adopted local embedding generation using Sentence-Transformers, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.</p>
+<p>Instead, we adopted local embedding generation using <a href="https://sbert.net/">sentence-transformers</a>, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.</p>
 
 <h2>So why hybrid, and not purely semantic?</h2>
 

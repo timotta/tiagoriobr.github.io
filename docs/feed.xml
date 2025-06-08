@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-06-08T01:12:05Z</updated>
+    <updated>2025-06-08T01:17:00Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>The Journey to Hybrid Search at OLX Brasil</title>
             <link rel="alternate" href="/work/olxbrasil/search/jouney-hybrid-search/" type="text/html" />
             <id>/work/olxbrasil/search/jouney-hybrid-search/</id>
-            <updated>2025-06-07T01:11:00Z</updated>
+            <updated>2025-06-07T01:15:00Z</updated>
 
             <summary type="html">This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.</summary>
             <content type="html">&lt;p&gt;This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.&lt;/p&gt;
@@ -31,7 +31,7 @@
 
 &lt;p&gt;During an internal experiment started by &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;, he tested the use of the OpenAI embeddings API to improve our ability to understand and respond to semantic queries. The idea was simple: what if search could understand concepts, not just strings?&lt;/p&gt;
 
-&lt;p&gt;The first tests showed something powerful: it was able to return relevant results for queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.&lt;/p&gt;
+&lt;p&gt;The first tests showed something powerful: it was able to return relevant results for many examples of queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.&lt;/p&gt;
 
 &lt;p&gt;But there was skepticism.&lt;/p&gt;
 
@@ -49,7 +49,7 @@
 
 &lt;p&gt;As the solution evolved, we decided to move away from OpenAI’s API. Response times were too high for real-time search. We also tested Google’s Gemini, and faced similar issues.&lt;/p&gt;
 
-&lt;p&gt;Instead, we adopted local embedding generation using Sentence-Transformers, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.&lt;/p&gt;
+&lt;p&gt;Instead, we adopted local embedding generation using &lt;a href=&#34;https://sbert.net/&#34;&gt;sentence-transformers&lt;/a&gt;, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.&lt;/p&gt;
 
 &lt;h2&gt;So why hybrid, and not purely semantic?&lt;/h2&gt;
 
