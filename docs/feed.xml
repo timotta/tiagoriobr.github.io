@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-02-28T00:58:06Z</updated>
+    <updated>2025-06-08T01:06:03Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,147 @@
 
     
         <entry>
+            <title>The Journey to Hybrid Search at OLX Brasil</title>
+            <link rel="alternate" href="/work/olxbrasil/search/jouney-hybrid-search/" type="text/html" />
+            <id>/work/olxbrasil/search/jouney-hybrid-search/</id>
+            <updated>2025-06-07T01:05:00Z</updated>
+
+            <summary type="html">This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.</summary>
+            <content type="html">&lt;p&gt;This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.&lt;/p&gt;
+
+&lt;p&gt;We’ve always known that search is at the core of the user experience. When someone types something like “European football team shirt,” they’re not just entering keywords — they’re expressing intent. Our traditional lexical search engine, &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium&lt;/a&gt;), handled direct matches well, but often failed when the query was more conceptual or abstract.&lt;/p&gt;
+
+&lt;p&gt;That’s where it all started — with a hackday.&lt;/p&gt;
+
+&lt;h2&gt;From Hackday to Proof of Value&lt;/h2&gt;
+
+&lt;p&gt;During an internal experiment started by &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;, we tested the use of the OpenAI embeddings API to improve our ability to understand and respond to semantic queries. The idea was simple: what if search could understand concepts, not just strings?&lt;/p&gt;
+
+&lt;p&gt;The first tests showed something powerful: we were able to return relevant results for queries like “European football team shirt” — even when listing titles didn’t contain those exact words. This revealed real potential in semantic search.&lt;/p&gt;
+
+&lt;p&gt;But there was skepticism.&lt;/p&gt;
+
+&lt;h2&gt;A PM’s Bet (and a Little Faith)&lt;/h2&gt;
+
+&lt;p&gt;Our initial hypothesis was conservative: this technology wouldn’t increase replies (the number of contacts on listings). At best, we thought it might improve coverage slightly — and at a high operational cost. Still, our Product Manager, &lt;a href=&#34;https://www.linkedin.com/in/claudiabozza/&#34;&gt;Claudia Bozza&lt;/a&gt; believed in it and pushed forward, even when we flagged potential cost-benefit concerns.&lt;/p&gt;
+
+&lt;p&gt;And she was right.&lt;/p&gt;
+
+&lt;h2&gt;First Version: Fast Build, Fast Results&lt;/h2&gt;
+
+&lt;p&gt;We built a quick solution in just two weeks: if a lexical search returned no results, we would trigger a fallback semantic search. Even with this simple approach, the results were impressive. That gave us the confidence to invest in building a robust hybrid search system.&lt;/p&gt;
+
+&lt;h2&gt;A Strategic Shift: Moving Away from OpenAI&lt;/h2&gt;
+
+&lt;p&gt;As the solution evolved, we decided to move away from OpenAI’s API. Response times were too high for real-time search. We also tested Google’s Gemini, and faced similar issues.&lt;/p&gt;
+
+&lt;p&gt;Instead, we adopted local embedding generation using Sentence-Transformers, giving us more control and performance. We started generating vectors in-house, allowing the solution to scale more efficiently.&lt;/p&gt;
+
+&lt;h2&gt;So why hybrid, and not purely semantic?&lt;/h2&gt;
+
+&lt;p&gt;For OLX’s search engine, diversity and recency are critical metrics. We had already proven in several past experiments that both correlate strongly with the number of replies and how quickly items are sold.&lt;/p&gt;
+
+&lt;p&gt;When it comes to diversity, we noticed a major drawback in using a purely semantic approach: if we generated vector embeddings using only the ad title, diversity dropped to near zero for simple one- or two-word queries. This happened because the cosine distance between the word &amp;ldquo;iPhone&amp;rdquo; and an ad titled simply &amp;ldquo;iPhone&amp;rdquo; is effectively zero. Since we have a large volume of listings with minimal or generic titles, this led to highly repetitive results.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, the more ad fields we added to the embedding (e.g. description, location), the better the diversity became — but at the cost of precision.&lt;/p&gt;
+
+&lt;p&gt;As for recency, even when we applied time decay functions in the final score computation, purely semantic search often returned very old listings — especially in queries with lots of potential matches (which is most of them). That’s because in vector search, you have to define how many items each shard should return. Those selected items won’t necessarily include the newest listings. For example, if a user searches for “iPhone” and we have 20,000 iPhone listings per shard, but only retrieve the top 50 per shard, the most recent ads might be buried in the remaining 19,950 items — even if their cosine distance is only slightly worse.&lt;/p&gt;
+
+&lt;p&gt;We could increase the number of items per shard, but that comes at a steep cost in processing time and infrastructure usage.&lt;/p&gt;
+
+&lt;p&gt;After extensive experimentation, we concluded that a hybrid search strategy offered the best of both worlds. The offline results confirmed this: hybrid search provided the strongest balance between ranking precision and overall quality.&lt;/p&gt;
+
+&lt;h2&gt;Engineering the Hybrid Search Algorithm&lt;/h2&gt;
+
+&lt;p&gt;Once the concept was validated, we moved into an intensive algorithm analysis phase. We ran over 40 offline experiments, evaluating key relevance metrics such as freshness, diversity and &lt;a href=&#34;https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f&#34;&gt;R-DCG (ranking-aware precision)&lt;/a&gt;. During this phase, we validated several crucial parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The number of items to retrieve from the vector search&lt;/li&gt;
+&lt;li&gt;Which ad fields (title, description, location, etc.) to use for embedding generation&lt;/li&gt;
+&lt;li&gt;Which embedding model to use (and how it performed on our dataset)&lt;/li&gt;
+&lt;li&gt;How to combine lexical and semantic results effectively&lt;/li&gt;
+&lt;li&gt;How to sort results after merging both types of rankings&lt;/li&gt;
+&lt;li&gt;Which type of time decay function to apply to maintain result recency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This meticulous tuning allowed us to strike the right balance between semantic understanding and ranking precision. At the end, we could choose the best combination of parameters to get an algorithm that improved:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Freshness: +65%&lt;/li&gt;
+&lt;li&gt;Diversity: +9%&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f&#34;&gt;R-DCG&lt;/a&gt;: +0.72%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Experiments in Production&lt;/h2&gt;
+
+&lt;p&gt;Bringing the solution to production experiments wasn’t straightforward.&lt;/p&gt;
+
+&lt;p&gt;We had a hypothesis: the increased response time of lexical searches — caused by sharing infrastructure with the hybrid search — could negatively impact the control group’s metrics in A/B tests.&lt;/p&gt;
+
+&lt;p&gt;To ensure a fair comparison, we set up a dedicated ElasticSearch infrastructure specifically for the hybrid search experiments. This separation ensured that the computational overhead of vector search wouldn’t degrade the performance of pure lexical queries.&lt;/p&gt;
+
+&lt;p&gt;As a result, all experiments were run in an almost fully isolated infrastructure setup.&lt;/p&gt;
+
+&lt;h2&gt;The Impact: Results that Justify the Investment&lt;/h2&gt;
+
+&lt;p&gt;Despite the increase in response time, the gains in textual searches were undeniable:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;+3.7% in repliers&lt;/li&gt;
+&lt;li&gt;+4.3% in replies&lt;/li&gt;
+&lt;li&gt;+4.3% in clicks&lt;/li&gt;
+&lt;li&gt;And most notably: a 94% reduction in “no result” queries&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Encouraged by these results, we decided to roll out the solution to 100% of users. But there was a problem — the cost.&lt;/p&gt;
+
+&lt;h2&gt;Performance: The Millisecond Challenge&lt;/h2&gt;
+
+&lt;p&gt;Initially, the hybrid search response time was a major concern: &lt;strong&gt;P95 &amp;gt; 300ms&lt;/strong&gt;, compared to &lt;strong&gt;~80ms&lt;/strong&gt; for pure lexical search. This made a full rollout unfeasible without quadrupling our infrastructure costs.&lt;/p&gt;
+
+&lt;p&gt;To tackle this, we launched a series of 24 performance experiments, each focused on shaving off latency. Some of the key optimizations included:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Vector quantization&lt;/li&gt;
+&lt;li&gt;Increasing the number of shards&lt;/li&gt;
+&lt;li&gt;Upgrading ElasticSearch&lt;/li&gt;
+&lt;li&gt;Reducing HNSW candidates&lt;/li&gt;
+&lt;li&gt;Merging lexical search fields&lt;/li&gt;
+&lt;li&gt;Generating embeddings using GPUs&lt;/li&gt;
+&lt;li&gt;And more&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There was no silver bullet, but together these improvements brought &lt;strong&gt;P95 down to ~120ms&lt;/strong&gt; — even faster than other companies in our group that had also implemented hybrid search.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion: Progress, Perception&lt;/h2&gt;
+
+&lt;p&gt;The biggest improvements came in conceptual and indirect searches, where vector models truly understood user intent. But new challenges emerged too. Queries that previously returned nothing started returning irrelevant results, which led to complaints and a perception of low precision.&lt;/p&gt;
+
+&lt;p&gt;This perception didn’t exist in the pure Podium model — if a result didn’t match, it returned nothing. In the hybrid version, we had to deal with the qualitative nuance of returning something that might not feel useful to the user.&lt;/p&gt;
+
+&lt;p&gt;That was the focus of our work in the last months I was there: tuning problematic cases and exploring ways to visually communicate that certain results might be &amp;ldquo;off&amp;rdquo;, while still being the best semantic match available.&lt;/p&gt;
+
+&lt;p&gt;What stood out during this journey was the company’s willingness to invest — not only in research, but also financially — to improve user experience. Even with performance improvements, hybrid search required more computing power: more ElasticSearch resources and ongoing vector processing.&lt;/p&gt;
+
+&lt;h2&gt;The Economics Behind the Rollback&lt;/h2&gt;
+
+&lt;p&gt;Recently, some friends who still work at OLX shared that hybrid search was eventually sunset, and OLX reverted back to &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium’s&lt;/a&gt; pure lexical model due to infrastructure costs.&lt;/p&gt;
+
+&lt;p&gt;It’s unfortunate, because the progress was substantial and there was still room for optimization. All major players in search are investing in hybrid approaches, because they’re not only proven to deliver better results, but also offers better scalability for product development by avoiding manual tuning of lemmatization, synonyms, and other linguistic rules.&lt;/p&gt;
+
+&lt;p&gt;Hybrid search may be gone from production, but the knowledge, progress, and collaboration built along the way remain one of the most impactful chapters of that journey.&lt;/p&gt;
+
+&lt;h2&gt;The Minds Behind the Magic&lt;/h2&gt;
+
+&lt;p&gt;Just like &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium&lt;/a&gt; the hybrid search was build collaborativelly by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/raphael-pinheiro-b6530a107/&#34;&gt;Raphael Pinheiro&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/paulohesilva/&#34;&gt;Paulo Silva&lt;/a&gt; and the product manager &lt;a href=&#34;https://www.linkedin.com/in/claudiabozza/&#34;&gt;Claudia Bozza&lt;/a&gt;. Please accept my apologies if I inadvertently leave anyone out.&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Patching scikit-learn to improve API performance</title>
             <link rel="alternate" href="/work/willbank/account/patching-scikit-learn-improve-api-performance/" type="text/html" />
             <id>/work/willbank/account/patching-scikit-learn-improve-api-performance/</id>
-            <updated>2025-02-27T00:57:00Z</updated>
+            <updated>2025-02-27T10:56:00Z</updated>
 
             <summary type="html">This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.</summary>
             <content type="html">&lt;p&gt;This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.&lt;/p&gt;
@@ -86,7 +223,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Resources that help me to learn data science</title>
             <link rel="alternate" href="/work/general/articles/resources-help-learn-data-science/" type="text/html" />
             <id>/work/general/articles/resources-help-learn-data-science/</id>
-            <updated>2024-11-30T12:20:00Z</updated>
+            <updated>2024-11-30T10:56:00Z</updated>
 
             <summary type="html">In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.</summary>
             <content type="html">&lt;p&gt;In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.&lt;/p&gt;
@@ -129,7 +266,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>No one cared about Multi Armed Bandit’s tech</title>
             <link rel="alternate" href="/work/globocom/recommendation/no-one-cared-about-multi-armed-bandit-tech/" type="text/html" />
             <id>/work/globocom/recommendation/no-one-cared-about-multi-armed-bandit-tech/</id>
-            <updated>2024-09-28T13:02:00Z</updated>
+            <updated>2024-09-28T10:56:00Z</updated>
 
             <summary type="html">In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.</summary>
             <content type="html">&lt;p&gt;In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.&lt;/p&gt;
@@ -168,7 +305,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Delaying the launch of a model inspired by Turing</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/</id>
-            <updated>2024-08-03T13:37:00Z</updated>
+            <updated>2024-08-03T10:56:00Z</updated>
 
             <summary type="html">This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.</summary>
             <content type="html">&lt;p&gt;This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.&lt;/p&gt;
@@ -207,7 +344,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Podium: The algorithm that defeated BM25</title>
             <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
             <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
-            <updated>2024-06-08T13:37:00Z</updated>
+            <updated>2024-06-08T10:56:00Z</updated>
 
             <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
             <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
@@ -277,7 +414,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Random recommendation due to concurrency</title>
             <link rel="alternate" href="/work/globocom/recommendation/random-recommendation-due-to-concurrency/" type="text/html" />
             <id>/work/globocom/recommendation/random-recommendation-due-to-concurrency/</id>
-            <updated>2024-03-31T13:37:00Z</updated>
+            <updated>2024-03-31T10:56:00Z</updated>
 
             <summary type="html">This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.</summary>
             <content type="html">&lt;p&gt;This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.&lt;/p&gt;
@@ -326,7 +463,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>The rise, peak and downfall of Web Democracy</title>
             <link rel="alternate" href="/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/" type="text/html" />
             <id>/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/</id>
-            <updated>2023-12-26T13:37:00Z</updated>
+            <updated>2023-12-26T10:56:00Z</updated>
 
             <summary type="html">This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.</summary>
             <content type="html">&lt;p&gt;This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.&lt;/p&gt;
@@ -375,7 +512,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>How I invented Ajax despite it already existing</title>
             <link rel="alternate" href="/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/" type="text/html" />
             <id>/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/</id>
-            <updated>2023-11-15T13:37:00Z</updated>
+            <updated>2023-11-15T10:56:00Z</updated>
 
             <summary type="html">This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</summary>
             <content type="html">&lt;p&gt;This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.&lt;/p&gt;
@@ -414,7 +551,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Collecting data to identify data collect</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/</id>
-            <updated>2023-08-19T13:37:00Z</updated>
+            <updated>2023-08-19T10:56:00Z</updated>
 
             <summary type="html">This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!</summary>
             <content type="html">&lt;p&gt;This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!&lt;/p&gt;
@@ -451,7 +588,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>The fantastic widget factory</title>
             <link rel="alternate" href="/work/globocom/webmedia/the-fantastic-widget-factory/" type="text/html" />
             <id>/work/globocom/webmedia/the-fantastic-widget-factory/</id>
-            <updated>2023-04-29T13:37:00Z</updated>
+            <updated>2023-04-29T10:56:00Z</updated>
 
             <summary type="html">This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.</summary>
             <content type="html">&lt;p&gt;This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.&lt;/p&gt;

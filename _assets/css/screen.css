@@ -460,6 +460,14 @@ div.code > div {
 
 /** ------------- **/
 
+.post h2 {
+  font-size: 44px;
+  line-height: 44px;
+  letter-spacing: 1px;
+  padding-bottom: 0px;
+  margin-bottom: 52px;
+}
+
 .post p {
   font-size: 36px;
   line-height: 64px;
@@ -467,3 +475,10 @@ div.code > div {
   letter-spacing: 1px;
 }
 
+.post li {
+  margin-bottom: 8px;
+}
+
+.post ul {
+  margin-bottom: 56px;
+}
