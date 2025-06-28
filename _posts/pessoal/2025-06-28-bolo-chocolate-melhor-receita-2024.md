@@ -1,11 +1,13 @@
 ---
 layout: post.html
-title: Melhor bolo de chocolate de microondas de 2024 pelo NY
+title: "Bolo de chocolate: Melhor receita de 2024"
 tags: [pessoal, receitas, sobremesas]
 path1: pessoal
 path2: receitas
 path3: sobremesas
 ---
+
+Bolo fácil de fazer, 5 minutos de microondas. Eleita a melhor receita de 2024 pelo NYT!
 
 <h2>Bolo</h2>
 
