@@ -492,3 +492,20 @@ div.code > div {
 .post-bread > a:hover {
   text-decoration: underline;
 }
+
+#footer h3 {
+  text-transform: none;
+  margin-bottom: 32px;
+}
+
+#footer h3 a {
+  color: #999;
+}
+
+#footer h3 a {
+  color: #999;
+}
+
+#content {
+  padding-bottom: 24px;
+}

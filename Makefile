@@ -8,3 +8,5 @@ build:
 
 start: build
 	mynt serve docs
+
+run: start

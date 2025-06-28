@@ -21,6 +21,7 @@
         </div>
 
         <div id="footer">
+            {% block linksfooter %}{% endblock %}
             {% if site.author %}© {{ none|date('%Y') }} {{ site.author }}{% endif %}
         </div>
     </div>
