@@ -37,9 +37,9 @@ path3: refeições
 11. Acenda o fogo novamente e fique mexendo, não deixe ferver pra não talhar
 12. Coloque os capeletis, o tomate seco e o manjericão seco
 13. Fique mexendo e acertando sal e pimenta, esperimentando pra ver se está saboroso e potente
-14. Quando os capeletis estiverem cozidos, coloque as folhas e espinafre
+14. Quando os capeletis estiverem cozidos, coloque as folhas de espinafre
 15. Mexa mais um pouco até os espinafres estarem todos molinhos misturados
-16. Sirva e decore com manjericão seco
+16. Sirva e decore com manjericão fresco
 
 
 [Receita original](https://www.instagram.com/reel/DJWwBAGOZeo/)
