@@ -7,11 +7,13 @@ path2: receitas
 path3: refeições
 ---
 
+Essa aqui eu já fiz com salsinha e com coentro. Com coentro ficou mil vezes melhor. Mas na falta, vai de salsinha mesmo. Ainda não experimentei com jalapeño.
+
 <h2>Igredientes</h2>
 
 * 2 xícaras de milho verde cozido
 * 1 colher de sopa de manteiga
-* 1 parmesão ralado fino
+* 1 xícara de parmesão ralado fino
 * 2 dentes de alho picado
 * 1/2 xícara de iogurte natural
 * 2 colheres de sopa de maionese
@@ -31,7 +33,7 @@ path3: refeições
 5. Refoga bem até ficar dourado
 6. Despeja em uma tigela grande
 7. Coloca o iogurte grego, a maionese e o queijo parmesão e mistura
-8. Adiciona a cebola roxa picada, o pimentão vermelho, o coentro e o limão expremido e mistura
-
+8. Adiciona a cebola roxa picada, o pimentão vermelho, o coentro e mistura
+9. Por fim, coloque o limão expremido e misture mais um pouco
 
 [Receita original](https://www.instagram.com/reel/DI69LzsyzKZ/)

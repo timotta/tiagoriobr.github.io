@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-07-05T19:35:24Z</updated>
+    <updated>2025-07-07T01:36:30Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,15 +18,17 @@
             <title>Salada mexicana clássica de milho</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/salada-mexicana-classica-milho/" type="text/html" />
             <id>/pessoal/receitas/refeies/salada-mexicana-classica-milho/</id>
-            <updated>2025-07-05T19:35:00Z</updated>
+            <updated>2025-07-05T01:36:00Z</updated>
 
-            
-            <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
+            <summary type="html">Essa aqui eu já fiz com salsinha e com coentro. Com coentro ficou mil vezes melhor. Mas na falta, vai de salsinha mesmo. Ainda não experimentei com jalapeño.</summary>
+            <content type="html">&lt;p&gt;Essa aqui eu já fiz com salsinha e com coentro. Com coentro ficou mil vezes melhor. Mas na falta, vai de salsinha mesmo. Ainda não experimentei com jalapeño.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;2 xícaras de milho verde cozido&lt;/li&gt;
 &lt;li&gt;1 colher de sopa de manteiga&lt;/li&gt;
-&lt;li&gt;1 parmesão ralado fino&lt;/li&gt;
+&lt;li&gt;1 xícara de parmesão ralado fino&lt;/li&gt;
 &lt;li&gt;2 dentes de alho picado&lt;/li&gt;
 &lt;li&gt;&amp;frac12; xícara de iogurte natural&lt;/li&gt;
 &lt;li&gt;2 colheres de sopa de maionese&lt;/li&gt;
@@ -48,7 +50,8 @@
 &lt;li&gt;Refoga bem até ficar dourado&lt;/li&gt;
 &lt;li&gt;Despeja em uma tigela grande&lt;/li&gt;
 &lt;li&gt;Coloca o iogurte grego, a maionese e o queijo parmesão e mistura&lt;/li&gt;
-&lt;li&gt;Adiciona a cebola roxa picada, o pimentão vermelho, o coentro e o limão expremido e mistura&lt;/li&gt;
+&lt;li&gt;Adiciona a cebola roxa picada, o pimentão vermelho, o coentro e mistura&lt;/li&gt;
+&lt;li&gt;Por fim, coloque o limão expremido e misture mais um pouco&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DI69LzsyzKZ/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
