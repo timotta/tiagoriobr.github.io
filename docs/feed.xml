@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-08-04T23:28:32Z</updated>
+    <updated>2025-08-10T01:40:43Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,65 @@
 
     
         <entry>
+            <title>Cuca beludo de leite condensado</title>
+            <link rel="alternate" href="/pessoal/receitas/sobremesas/cuca-beludo-leite-condensado/" type="text/html" />
+            <id>/pessoal/receitas/sobremesas/cuca-beludo-leite-condensado/</id>
+            <updated>2025-08-09T01:39:00Z</updated>
+
+            <summary type="html">A receita original não leva suco de limão. Eu adicionei em uma tentativa de fazer uma cuca sabor limão. Não deu o sabor de limão mas ela ficou melhor do que da primeira vez que fiz sem limão. Outra coisa que fiz melhor nesta versão que a receita original é peneirar a gema de ovo. Na próxima vez que eu fizer esta receita, tentarei sem o amido de milho.</summary>
+            <content type="html">&lt;p&gt;A receita original não leva suco de limão. Eu adicionei em uma tentativa de fazer uma cuca sabor limão. Não deu o sabor de limão mas ela ficou melhor do que da primeira vez que fiz sem limão. Outra coisa que fiz melhor nesta versão que a receita original é peneirar a gema de ovo. Na próxima vez que eu fizer esta receita, tentarei sem o amido de milho.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes do creme&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;395g de leite condensado (1 lata)&lt;/li&gt;
+&lt;li&gt;200ml de creme de leite&lt;/li&gt;
+&lt;li&gt;2 colheres de sopa de amido de milho&lt;/li&gt;
+&lt;li&gt;2 gemas&lt;/li&gt;
+&lt;li&gt;300 ml de leite&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de essência de baunilha&lt;/li&gt;
+&lt;li&gt;Suco de meio limão&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Igredientes da farofa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2 xícaras e &amp;frac12; de farinha de trigo&lt;/li&gt;
+&lt;li&gt;1 xícara de açucar cristal&lt;/li&gt;
+&lt;li&gt;1 ovo&lt;/li&gt;
+&lt;li&gt;100g de manteiga gelada&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de fermento em pó&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo do creme&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Misture bem o leite condensado com o amido de milho para que não fique nenhuma pelota&lt;/li&gt;
+&lt;li&gt;Agora misture a gema, peneirando ela para que as parte mais solidas não sejam misturadas&lt;/li&gt;
+&lt;li&gt;Misture o restante dos igredientes&lt;/li&gt;
+&lt;li&gt;Cozinhe em fogo baixo ou médio sempre mexendo até que fique com a consistência de um mingau&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Preparo da farofa&lt;/h2&gt;
+
+&lt;p&gt;Misture todos os igredientes com uma espátula inicialmente e depois com as mãos misture até tentando apertar todas as pelotinhas de manteiga até que vire um farofa.&lt;/p&gt;
+
+&lt;h2&gt;Preparo final&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Em um refratário untado com manteiga, coloque uma camada com metade da farofa na parte de baixo, o creme no meio e outra camada com a outra metade da farofa na parte de cima.&lt;/li&gt;
+&lt;li&gt;Coloque no forno até começar a dourar&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DJouOP8teYW/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Mantecol: Doce argentino de natal</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/mantecol-doce-argentino-natal/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/mantecol-doce-argentino-natal/</id>
-            <updated>2025-08-04T23:28:00Z</updated>
+            <updated>2025-08-04T01:37:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -212,6 +267,48 @@
         </entry>
     
         <entry>
+            <title>Bean-fu da Birmânia de lentilha ou ervilha</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/" type="text/html" />
+            <id>/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/</id>
+            <updated>2025-06-30T17:25:00Z</updated>
+
+            <summary type="html">Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.</summary>
+            <content type="html">&lt;p&gt;Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200g de lentilha, lentilha rosa ou ervilha&lt;/li&gt;
+&lt;li&gt;200ml de água&lt;/li&gt;
+&lt;li&gt;3 colheres de chá de sal&lt;/li&gt;
+&lt;li&gt;Azeite de oliva&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo inicial&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Deixe de molho por 12 horas a leguminosa&lt;/li&gt;
+&lt;li&gt;Escorra a água do molho lavando as leguminosas&lt;/li&gt;
+&lt;li&gt;Bata no liquidificador a legminosa com 200ml de água e o sal até ficar bem homogêneo&lt;/li&gt;
+&lt;li&gt;Derrame a mistura em uma panela&lt;/li&gt;
+&lt;li&gt;Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem problema.&lt;/li&gt;
+&lt;li&gt;Quando estiver quase firme, derrame em um recipiente de forma que fique com um dedo de altura&lt;/li&gt;
+&lt;li&gt;Coloque na geladeira&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Preparo final&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;O bean-fu já estará firme e pode ser retirado do recipiente como um blocão&lt;/li&gt;
+&lt;li&gt;Corte em cubinhos, pincele com azeite de oliva&lt;/li&gt;
+&lt;li&gt;Coloque na airfryer por mais ou menos 10 minutos&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DExcXTjJShy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Lasanha de de banana da terra com carne de soja</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/lasanha-banana-terra-carne-soja/" type="text/html" />
             <id>/pessoal/receitas/refeies/lasanha-banana-terra-carne-soja/</id>
@@ -278,48 +375,6 @@
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DJPChWXRhCq/&#34;&gt;Receita original não é vegetariana&lt;/a&gt;&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
-            <title>Bean-fu da Birmânia de lentilha ou ervilha</title>
-            <link rel="alternate" href="/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/" type="text/html" />
-            <id>/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/</id>
-            <updated>2025-06-30T10:58:00Z</updated>
-
-            <summary type="html">Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.</summary>
-            <content type="html">&lt;p&gt;Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.&lt;/p&gt;
-
-&lt;h2&gt;Igredientes&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;200g de lentilha, lentilha rosa ou ervilha&lt;/li&gt;
-&lt;li&gt;200ml de água&lt;/li&gt;
-&lt;li&gt;3 colheres de chá de sal&lt;/li&gt;
-&lt;li&gt;Azeite de oliva&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Preparo inicial&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Deixe de molho por 12 horas a leguminosa&lt;/li&gt;
-&lt;li&gt;Escorra a água do molho lavando as leguminosas&lt;/li&gt;
-&lt;li&gt;Bata no liquidificador a legminosa com 200ml de água e o sal até ficar bem homogêneo&lt;/li&gt;
-&lt;li&gt;Derrame a mistura em uma panela&lt;/li&gt;
-&lt;li&gt;Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem certeza&lt;/li&gt;
-&lt;li&gt;Quando estiver quase firme, derrame em um recipiente de forma que fique com um dedo de altura&lt;/li&gt;
-&lt;li&gt;Coloque na geladeira&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Preparo final&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;O bean-fu já estará firme e pode ser retirado do recipiente como um blocão&lt;/li&gt;
-&lt;li&gt;Corte em cubinhos, pincele com azeite de oliva&lt;/li&gt;
-&lt;li&gt;Coloque na airfryer por mais ou menos 10 minutos&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DExcXTjJShy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
 </content>
         </entry>
     

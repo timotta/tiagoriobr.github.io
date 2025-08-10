@@ -22,7 +22,7 @@ Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fr
 1. Escorra a água do molho lavando as leguminosas
 2. Bata no liquidificador a legminosa com 200ml de água e o sal até ficar bem homogêneo
 3. Derrame a mistura em uma panela
-4. Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem certeza
+4. Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem problema.
 5. Quando estiver quase firme, derrame em um recipiente de forma que fique com um dedo de altura
 6. Coloque na geladeira
 
