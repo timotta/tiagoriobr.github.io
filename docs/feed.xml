@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-08-10T01:40:43Z</updated>
+    <updated>2025-09-02T00:22:09Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -13,6 +13,35 @@
         <uri>/</uri>
     </author>
 
+    
+        <entry>
+            <title>Capybara, pareto principle and bureaucracy</title>
+            <link rel="alternate" href="/work/personal/capybara/capybara-pareto-principle-bureaucracy/" type="text/html" />
+            <id>/work/personal/capybara/capybara-pareto-principle-bureaucracy/</id>
+            <updated>2025-09-01T00:20:00Z</updated>
+
+            <summary type="html">In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.</summary>
+            <content type="html">&lt;p&gt;In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.&lt;/p&gt;
+
+&lt;p&gt;It had taken me two years to develop, though—confession time—about 80% of the actual work was crammed into just three months. The rest of the time? Endless tweaking of layouts, designs, and silky-smooth transitions. Basically, a Pareto principle masterclass: 20% inspiration, 80% fiddling.&lt;/p&gt;
+
+&lt;p&gt;The original idea was to make something like the classic game Lemmings. But as so often happens in game dev, the project evolved… and mutated… until I had something completely different. The capybara protagonist was born out of pure local inspiration: my hometown is crawling with capybaras. They’re fluffy, they’re cute, and honestly, who wouldn’t want one as their game’s mascot?&lt;/p&gt;
+
+&lt;p&gt;At launch, the game had a mini boom—over a thousand installs! Not bad for a gooey rodent experiment. The only catch was that I hadn’t built in any sticky “keep playing forever” mechanics like collectibles or social hooks. The only long-term engagement feature was a ranking system using Google Play Games. My plan was to add new content slowly over time… but then life (and shinier projects) got in the way. The game slipped into the shadows.&lt;/p&gt;
+
+&lt;p&gt;Years passed. Google Play eventually yanked it from the store, disabled my developer account, and buried me under ignored emails about SDK updates and new forms. Bureaucracy: 1, Tiago: 0.&lt;/p&gt;
+
+&lt;p&gt;Then, out of nowhere, my Panamanian niece asked her dad (my brother-in-law) if she could play “the Capybara game.” Panic! I had no way to give her access—the game was gone, and I wasn’t even sure I could build it again after all this time.&lt;/p&gt;
+
+&lt;p&gt;Spoiler: I couldn’t. The game was built in &lt;a href=&#34;https://love2d.org/&#34;&gt;Love2D&lt;/a&gt;—a &lt;a href=&#34;https://www.lua.org/&#34;&gt;Lua&lt;/a&gt;-based game engine with an Android wrapper—and everything was tied to an ancient version of that setup. Updating it was anything but simple. Since the engine isn’t exactly mainstream, it felt like every bug was a one-of-a-kind nightmare just for me. What I thought would take two days stretched into two painful weeks.&lt;/p&gt;
+
+&lt;p&gt;Past Tiago had at least left some gifts: a bunch of handy visual debug tools I’d learned to build back in my Globo Videos (now &lt;a href=&#34;https://globoplay.globo.com/&#34;&gt;Globo Play&lt;/a&gt;) days, back when we were migrating from the good old Windows Media Player to the brave new world of Macromedia Flash. But Past Tiago had also left traps: cryptic magic numbers with names so indecipherable that even Future Tiago couldn’t guess what they meant. Thanks, buddy.&lt;/p&gt;
+
+&lt;p&gt;Still, the hardest boss fight wasn’t the code—it was Google Play. Endless forms, mysterious “review” failures, especially for my bank statement. No explanation, just “Nope. Try again.” After nearly a week of trial and error, I finally broke through.&lt;/p&gt;
+
+&lt;p&gt;And so, &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; is back! My family can play, my niece is happy, and maybe—just maybe—I’ll add new levels, collectibles, or social features this time. That is, if Google Play doesn’t drain all my life energy first. They’ve already set a deadline: update again by November 1st, or else. Bureaucracy never sleeps.&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Cuca beludo de leite condensado</title>
@@ -479,7 +508,7 @@
             <title>The Journey to Hybrid Search at OLX Brasil</title>
             <link rel="alternate" href="/work/olxbrasil/search/jouney-hybrid-search/" type="text/html" />
             <id>/work/olxbrasil/search/jouney-hybrid-search/</id>
-            <updated>2025-06-07T13:01:00Z</updated>
+            <updated>2025-06-07T23:36:00Z</updated>
 
             <summary type="html">This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.</summary>
             <content type="html">&lt;p&gt;This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.&lt;/p&gt;
