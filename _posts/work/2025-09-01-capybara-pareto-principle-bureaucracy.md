@@ -21,7 +21,11 @@ Then, out of nowhere, my Panamanian niece asked her dad (my brother-in-law) if s
 
 Spoiler: I couldn’t. The game was built in [Love2D](https://love2d.org/)—a [Lua](https://www.lua.org/)-based game engine with an Android wrapper—and everything was tied to an ancient version of that setup. Updating it was anything but simple. Since the engine isn’t exactly mainstream, it felt like every bug was a one-of-a-kind nightmare just for me. What I thought would take two days stretched into two painful weeks.
 
-Past Tiago had at least left some gifts: a bunch of handy visual debug tools I’d learned to build back in my Globo Videos (now [Globo Play](https://globoplay.globo.com/)) days, back when we were migrating from the good old Windows Media Player to the brave new world of Macromedia Flash. But Past Tiago had also left traps: cryptic magic numbers with names so indecipherable that even Future Tiago couldn’t guess what they meant. Thanks, buddy.
+Past Tiago had at least left some gifts: a bunch of handy visual debug tools I’d learned to build back in my Globo Videos (now [Globo Play](https://globoplay.globo.com/)) days, back when we were migrating from the good old Windows Media Player to the brave new world of Macromedia Flash.
+
+![/assets/images/capybara.png](/assets/images/capybara.png)
+
+But Past Tiago had also left traps: cryptic magic numbers with names so indecipherable that even Future Tiago couldn’t guess what they meant. Thanks, buddy.
 
 Still, the hardest boss fight wasn’t the code—it was Google Play. Endless forms, mysterious “review” failures, especially for my bank statement. No explanation, just “Nope. Try again.” After nearly a week of trial and error, I finally broke through.
 

@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-09-02T00:22:09Z</updated>
+    <updated>2025-09-02T00:32:57Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>Capybara, pareto principle and bureaucracy</title>
             <link rel="alternate" href="/work/personal/capybara/capybara-pareto-principle-bureaucracy/" type="text/html" />
             <id>/work/personal/capybara/capybara-pareto-principle-bureaucracy/</id>
-            <updated>2025-09-01T00:20:00Z</updated>
+            <updated>2025-09-01T00:32:00Z</updated>
 
             <summary type="html">In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.</summary>
             <content type="html">&lt;p&gt;In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.&lt;/p&gt;
@@ -35,7 +35,11 @@
 
 &lt;p&gt;Spoiler: I couldn’t. The game was built in &lt;a href=&#34;https://love2d.org/&#34;&gt;Love2D&lt;/a&gt;—a &lt;a href=&#34;https://www.lua.org/&#34;&gt;Lua&lt;/a&gt;-based game engine with an Android wrapper—and everything was tied to an ancient version of that setup. Updating it was anything but simple. Since the engine isn’t exactly mainstream, it felt like every bug was a one-of-a-kind nightmare just for me. What I thought would take two days stretched into two painful weeks.&lt;/p&gt;
 
-&lt;p&gt;Past Tiago had at least left some gifts: a bunch of handy visual debug tools I’d learned to build back in my Globo Videos (now &lt;a href=&#34;https://globoplay.globo.com/&#34;&gt;Globo Play&lt;/a&gt;) days, back when we were migrating from the good old Windows Media Player to the brave new world of Macromedia Flash. But Past Tiago had also left traps: cryptic magic numbers with names so indecipherable that even Future Tiago couldn’t guess what they meant. Thanks, buddy.&lt;/p&gt;
+&lt;p&gt;Past Tiago had at least left some gifts: a bunch of handy visual debug tools I’d learned to build back in my Globo Videos (now &lt;a href=&#34;https://globoplay.globo.com/&#34;&gt;Globo Play&lt;/a&gt;) days, back when we were migrating from the good old Windows Media Player to the brave new world of Macromedia Flash.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/assets/images/capybara.png&#34; alt=&#34;/assets/images/capybara.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;But Past Tiago had also left traps: cryptic magic numbers with names so indecipherable that even Future Tiago couldn’t guess what they meant. Thanks, buddy.&lt;/p&gt;
 
 &lt;p&gt;Still, the hardest boss fight wasn’t the code—it was Google Play. Endless forms, mysterious “review” failures, especially for my bank statement. No explanation, just “Nope. Try again.” After nearly a week of trial and error, I finally broke through.&lt;/p&gt;
 
