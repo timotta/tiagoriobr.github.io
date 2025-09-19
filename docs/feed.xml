@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-09-19T23:37:53Z</updated>
+    <updated>2025-09-19T23:44:45Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -807,7 +807,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Patching scikit-learn to improve API performance</title>
             <link rel="alternate" href="/work/willbank/account/patching-scikit-learn-improve-api-performance/" type="text/html" />
             <id>/work/willbank/account/patching-scikit-learn-improve-api-performance/</id>
-            <updated>2025-02-27T10:56:00Z</updated>
+            <updated>2025-02-27T23:44:00Z</updated>
 
             <summary type="html">This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.</summary>
             <content type="html">&lt;p&gt;This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.&lt;/p&gt;
@@ -868,6 +868,32 @@ def new_target_encoder_transform(self, *args, **kwargs):
 &lt;p&gt;&lt;img src=&#34;/assets/images/target-encoder-performance.png&#34; alt=&#34;/assets/images/mab.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;That said, a warning remains: this is not a fully secure solution. A future update to scikit-learn could modify its internal attributes, which this patch relies on, potentially altering its behavior or even causing silent errors. To mitigate this risk, we have implemented tests in the API to verify the expected behavior across various scenarios.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update (2025-09-15)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Recently I needed to apply TargetEncoder to multiple columns within the same instance. To handle that, I updated the code:&lt;/p&gt;
+
+&lt;pre&gt;
+def new_target_encoder_transform(self, *args, **kwargs):
+    if &#34;_cache_cat&#34; not in self.__dict__:
+        self._cache_cat = []
+        for categories in self.categories_:
+            self._cache_cat.append({v: i for i, v in enumerate(categories)})
+
+    X = args[0]
+    X_out = np.empty_like(X, dtype=np.float64)
+
+    for row_i, row in X.iterrows():
+        for col_i, category in enumerate(row):
+            index = self._cache_cat[col_i].get(category)
+            if index is None:
+                X_out[row_i, col_i] = self.target_mean_
+            else:
+                X_out[row_i, col_i] = self.encodings_[col_i][index]
+    return X_out
+&lt;/pre&gt;
+
+&lt;p&gt;It still missing many functionalities of the TargetEncoder like the &amp;ldquo;unfrequent&amp;rdquo; parameter configurations. But works for me.&lt;/p&gt;
 </content>
         </entry>
     

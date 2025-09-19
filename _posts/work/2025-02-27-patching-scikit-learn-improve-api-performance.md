@@ -66,6 +66,29 @@ After deploying this improvement, we were able to match the response time of the
 
 That said, a warning remains: this is not a fully secure solution. A future update to scikit-learn could modify its internal attributes, which this patch relies on, potentially altering its behavior or even causing silent errors. To mitigate this risk, we have implemented tests in the API to verify the expected behavior across various scenarios.
 
+**Update (2025-09-15)**
 
+Recently I needed to apply TargetEncoder to multiple columns within the same instance. To handle that, I updated the code:
 
+<pre>
+def new_target_encoder_transform(self, *args, **kwargs):
+    if "_cache_cat" not in self.__dict__:
+        self._cache_cat = []
+        for categories in self.categories_:
+            self._cache_cat.append({v: i for i, v in enumerate(categories)})
+
+    X = args[0]
+    X_out = np.empty_like(X, dtype=np.float64)
+
+    for row_i, row in X.iterrows():
+        for col_i, category in enumerate(row):
+            index = self._cache_cat[col_i].get(category)
+            if index is None:
+                X_out[row_i, col_i] = self.target_mean_
+            else:
+                X_out[row_i, col_i] = self.encodings_[col_i][index]
+    return X_out
+</pre>
+
+It still missing many functionalities of the TargetEncoder like the "unfrequent" parameter configurations. But works for me.
 
