@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-09-22T23:40:04Z</updated>
+    <updated>2025-09-23T01:30:04Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,10 @@
 
     
         <entry>
-            <title>Kafta vegana</title>
-            <link rel="alternate" href="/pessoal/receitas/sobremesas/kafta-vegana/" type="text/html" />
-            <id>/pessoal/receitas/sobremesas/kafta-vegana/</id>
-            <updated>2025-09-22T23:40:00Z</updated>
+            <title>Kafta vegana: Explosão de sabor</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/kafta-vegana-explosao-sabor/" type="text/html" />
+            <id>/pessoal/receitas/refeies/kafta-vegana-explosao-sabor/</id>
+            <updated>2025-09-22T01:30:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -50,15 +50,47 @@
 &lt;li&gt;7 minutos na airfryer de um lado, gire os bolinhos e coloque mais 7 minutos.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DKcf8GZKx6X/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DNlObROtAKH/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
 </content>
         </entry>
     
         <entry>
-            <title>Palha italiana</title>
-            <link rel="alternate" href="/pessoal/receitas/sobremesas/palha-italiana/" type="text/html" />
-            <id>/pessoal/receitas/sobremesas/palha-italiana/</id>
-            <updated>2025-09-22T23:30:00Z</updated>
+            <title>Chipa Guazú: Torta salgada</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/chipa-guazu-torta-salgado/" type="text/html" />
+            <id>/pessoal/receitas/refeies/chipa-guazu-torta-salgado/</id>
+            <updated>2025-09-21T01:29:00Z</updated>
+
+            
+            <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1 lata de milho&lt;/li&gt;
+&lt;li&gt;&amp;frac12; lata de leite&lt;/li&gt;
+&lt;li&gt;2 ovos&lt;/li&gt;
+&lt;li&gt;1 cebola picada e refogada no azeite&lt;/li&gt;
+&lt;li&gt;Sal e pimenta a gosto&lt;/li&gt;
+&lt;li&gt;1 colher de chá de fermento em pó&lt;/li&gt;
+&lt;li&gt;100g de queijo meia cura&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Bata todos os igredientes menos o queijo no microondas&lt;/li&gt;
+&lt;li&gt;Rale o queijo e misture a maior parte dele&lt;/li&gt;
+&lt;li&gt;Coloque a massa em uma travessa e jogue o restante do queijo ralado em cima&lt;/li&gt;
+&lt;li&gt;Leve ao forno pré-aquecido a 200 graus durante 30 a 40 minutos até dourar&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DJkS5QYqkm3/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Palha italiana simples</title>
+            <link rel="alternate" href="/pessoal/receitas/sobremesas/palha-italiana-simples/" type="text/html" />
+            <id>/pessoal/receitas/sobremesas/palha-italiana-simples/</id>
+            <updated>2025-09-20T01:27:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;

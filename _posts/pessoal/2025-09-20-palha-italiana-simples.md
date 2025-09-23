@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title: "Palha italiana"
+title: "Palha italiana simples"
 tags: [pessoal, receitas, sobremesas]
 path1: pessoal
 path2: receitas

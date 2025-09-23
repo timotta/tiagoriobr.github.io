@@ -1,10 +1,10 @@
 ---
 layout: post.html
-title: "Kafta vegana"
-tags: [pessoal, receitas, sobremesas]
+title: "Kafta vegana: Explosão de sabor"
+tags: [pessoal, receitas, refeições]
 path1: pessoal
 path2: receitas
-path3: sobremesas
+path3: refeições
 ---
 
 <h2>Igredientes</h2>
@@ -32,4 +32,4 @@ path3: sobremesas
 6. Faça bolinhos e coloque na airfryer jogando azeide com spray ou pincelando por cima
 7. 7 minutos na airfryer de um lado, gire os bolinhos e coloque mais 7 minutos.
 
-[Receita original](https://www.instagram.com/reel/DKcf8GZKx6X/)
+[Receita original](https://www.instagram.com/reel/DNlObROtAKH/)
