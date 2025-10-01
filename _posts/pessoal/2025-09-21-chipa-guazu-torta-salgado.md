@@ -19,7 +19,7 @@ path3: refeições
 
 <h2>Preparo</h2>
 
-1. Bata todos os igredientes menos o queijo no microondas
+1. Bata todos os igredientes menos o queijo no liquidificador
 2. Rale o queijo e misture a maior parte dele
 3. Coloque a massa em uma travessa e jogue o restante do queijo ralado em cima
 4. Leve ao forno pré-aquecido a 200 graus durante 30 a 40 minutos até dourar
