@@ -12,7 +12,7 @@ path3: sobremesas
 * 2 latas/caixas de leite condensado (total de 790g)
 * 30g de manteiga com sal
 * 40g de chocolate em pó 100% cacau
-* 1 pacote de biscoito maizena (200g)
+* 1 pacote de biscoito maizena (175g)
 * Leite em pó para decorar
 
 <h2>Preparo</h2>
