@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-10-20T01:35:06Z</updated>
+    <updated>2025-11-08T15:31:50Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -13,6 +13,53 @@
         <uri>/</uri>
     </author>
 
+    
+        <entry>
+            <title>An Approval Model That Finally Got Approved</title>
+            <link rel="alternate" href="/work/willbank/account/approval-model-finally-approved/" type="text/html" />
+            <id>/work/willbank/account/approval-model-finally-approved/</id>
+            <updated>2025-11-08T15:31:00Z</updated>
+
+            <summary type="html">Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.</summary>
+            <content type="html">&lt;p&gt;Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.&lt;/p&gt;
+
+&lt;p&gt;When our team was created to tackle this, a few experiments were already floating around. One of them aimed to find, among credit-denied customers, those who still had potential to become great digital account users. A noble quest, but easier said than done.&lt;/p&gt;
+
+&lt;p&gt;The first challenge was defining what a &amp;ldquo;good customer&amp;rdquo; even meant. The data science team and business folks were in deep philosophical discussions over what &amp;ldquo;engagement&amp;rdquo; actually looked like. The metrics were solid, repeated transactions, specific frequencies, consistent usages, but not exactly actionable. One example definition was: &amp;ldquo;The customer performed a cash-out at least once per month for three months.&amp;rdquo; That sounds reasonable, right? Except it came with two major problems:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We needed three months of data before even training.&lt;/li&gt;
+&lt;li&gt;Then another three months to check results.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To make things worse, we barely had any non-credit customers in the data. We planned to open the funnel randomly for two months to collect more samples. But with a three-month target, that meant at least five months before we could train a single model.
+We wanted to do data science, not archaeology.&lt;/p&gt;
+
+&lt;p&gt;So our first big move was to redefine success. We needed something we could actually measure this century. After some digging, we found a beautiful correlation: customers who made any transaction in the first week were much more likely to stay engaged in the long term. Perfect. Fast feedback, clear signal, no time travel required.&lt;/p&gt;
+
+&lt;p&gt;With the new target set, and after a month of random sampling, I jumped into the team’s notebooks. They were running SageMaker, which came with ancient versions of pandas, scikit-learn, and XGBoost, and, tragically, no Optuna, my favorite hyperparameter-tuning companion. Given how tiny our dataset was, using SageMaker felt like renting a stadium to play table tennis. I moved everything locally, upgraded the stack, and life instantly got easier. We have accidentally created a Notebook template that we started using in many other following models for recommendation, churn detection and fraud prevention among others.&lt;/p&gt;
+
+&lt;p&gt;Before the data science discipline was internalized, communication had been another headache. The data science presentations were full of bins, score ranges, and KS values. Impressive stuff, unless you weren’t a data scientist. To business stakeholders, it looked like hieroglyphics. They thought the model was a failure when it really wasn’t; it was just badly translated from &amp;ldquo;data&amp;rdquo; to &amp;ldquo;business.&amp;rdquo; So we changed the narrative. Instead of showing Kolmogorov-Smirnov, we started showing activation rates, complaint ratios, and the famous &amp;ldquo;what happens if we approve these people&amp;rdquo; chart. Suddenly, everyone was speaking the same language.&lt;/p&gt;
+
+&lt;p&gt;I added a threshold analysis to the jupyter template to find the optimal score cutoff for activation and built guardrail metrics to show the trade-offs. The model was simple, put together in just two days, but the results were great. I made a deck with easy visuals, and for the first time, the business team didn’t just nod politely; they were genuinely excited. The project had direction again. Sometimes, the real model improvement is just better storytelling.&lt;/p&gt;
+
+&lt;p&gt;The model still needed tuning, but since the data science discipline was already part of the team, others kept improving it while I tried to figure out how to actually get it live, since I was still the new kid at the company. In parallel, we were redesigning the onboarding flow to make sure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were available to the model at runtime, always a fun game of &amp;ldquo;what can we actually use without months of work&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Because the team was multidisciplinary, we could quickly adjust which features to include in training as we found new constraints. As we like to say, &amp;ldquo;A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook.&amp;rdquo; (We all know a few of those.)&lt;/p&gt;
+
+&lt;p&gt;Deploying the model turned out to be refreshingly simple. Will Bank already had an internal platform to spin up new apps in the Kubernetes cluster. We just built a small FastAPI service with the model pickle, deployed it, and plugged into our observability and event tracking system. We could now watch the model’s scores and feature drift in real time, basically, data science with popcorn.&lt;/p&gt;
+
+&lt;p&gt;Then came the fun part: results. Once live, the model delivered a 27% increase in activation in an A/B test, and the improvement held steady for months after rollout. We also kept a random control group untouched by the model, so we always had a healthy benchmark and new data for retraining. The curve went up, the charts looked great, and for once, nobody asked, &amp;ldquo;but is it statistically significant?&amp;rdquo; (It was.)&lt;/p&gt;
+
+&lt;p&gt;That choice paid off in the long run. Over the following months, we went through five model iterations, refining targets, adding new features, and slowly reintroducing attributes we had initially left out for the development speed. &lt;a href=&#34;/work/willbank/account/patching-scikit-learn-improve-api-performance/&#34;&gt;I have writen a post about one of those iteraction here&lt;/a&gt;. Each version got smarter, and the team got more and more knowledge about clients without credit.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, our team kept improving the non-credit customer experience to the point that we no longer needed to block users with low engagement potential. The model evolved too. It became less about who to approve and more about reducing friction in the onboarding flow, deciding whether to even ask customers if they still wanted to open an account after being denied credit. That small change had a big impact: more customers transacting, more staying active, and far fewer confused faces.&lt;/p&gt;
+
+&lt;p&gt;It was a great reminder that, in data science, the smartest thing you can do isn’t always building a new algorithm: It’s helping people make slightly better decisions at the right moment. After all, the Agile Manifesto wasn’t written for data scientists, but maybe it should’ve been: working insights over perfect models, collaboration over documentation, and delivering value over chasing accuracy.&lt;/p&gt;
+
+&lt;p&gt;This project was a collaboration of &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/&#34;&gt;Gustavo Lee&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/&#34;&gt;Jadson Marcelino&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/osvaldo-berg-jr/&#34;&gt;Osvaldo Berg&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/flaviaveloso/&#34;&gt;Flávia Veloso&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/pamelaps/&#34;&gt;Pamela Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/rodrigomendesnunes/&#34;&gt;Rodrigo Nunes&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/camilamsilva/&#34;&gt;Camila de Melo&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/lurishirosaki/&#34;&gt;Luri Shirosaki&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/ahelensouza/&#34;&gt;Helen Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/anacrislemos/&#34;&gt;Ana Lemos&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/rodrigo-orofino/&#34;&gt;Rodrigo Orofino&lt;/a&gt;. What an amazing group of people!&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Tofu ou frango teriaki na airfryer</title>
@@ -1019,7 +1066,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Patching scikit-learn to improve API performance</title>
             <link rel="alternate" href="/work/willbank/account/patching-scikit-learn-improve-api-performance/" type="text/html" />
             <id>/work/willbank/account/patching-scikit-learn-improve-api-performance/</id>
-            <updated>2025-02-27T23:44:00Z</updated>
+            <updated>2025-02-27T13:49:00Z</updated>
 
             <summary type="html">This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.</summary>
             <content type="html">&lt;p&gt;This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.&lt;/p&gt;
