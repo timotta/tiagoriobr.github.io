@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-11-08T15:31:50Z</updated>
+    <updated>2025-11-14T01:57:58Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,7 +18,7 @@
             <title>An Approval Model That Finally Got Approved</title>
             <link rel="alternate" href="/work/willbank/account/approval-model-finally-approved/" type="text/html" />
             <id>/work/willbank/account/approval-model-finally-approved/</id>
-            <updated>2025-11-08T15:31:00Z</updated>
+            <updated>2025-11-08T01:57:00Z</updated>
 
             <summary type="html">Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.</summary>
             <content type="html">&lt;p&gt;Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.&lt;/p&gt;
@@ -57,7 +57,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
 
 &lt;p&gt;It was a great reminder that, in data science, the smartest thing you can do isn’t always building a new algorithm: It’s helping people make slightly better decisions at the right moment. After all, the Agile Manifesto wasn’t written for data scientists, but maybe it should’ve been: working insights over perfect models, collaboration over documentation, and delivering value over chasing accuracy.&lt;/p&gt;
 
-&lt;p&gt;This project was a collaboration of &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/&#34;&gt;Gustavo Lee&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/&#34;&gt;Jadson Marcelino&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/osvaldo-berg-jr/&#34;&gt;Osvaldo Berg&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/flaviaveloso/&#34;&gt;Flávia Veloso&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/pamelaps/&#34;&gt;Pamela Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/rodrigomendesnunes/&#34;&gt;Rodrigo Nunes&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/camilamsilva/&#34;&gt;Camila de Melo&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/lurishirosaki/&#34;&gt;Luri Shirosaki&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/ahelensouza/&#34;&gt;Helen Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/anacrislemos/&#34;&gt;Ana Lemos&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/rodrigo-orofino/&#34;&gt;Rodrigo Orofino&lt;/a&gt;. What an amazing group of people!&lt;/p&gt;
+&lt;p&gt;Although I describe &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;myself&lt;/a&gt; as the protagonist in this story, it has many other layers and perspectives, and none of it would have happened without the collective work of this amazing group of professionals: &lt;a href=&#34;https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/&#34;&gt;Gustavo Lee&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/&#34;&gt;Jadson Marcelino&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/osvaldo-berg-jr/&#34;&gt;Osvaldo Berg&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/flaviaveloso/&#34;&gt;Flávia Veloso&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/pamelaps/&#34;&gt;Pamela Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/rodrigomendesnunes/&#34;&gt;Rodrigo Nunes&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/camilamsilva/&#34;&gt;Camila de Melo&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/lurishirosaki/&#34;&gt;Luri Shirosaki&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/ahelensouza/&#34;&gt;Helen Souza&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/anacrislemos/&#34;&gt;Ana Lemos&lt;/a&gt; e &lt;a href=&#34;https://www.linkedin.com/in/rodrigo-orofino/&#34;&gt;Rodrigo Orofino&lt;/a&gt;.&lt;/p&gt;
 </content>
         </entry>
     
