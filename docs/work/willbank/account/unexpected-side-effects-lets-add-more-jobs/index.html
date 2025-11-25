@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="Tiago Albineli Motta">
+
+<meta name="generator" content="mynt v0.4">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml">
+<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/css/screen.css">
+
+
+    <title>Unexpected Side Effects of Let’s Add More jobs – tiago.rio.br</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h1 id="title"><a href="/">tiago.rio.br</a></h1>
+            
+        </div>
+
+        
+    <div id="breadcrumbs">
+        <a href="/">Home</a><span> » </span>
+        <a href="/archives/work/">work</a><span> » </span>
+        <a href="/archives/willbank/">willbank</a><span> » </span>
+        <a href="/archives/account/">account</a><span> » </span>
+    </div>
+
+
+        <div id="content">
+            
+    <div class="post">
+        <h1 class="post-title">Unexpected Side Effects of Let’s Add More jobs</h1>
+        <p>In another iteration to improve our <a href="../approval-model-finally-approved/">no-credit account approval model</a>, we built a new version with a new target. During local testing, it showed a response time significantly higher than the previous model, almost double. Honestly, this wasn’t surprising: the feature count had grown, the model was more complex, and we all know complexity never comes for free.</p>
+
+<p>But once we deployed it to the development environment, the service API simply refused to start. Looking at our memory metrics, it was obvious that consumption was through the roof. Even after doubling the memory requested in Kubernetes, the service still wouldn’t come up, apparently having developed an expensive taste and asking for even more memory.</p>
+
+<p>Digging into the issue locally, I noticed that when the service started and loaded the model pickle, <strong>14 forked processes</strong> magically appeared, as if I had accidentally summoned them.</p>
+
+<pre>
+ps aux | grep myproject
+.../python3.11 -m joblib.externals.loky.backend.popen_loky_posix --process-name LokyProcess-1:2 --pipe 29
+...
+</pre>
+
+<p>The number <strong>14</strong> instantly rang a bell: it was the exact value I had used for <code>n_jobs</code> when training the model.</p>
+
+<p><img src="/assets/images/14jobs.png" alt="/assets/images/14jobs.png"></p>
+
+<p>I had never had issues using <code>n_jobs</code> when training XGBoost. XGBoost normally keeps that parallelism contained to the fit step. But in this new model, I had also set <code>n_jobs</code> on the <code>ColumnTransformer</code> inside the Pipeline. Looking back, a bold decision. Not necessarily a wise one.</p>
+
+<p>To give you an idea, the pipeline looked something like this:</p>
+
+<pre>
+preprocessor = ColumnTransformer([
+    ('num', num_pipeline, NUM_FEATURES),
+    ('cat', cat_pipeline, CAT_FEATURES),
+], n_jobs=14)
+
+pipeline = Pipeline([
+    ('preprocessor', preprocessor),
+    ('xgboost', XGBClassifier(..., n_jobs=14))
+])
+</pre>
+
+<p>And that’s where the mischief was hiding. <code>n_jobs</code>, wonderfully useful to speed up training, turned into a tiny chaos agent when loading the model for <code>predict</code>, spawning more processes than my dev environment cared to handle.</p>
+
+<p>To fix the problem, I wrote a small script to &ldquo;edit&rdquo; the pickle (yes, it always feels slightly illegal) and took the opportunity to migrate to <code>cloudpickle</code>:</p>
+
+<pre>
+with open(f"{base_path}/problematic.pkl", "rb") as f1:
+    model = pickle.load(f1)
+
+dict(model.steps)["preprocessor"].n_jobs = None
+
+with open(f"{base_path}/fixed.pkl", "wb") as f2:
+    f2.write(cloudpickle.dumps(model))
+</pre>
+
+<p>That was enough to bring the response time back to the level of the previous model, even with the added complexity. And the deployment to the dev environment finally behaved like a civilized service.</p>
+
+<p>Of course, editing a pickle always carries the risk of altering the model&rsquo;s behavior, but in this case it was safe. Running the model on a sample of 10,000 examples returned the exact same scores.</p>
+
+<p>I can’t help but think how difficult it would have been to diagnose the memory issues if I hadn’t recalled that <em>I had explicitly set</em> <code>n_jobs=14</code>. It really felt like past me had constructed the perfect trap for future me, and future me walked right into it.</p>
+
+        <h2 class="post-meta">Tiago Albineli Motta @ 2025-11-25</h2>
+    </div>
+
+        </div>
+
+        <div id="footer">
+            
+            © 2025 Tiago Albineli Motta
+        </div>
+    </div>
+</body>
+</html>

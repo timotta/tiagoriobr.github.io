@@ -27,6 +27,8 @@ Before the data science discipline was internalized, communication had been anot
 
 I added a threshold analysis to the jupyter template to find the optimal score cutoff for activation and built guardrail metrics to show the trade-offs. The model was simple, put together in just two days, but the results were great. I made a deck with easy visuals, and for the first time, the business team didn’t just nod politely; they were genuinely excited. The project had direction again. Sometimes, the real model improvement is just better storytelling.
 
+![/assets/images/approval.png](/assets/images/approval.png)
+
 The model still needed tuning, but since the data science discipline was already part of the team, others kept improving it while I tried to figure out how to actually get it live, since I was still the new kid at the company. In parallel, we were redesigning the onboarding flow to make sure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were available to the model at runtime, always a fun game of "what can we actually use without months of work".
 
 Because the team was multidisciplinary, we could quickly adjust which features to include in training as we found new constraints. As we like to say, "A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook." (We all know a few of those.)
@@ -42,7 +44,4 @@ Meanwhile, our team kept improving the non-credit customer experience to the poi
 It was a great reminder that, in data science, the smartest thing you can do isn’t always building a new algorithm: It’s helping people make slightly better decisions at the right moment. After all, the Agile Manifesto wasn’t written for data scientists, but maybe it should’ve been: working insights over perfect models, collaboration over documentation, and delivering value over chasing accuracy.
 
 Although I describe [myself](https://www.linkedin.com/in/timotta/) as the protagonist in this story, it has many other layers and perspectives, and none of it would have happened without the collective work of this amazing group of professionals: [Gustavo Lee](https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/), [Jadson Marcelino](https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/), [Osvaldo Berg](https://www.linkedin.com/in/osvaldo-berg-jr/), [Flávia Veloso](https://www.linkedin.com/in/flaviaveloso/), [Pamela Souza](https://www.linkedin.com/in/pamelaps/), [Rodrigo Nunes](https://www.linkedin.com/in/rodrigomendesnunes/), [Camila de Melo](https://www.linkedin.com/in/camilamsilva/), [Luri Shirosaki](https://www.linkedin.com/in/lurishirosaki/), [Helen Souza](https://www.linkedin.com/in/ahelensouza/), [Ana Lemos](https://www.linkedin.com/in/anacrislemos/) e [Rodrigo Orofino](https://www.linkedin.com/in/rodrigo-orofino/).
-
-
-
 

@@ -214,12 +214,10 @@ a:hover {
 }
 
 code {
-  padding: 0px 3px;
-  background-color: #1f1f1f;
-  color: #a6a6a6;
+  color: #0B6E47;
   font-family: "Envy Code R", "Ubuntu Mono", monospace;
-  line-height: 17px;
   white-space: pre;
+  font-weight: bold;
 }
 pre code {
   padding: 0px;
