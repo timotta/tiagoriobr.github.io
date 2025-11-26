@@ -29,9 +29,11 @@ I added a threshold analysis to the jupyter template to find the optimal score c
 
 ![/assets/images/approval.png](/assets/images/approval.png)
 
-The model still needed tuning, but since the data science discipline was already part of the team, others kept improving it while I tried to figure out how to actually get it live, since I was still the new kid at the company. In parallel, we were redesigning the onboarding flow to make sure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were available to the model at runtime, always a fun game of "what can we actually use without months of work".
+The model still needed tuning, but since data science was already part of the team, [Gustavo Lee](https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/), who had been working on the model long before I joined, and [Jadson Marcelino](https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/), whom we had recently hired and brought many ideas for new features and target setups, continued improving it.
 
-Because the team was multidisciplinary, we could quickly adjust which features to include in training as we found new constraints. As we like to say, "A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook." (We all know a few of those.)
+Meanwhile, I was trying to figure out how to actually get it live, since I was still the new kid at the company.
+
+Lucky for us, in parallel we were redesigning the onboarding flow to ensure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were actually available to the model at runtime, which is always a fun game of “what can we really use without months of engineering work?” Because the team was multidisciplinary, we could quickly adjust which features to include in training as we discovered new constraints. As we like to say, “A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook.” (We all know a few of those.)
 
 Deploying the model turned out to be refreshingly simple. Will Bank already had an internal platform to spin up new apps in the Kubernetes cluster. We just built a small FastAPI service with the model pickle, deployed it, and plugged into our observability and event tracking system. We could now watch the model’s scores and feature drift in real time, basically, data science with popcorn.
 

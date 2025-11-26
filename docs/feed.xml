@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2025-11-25T17:40:50Z</updated>
+    <updated>2025-11-26T14:18:45Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -79,7 +79,7 @@ with open(f&#34;{base_path}/fixed.pkl&#34;, &#34;wb&#34;) as f2:
             <title>An Approval Model That Finally Got Approved</title>
             <link rel="alternate" href="/work/willbank/account/approval-model-finally-approved/" type="text/html" />
             <id>/work/willbank/account/approval-model-finally-approved/</id>
-            <updated>2025-11-08T17:40:00Z</updated>
+            <updated>2025-11-08T14:18:00Z</updated>
 
             <summary type="html">Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.</summary>
             <content type="html">&lt;p&gt;Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.&lt;/p&gt;
@@ -106,9 +106,11 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/assets/images/approval.png&#34; alt=&#34;/assets/images/approval.png&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;The model still needed tuning, but since the data science discipline was already part of the team, others kept improving it while I tried to figure out how to actually get it live, since I was still the new kid at the company. In parallel, we were redesigning the onboarding flow to make sure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were available to the model at runtime, always a fun game of &amp;ldquo;what can we actually use without months of work&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The model still needed tuning, but since data science was already part of the team, &lt;a href=&#34;https://www.linkedin.com/in/gustavo-alexis-sabill%C3%B3n-lee-3584b474/&#34;&gt;Gustavo Lee&lt;/a&gt;, who had been working on the model long before I joined, and &lt;a href=&#34;https://www.linkedin.com/in/jadson-marcelino-ele-he-86678329/&#34;&gt;Jadson Marcelino&lt;/a&gt;, whom we had recently hired and brought many ideas for new features and target setups, continued improving it.&lt;/p&gt;
 
-&lt;p&gt;Because the team was multidisciplinary, we could quickly adjust which features to include in training as we found new constraints. As we like to say, &amp;ldquo;A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook.&amp;rdquo; (We all know a few of those.)&lt;/p&gt;
+&lt;p&gt;Meanwhile, I was trying to figure out how to actually get it live, since I was still the new kid at the company.&lt;/p&gt;
+
+&lt;p&gt;Lucky for us, in parallel we were redesigning the onboarding flow to ensure customers approved without credit wouldn’t get confused or disappointed. That also helped us understand which features were actually available to the model at runtime, which is always a fun game of “what can we really use without months of engineering work?” Because the team was multidisciplinary, we could quickly adjust which features to include in training as we discovered new constraints. As we like to say, “A nearly perfect model in production is better than a perfect one stuck in a Jupyter notebook.” (We all know a few of those.)&lt;/p&gt;
 
 &lt;p&gt;Deploying the model turned out to be refreshingly simple. Will Bank already had an internal platform to spin up new apps in the Kubernetes cluster. We just built a small FastAPI service with the model pickle, deployed it, and plugged into our observability and event tracking system. We could now watch the model’s scores and feature drift in real time, basically, data science with popcorn.&lt;/p&gt;
 
