@@ -7,6 +7,8 @@ path2: receitas
 path3: sobremesas
 ---
 
+Nas ultimoas duas vezes que fiz essa receita, ele ficou muito mole não firmando o torrão que deveria se tornar. Eu imagino que a causa seja eu ter esquentado o açucar menos do que deveria. Outra possibilidade foi que na segunda vez eu não utilizei um recipiente firme com papel anti aderente ao final, usei uma forma de silicone. Tentarei novamente depois.
+
 <h2>Igredientes</h2>
 
 * 400g de amendoim torrado

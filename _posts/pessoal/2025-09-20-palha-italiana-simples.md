@@ -7,11 +7,13 @@ path2: receitas
 path3: sobremesas
 ---
 
+Por várias vezes eu fiz essa receita com chocolate em pó 100% alcalino. Tudo que eu estava fazendo com esse chocolate estava ficando com um gosto de especiarias, canela, noz moscada. Troquei para chocolate sem ser alcalino, e o sabor de especiaria desapareceu, mas ficou muito mais chocolatudo, então reduzi o total de gramas de chocolate em pó da receita (ainda não testei essa mudança).
+
 <h2>Igredientes</h2>
 
 * 2 latas/caixas de leite condensado (total de 790g)
 * 30g de manteiga com sal
-* 40g de chocolate em pó 100% cacau
+* 40g de chocolate em pó 100% cacau alcalino (ou 30g de chocolate em pó 100%)
 * 1 pacote de biscoito maizena (175g)
 * Leite em pó para decorar
 
