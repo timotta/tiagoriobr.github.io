@@ -62,6 +62,6 @@ It is worth noting that after Podium went live, several search improvements were
 
 More recently we lauched a new version of Podium, the Podium-N. In this update, we solved the issue of ads that should have the same relevance but didn't with the original Podium. Example: "Vendo samsung galaxy" and "Vendo galaxy da samsung" for the search "Galaxy". But that's for another post.
 
-In addition, we are finalizing the integration of semantic search together with Podiun-N, in a hybrid search, which is already showing great results. But that will also be discussed in a future post.
+In addition, we are finalizing the integration of semantic search together with Podiun-N, in a [hybrid search](/work/olxbrasil/search/jouney-hybrid-search/), which is already showing great results. But that will also be discussed in a future post.
 
 Podium was a collaborative solution made by [me](https://www.linkedin.com/in/timotta/), [Leonardo Wajnsztok](https://www.linkedin.com/in/leonardowajnsztok/), [Filipe Casal](https://www.linkedin.com/in/filipecasal/) and [Daniel Araújo](https://www.linkedin.com/in/daniel-correa-araujo/). The engineering manager at the time was [Rogério Rodrigues](https://www.linkedin.com/in/rogeriofrodrigues/) followed by [Gustavo Maestri](https://www.linkedin.com/in/gumaestri/) and the product manager and who gave the name for the child was [Pedro Tangari](https://www.linkedin.com/in/pedrotangari/). Please accept my apologies if I inadvertently leave anyone out. It happened three years ago...

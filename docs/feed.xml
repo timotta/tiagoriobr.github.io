@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2026-01-16T23:39:31Z</updated>
+    <updated>2026-02-04T15:28:42Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -15,10 +15,41 @@
 
     
         <entry>
+            <title>Tree hug dream unlocked by AI</title>
+            <link rel="alternate" href="/work/olxbrasil/hackday/tree-hug-dream-unlocked-ai/" type="text/html" />
+            <id>/work/olxbrasil/hackday/tree-hug-dream-unlocked-ai/</id>
+            <updated>2026-02-04T15:27:00Z</updated>
+
+            <summary type="html">In Brazil, the term &amp;ldquo;tree hug&amp;rdquo; is commonly used to describe those company off-sites filled with talks, workshops, and team dynamics that usually happen once a year. Despite not being formally hired by OLX yet, my attendance had already been informally agreed upon, so about two weeks before my official start date in February 2019, I joined an off-site, a.k.a. my very first corporate tree hug in OLX.</summary>
+            <content type="html">&lt;p&gt;In Brazil, the term &amp;ldquo;tree hug&amp;rdquo; is commonly used to describe those company off-sites filled with talks, workshops, and team dynamics that usually happen once a year. Despite not being formally hired by OLX yet, my attendance had already been informally agreed upon, so about two weeks before my official start date in February 2019, I joined an off-site, a.k.a. my very first corporate tree hug in OLX.&lt;/p&gt;
+
+&lt;p&gt;One of the activities involved splitting into groups to imagine what OLX would look like in the future and present it. After each presenttion, we were asked to imagine a post-future and present again. This cycle repeated several times, until we eventually reached a point where AI would automatically identify products you no longer needed, sell them to someone who did, pick them up from your home, deliver them to the buyer, and transfer the money to you, all without interrupting you at all. It would feel as natural as electricity or water service does today, quietly running in the background and charged via automatic debit.&lt;/p&gt;
+
+&lt;p&gt;What struck me was that, somewhere along those futuristic leaps, there was actually a solution that felt achievable in short term: the user would take a single photo of their living room, and OLX would automatically identify everything that could be sold and pre-generate listings. The user would simply choose which items they actually wanted to sell.&lt;/p&gt;
+
+&lt;p&gt;That idea stuck with me. But OLX had so many more basic and urgent problems to solve that prioritizing disruptive ideas like this was optimistic, at best. On top of that, I didn’t have much experience with object detection in images, which made it hard to justify tackling this during a hackday if I wanted even a small chance of delivering something. Of course, that’s a bit of an excuse. I could have studied on my own beforehand. But in Data Science there is always so much to study that I usually focused on whatever was closest to my current work. In short, excuses.&lt;/p&gt;
+
+&lt;p&gt;Ironically four years later, the opportunity appeared. ChatGPT and the OpenAI APIs were starting to gain popularity, and since OLX cared quite a bit about cost efficiency, I began exploring open-source LLMs that were emerging at the time. During these experiments, I started using Hugging Face and was introduced to YOLO. It looked surprisingly simple, almost plug-and-play. The remaining question was whether it would need fine-tuning for the very specific domain of Brazilian living rooms.&lt;/p&gt;
+
+&lt;p&gt;Then came the second opportunity, my last hackday at the company. I had already delivered the &lt;a href=&#34;/work/olxbrasil/search/jouney-hybrid-search/&#34;&gt;hybrid search project&lt;/a&gt; and was actively interviewing elsewhere, but why not try to finally realize that dream born during my first tree hug?&lt;/p&gt;
+
+&lt;p&gt;I collected a sample dataset of Brazilian living room photos from Google Images to test YOLO’s object detection capabilities. It’s worth noting that YOLO doesn’t identfy brands or models, at least not the Apache 2.0 licensed version I used at the time. So when it detected a television, for example, I could only generate a draft listing for &amp;ldquo;a TV,&amp;rdquo; along with suggested minimum and maximum price ranges for that region.&lt;/p&gt;
+
+&lt;p&gt;Visually, the results were quite satisfying across the anecdotal examples I tested. Of course, with only one day of work, I didn’t have time to annotate data properly or evaluate recall and precision. Science was done, vibes-based. On top of that, since we already had minimum and maximum prices per product, we could estimate how much money the user might make by selling those items, something like &amp;ldquo;you could earn between X and Y reais.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/assets/images/tree-hug-dream.png&#34; alt=&#34;/assets/images/tree-hug-dream.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Naturally, this was just a proof of concept. I didn’t implement the full integration into the OLX app during the hackday, and I didn’t have time to do so afterward since I was already on my way out. As an active OLX user to this day, I can see that this 2019 dream still hasn’t been prioritized, which probably makes sense. It’s not a very common use case, and realistically, users wouldn’t rely on a single photo alone. Each detected item would still need to be reviewed and polished individually, so the “one photo to sell everything&amp;quot; dream would still come with a fair amount of work for the user.&lt;/p&gt;
+
+&lt;p&gt;Still, I got the satisfaction of proving that one of the many dreams imagined during that first tree hug was, in fact, possible.&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>A Day Trying to Vibe Code, and Failing #1</title>
             <link rel="alternate" href="/work/general/articles/a-day-trying-to-vibe-code-failing-1/" type="text/html" />
             <id>/work/general/articles/a-day-trying-to-vibe-code-failing-1/</id>
-            <updated>2026-01-16T23:38:00Z</updated>
+            <updated>2026-01-16T15:06:00Z</updated>
 
             <summary type="html">Today I spent some time experimenting with Vibe Coding using Cursor. I have been intentionally setting aside time every Friday to do this, trying to understand how other developers are getting real productivity gains from this way of working.</summary>
             <content type="html">&lt;p&gt;Today I spent some time experimenting with Vibe Coding using Cursor. I have been intentionally setting aside time every Friday to do this, trying to understand how other developers are getting real productivity gains from this way of working.&lt;/p&gt;
@@ -72,38 +103,34 @@
         </entry>
     
         <entry>
-            <title>Queco: Bolo cookie sem glútem</title>
-            <link rel="alternate" href="/pessoal/receitas/refeies/queco-bolo-cookie-sem-gluten/" type="text/html" />
-            <id>/pessoal/receitas/refeies/queco-bolo-cookie-sem-gluten/</id>
-            <updated>2025-12-30T14:00:00Z</updated>
+            <title>Tofu crispy petisco</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/tofu-crispy-petisco/" type="text/html" />
+            <id>/pessoal/receitas/refeies/tofu-crispy-petisco/</id>
+            <updated>2025-12-30T15:06:00Z</updated>
 
-            <summary type="html">A idéia inicial dessa receita era fazer um cookie sem gluten e sem açúcar. Mas acabei botando de tabela um pouco de açucar por causa das gotas de chocolate ao leite que possuem açucar na sua composição. Eu fiz muitas variações desse &amp;ldquo;bolo&amp;rdquo; até que ele ficasse bom.</summary>
-            <content type="html">&lt;p&gt;A idéia inicial dessa receita era fazer um cookie sem gluten e sem açúcar. Mas acabei botando de tabela um pouco de açucar por causa das gotas de chocolate ao leite que possuem açucar na sua composição. Eu fiz muitas variações desse &amp;ldquo;bolo&amp;rdquo; até que ele ficasse bom.&lt;/p&gt;
-
-&lt;h2&gt;Igredientes&lt;/h2&gt;
+            
+            <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;150g de farinha de aveia&lt;/li&gt;
-&lt;li&gt;100g de manteiga com sal&lt;/li&gt;
-&lt;li&gt;1 colher de sopa de extrato de baunilha&lt;/li&gt;
-&lt;li&gt;1 colher de chá de bicarbonato de sódio&lt;/li&gt;
-&lt;li&gt;60g de eritritol&lt;/li&gt;
-&lt;li&gt;100g de gotas de chocolate ao leite&lt;/li&gt;
-&lt;li&gt;&amp;frac14; de chícara de leite&lt;/li&gt;
-&lt;li&gt;1 ovo&lt;/li&gt;
+&lt;li&gt;400g de tofu firme&lt;/li&gt;
+&lt;li&gt;2 colheres de sopa de extrato de tomate&lt;/li&gt;
+&lt;li&gt;4 colheres de sopa de shoyo&lt;/li&gt;
+&lt;li&gt;2 colheres de chá de açucar mascavo&lt;/li&gt;
+&lt;li&gt;Suco de 1 limão&lt;/li&gt;
+&lt;li&gt;2 dentes de alho ralado&lt;/li&gt;
+&lt;li&gt;1cm de gengibre fresco ralado&lt;/li&gt;
+&lt;li&gt;Pimenta à gosto&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Preparo&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Derreta a manteiga, deixe esfriar e reserve&lt;/li&gt;
-&lt;li&gt;Bata o ovo com a mão mesmo&lt;/li&gt;
-&lt;li&gt;Misture o leite e bata novamente&lt;/li&gt;
-&lt;li&gt;Misture o eritritol, o bicarbonato de sódio e o extrato de baunilha e bata novamente&lt;/li&gt;
-&lt;li&gt;Misture a manteiga derretida e misture novamente até ficar homogeneo&lt;/li&gt;
-&lt;li&gt;Misture a farinha de aveia até ficar homogeneo&lt;/li&gt;
-&lt;li&gt;Adicione as gotas de chocolate e misture tentando espalhar bem&lt;/li&gt;
-&lt;li&gt;Coloque a massa em uma forma de silicone e leve ao forno por uns 15 minutos&lt;/li&gt;
+&lt;li&gt;Seque bem o tofu e quebre em pedacinhos pequenos irregulares&lt;/li&gt;
+&lt;li&gt;Em outra vasilha misture todos os igredientes até ficar homogeneo&lt;/li&gt;
+&lt;li&gt;Derramete esses igredientes misturados nos pedacinhos de tofu e espalhe bem&lt;/li&gt;
+&lt;li&gt;Coloque os pedacinhos de tofu em uma trafessa bem espalhados (de preferência com um tapete de silicone embaixo para não grudar)&lt;/li&gt;
+&lt;li&gt;Spray de azeite em cima&lt;/li&gt;
+&lt;li&gt;Coloque no forno por 12 minutos&lt;/li&gt;
 &lt;/ol&gt;
 </content>
         </entry>
@@ -112,7 +139,7 @@
             <title>Creme de couve flor e espinafre que virou lasanha</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/creme-couve-flor-espinafre-lasanha/" type="text/html" />
             <id>/pessoal/receitas/refeies/creme-couve-flor-espinafre-lasanha/</id>
-            <updated>2025-12-30T13:59:00Z</updated>
+            <updated>2025-12-30T15:06:00Z</updated>
 
             <summary type="html">A receita original era só creme de couve-flor e espinafre, mas assim que fiz logo percebi que ficaria bem melhor esse creme em uma lasanha. Então é isso: Duas receitas em uma.</summary>
             <content type="html">&lt;p&gt;A receita original era só creme de couve-flor e espinafre, mas assim que fiz logo percebi que ficaria bem melhor esse creme em uma lasanha. Então é isso: Duas receitas em uma.&lt;/p&gt;
@@ -157,34 +184,38 @@
         </entry>
     
         <entry>
-            <title>Tofu crispy petisco</title>
-            <link rel="alternate" href="/pessoal/receitas/refeies/tofu-crispy-petisco/" type="text/html" />
-            <id>/pessoal/receitas/refeies/tofu-crispy-petisco/</id>
-            <updated>2025-12-30T13:36:00Z</updated>
+            <title>Queco: Bolo cookie sem glútem</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/queco-bolo-cookie-sem-gluten/" type="text/html" />
+            <id>/pessoal/receitas/refeies/queco-bolo-cookie-sem-gluten/</id>
+            <updated>2025-12-30T15:06:00Z</updated>
 
-            
-            <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
+            <summary type="html">A idéia inicial dessa receita era fazer um cookie sem gluten e sem açúcar. Mas acabei botando de tabela um pouco de açucar por causa das gotas de chocolate ao leite que possuem açucar na sua composição. Eu fiz muitas variações desse &amp;ldquo;bolo&amp;rdquo; até que ele ficasse bom.</summary>
+            <content type="html">&lt;p&gt;A idéia inicial dessa receita era fazer um cookie sem gluten e sem açúcar. Mas acabei botando de tabela um pouco de açucar por causa das gotas de chocolate ao leite que possuem açucar na sua composição. Eu fiz muitas variações desse &amp;ldquo;bolo&amp;rdquo; até que ele ficasse bom.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;400g de tofu firme&lt;/li&gt;
-&lt;li&gt;2 colheres de sopa de extrato de tomate&lt;/li&gt;
-&lt;li&gt;4 colheres de sopa de shoyo&lt;/li&gt;
-&lt;li&gt;2 colheres de chá de açucar mascavo&lt;/li&gt;
-&lt;li&gt;Suco de 1 limão&lt;/li&gt;
-&lt;li&gt;2 dentes de alho ralado&lt;/li&gt;
-&lt;li&gt;1cm de gengibre fresco ralado&lt;/li&gt;
-&lt;li&gt;Pimenta à gosto&lt;/li&gt;
+&lt;li&gt;150g de farinha de aveia&lt;/li&gt;
+&lt;li&gt;100g de manteiga com sal&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de extrato de baunilha&lt;/li&gt;
+&lt;li&gt;1 colher de chá de bicarbonato de sódio&lt;/li&gt;
+&lt;li&gt;60g de eritritol&lt;/li&gt;
+&lt;li&gt;100g de gotas de chocolate ao leite&lt;/li&gt;
+&lt;li&gt;&amp;frac14; de chícara de leite&lt;/li&gt;
+&lt;li&gt;1 ovo&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Preparo&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Seque bem o tofu e quebre em pedacinhos pequenos irregulares&lt;/li&gt;
-&lt;li&gt;Em outra vasilha misture todos os igredientes até ficar homogeneo&lt;/li&gt;
-&lt;li&gt;Derramete esses igredientes misturados nos pedacinhos de tofu e espalhe bem&lt;/li&gt;
-&lt;li&gt;Coloque os pedacinhos de tofu em uma trafessa bem espalhados (de preferência com um tapete de silicone embaixo para não grudar)&lt;/li&gt;
-&lt;li&gt;Spray de azeite em cima&lt;/li&gt;
-&lt;li&gt;Coloque no forno por 12 minutos&lt;/li&gt;
+&lt;li&gt;Derreta a manteiga, deixe esfriar e reserve&lt;/li&gt;
+&lt;li&gt;Bata o ovo com a mão mesmo&lt;/li&gt;
+&lt;li&gt;Misture o leite e bata novamente&lt;/li&gt;
+&lt;li&gt;Misture o eritritol, o bicarbonato de sódio e o extrato de baunilha e bata novamente&lt;/li&gt;
+&lt;li&gt;Misture a manteiga derretida e misture novamente até ficar homogeneo&lt;/li&gt;
+&lt;li&gt;Misture a farinha de aveia até ficar homogeneo&lt;/li&gt;
+&lt;li&gt;Adicione as gotas de chocolate e misture tentando espalhar bem&lt;/li&gt;
+&lt;li&gt;Coloque a massa em uma forma de silicone e leve ao forno por uns 15 minutos&lt;/li&gt;
 &lt;/ol&gt;
 </content>
         </entry>
@@ -193,7 +224,7 @@
             <title>Unexpected Side Effects of Let’s Add More jobs</title>
             <link rel="alternate" href="/work/willbank/account/unexpected-side-effects-lets-add-more-jobs-copy/" type="text/html" />
             <id>/work/willbank/account/unexpected-side-effects-lets-add-more-jobs-copy/</id>
-            <updated>2025-11-25T23:29:00Z</updated>
+            <updated>2025-11-25T15:06:00Z</updated>
 
             <summary type="html">In another iteration to improve our &lt;a href=&#34;../approval-model-finally-approved/&#34;&gt;no-credit account approval model&lt;/a&gt;, we built a new version with a new target. During local testing, it showed a response time significantly higher than the previous model, almost double. Honestly, this wasn’t surprising: the feature count had grown, the model was more complex, and we all know complexity never comes for free.</summary>
             <content type="html">&lt;p&gt;In another iteration to improve our &lt;a href=&#34;../approval-model-finally-approved/&#34;&gt;no-credit account approval model&lt;/a&gt;, we built a new version with a new target. During local testing, it showed a response time significantly higher than the previous model, almost double. Honestly, this wasn’t surprising: the feature count had grown, the model was more complex, and we all know complexity never comes for free.&lt;/p&gt;
@@ -254,7 +285,7 @@ with open(f&#34;{base_path}/fixed.pkl&#34;, &#34;wb&#34;) as f2:
             <title>An Approval Model That Finally Got Approved</title>
             <link rel="alternate" href="/work/willbank/account/approval-model-finally-approved/" type="text/html" />
             <id>/work/willbank/account/approval-model-finally-approved/</id>
-            <updated>2025-11-08T14:18:00Z</updated>
+            <updated>2025-11-08T15:06:00Z</updated>
 
             <summary type="html">Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.</summary>
             <content type="html">&lt;p&gt;Until last year, Will Bank was mostly a digital bank with one obsession: credit cards. Every campaign, every banner, every catchy line revolved around them. But then came the big question: what if we also cared about people who don’t have credit? That’s when we started exploring how to grow our customer base among users without access to credit, focusing on digital account usage only. There was just one tiny problem: the experience for this group wasn’t great. We had to be careful not to approve users dreaming of credit and hand them&amp;hellip; a digital account. Nobody likes that kind of plot twist.&lt;/p&gt;
@@ -305,7 +336,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>Tofu ou frango teriaki na airfryer</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/tofu-frango-teriaki-airfryer/" type="text/html" />
             <id>/pessoal/receitas/refeies/tofu-frango-teriaki-airfryer/</id>
-            <updated>2025-10-19T13:15:00Z</updated>
+            <updated>2025-10-19T15:06:00Z</updated>
 
             <summary type="html">A receita original aqui descrita é vegana e com tofu. Aqui vou descrever como fazer tanto com tofu como com frango. Outra diferença é que a receita do molho eu dobrei, dessa forma fica mais simples de mergulhar o empanado inteiro nele ao final.</summary>
             <content type="html">&lt;p&gt;A receita original aqui descrita é vegana e com tofu. Aqui vou descrever como fazer tanto com tofu como com frango. Outra diferença é que a receita do molho eu dobrei, dessa forma fica mais simples de mergulhar o empanado inteiro nele ao final.&lt;/p&gt;
@@ -374,7 +405,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>Palha italiana de pistache e nozes</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/palha-italiana-simples-pistache-nozes/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/palha-italiana-simples-pistache-nozes/</id>
-            <updated>2025-10-18T01:35:00Z</updated>
+            <updated>2025-10-18T15:06:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -411,7 +442,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>Kafta vegana: Explosão de sabor</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/kafta-vegana-explosao-sabor/" type="text/html" />
             <id>/pessoal/receitas/refeies/kafta-vegana-explosao-sabor/</id>
-            <updated>2025-09-22T01:30:00Z</updated>
+            <updated>2025-09-22T15:06:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -451,7 +482,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>Chipa Guazú: Torta salgada</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/chipa-guazu-torta-salgado/" type="text/html" />
             <id>/pessoal/receitas/refeies/chipa-guazu-torta-salgado/</id>
-            <updated>2025-09-21T13:59:00Z</updated>
+            <updated>2025-09-21T15:06:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -483,7 +514,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>Palha italiana simples</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/palha-italiana-simples/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/palha-italiana-simples/</id>
-            <updated>2025-09-20T13:26:00Z</updated>
+            <updated>2025-09-20T15:06:00Z</updated>
 
             <summary type="html">Por várias vezes eu fiz essa receita com chocolate em pó 100% alcalino. Tudo que eu estava fazendo com esse chocolate estava ficando com um gosto de especiarias, canela, noz moscada. Troquei para chocolate sem ser alcalino, e o sabor de especiaria desapareceu, mas ficou muito mais chocolatudo, então reduzi o total de gramas de chocolate em pó da receita (ainda não testei essa mudança).</summary>
             <content type="html">&lt;p&gt;Por várias vezes eu fiz essa receita com chocolate em pó 100% alcalino. Tudo que eu estava fazendo com esse chocolate estava ficando com um gosto de especiarias, canela, noz moscada. Troquei para chocolate sem ser alcalino, e o sabor de especiaria desapareceu, mas ficou muito mais chocolatudo, então reduzi o total de gramas de chocolate em pó da receita (ainda não testei essa mudança).&lt;/p&gt;
@@ -519,7 +550,7 @@ We wanted to do data science, not archaeology.&lt;/p&gt;
             <title>How I got the unfair reputation of disliking semantics</title>
             <link rel="alternate" href="/work/globocom/farofus/how-got-unfair-reputation-disliking-semantics/" type="text/html" />
             <id>/work/globocom/farofus/how-got-unfair-reputation-disliking-semantics/</id>
-            <updated>2025-09-18T23:37:00Z</updated>
+            <updated>2025-09-18T15:06:00Z</updated>
 
             <summary type="html">When people today talk about semantic search, they usually mean vector embeddings, RAG pipelines, and all that fancy LLM jazz. But back in 2011, at Globo.com, we were into a very different kind of “semantics”: the Semantic Web.</summary>
             <content type="html">&lt;p&gt;When people today talk about semantic search, they usually mean vector embeddings, RAG pipelines, and all that fancy LLM jazz. But back in 2011, at Globo.com, we were into a very different kind of “semantics”: the Semantic Web.&lt;/p&gt;
@@ -626,7 +657,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Pasta verde refrescante e proteíca</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/pasta-verde-refrescante-proteica/" type="text/html" />
             <id>/pessoal/receitas/refeies/pasta-verde-refrescante-proteica/</id>
-            <updated>2025-09-06T23:46:00Z</updated>
+            <updated>2025-09-06T15:06:00Z</updated>
 
             <summary type="html">Essa receita ficou maravilhosa para comer com doritos. Também ficou muito boa com torradinhas, mas com doritos ficou incrivel. Eu pretendo repetir no futuro reduzindo a quantidade de hortelã.</summary>
             <content type="html">&lt;p&gt;Essa receita ficou maravilhosa para comer com doritos. Também ficou muito boa com torradinhas, mas com doritos ficou incrivel. Eu pretendo repetir no futuro reduzindo a quantidade de hortelã.&lt;/p&gt;
@@ -671,7 +702,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Capybara, pareto principle and bureaucracy</title>
             <link rel="alternate" href="/work/personal/capybara/capybara-pareto-principle-bureaucracy/" type="text/html" />
             <id>/work/personal/capybara/capybara-pareto-principle-bureaucracy/</id>
-            <updated>2025-09-01T00:32:00Z</updated>
+            <updated>2025-09-01T15:06:00Z</updated>
 
             <summary type="html">In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.</summary>
             <content type="html">&lt;p&gt;In December 2017, I proudly released &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.timotta.games.monsterarrow&#34;&gt;Capybara and the Goo&lt;/a&gt; game into the wild.&lt;/p&gt;
@@ -704,7 +735,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Cuca beludo de leite condensado</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/cuca-beludo-leite-condensado/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/cuca-beludo-leite-condensado/</id>
-            <updated>2025-08-09T01:39:00Z</updated>
+            <updated>2025-08-09T15:06:00Z</updated>
 
             <summary type="html">A receita original não leva suco de limão. Eu adicionei em uma tentativa de fazer uma cuca sabor limão. Não deu o sabor de limão mas ela ficou melhor do que da primeira vez que fiz sem limão. Outra coisa que fiz melhor nesta versão que a receita original é peneirar a gema de ovo. Na próxima vez que eu fizer esta receita, tentarei sem o amido de milho.</summary>
             <content type="html">&lt;p&gt;A receita original não leva suco de limão. Eu adicionei em uma tentativa de fazer uma cuca sabor limão. Não deu o sabor de limão mas ela ficou melhor do que da primeira vez que fiz sem limão. Outra coisa que fiz melhor nesta versão que a receita original é peneirar a gema de ovo. Na próxima vez que eu fizer esta receita, tentarei sem o amido de milho.&lt;/p&gt;
@@ -759,7 +790,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Mantecol: Doce argentino de natal</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/mantecol-doce-argentino-natal/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/mantecol-doce-argentino-natal/</id>
-            <updated>2025-08-04T13:29:00Z</updated>
+            <updated>2025-08-04T15:06:00Z</updated>
 
             <summary type="html">Nas ultimoas duas vezes que fiz essa receita, ele ficou muito mole não firmando o torrão que deveria se tornar. Eu imagino que a causa seja eu ter esquentado o açucar menos do que deveria. Outra possibilidade foi que na segunda vez eu não utilizei um recipiente firme com papel anti aderente ao final, usei uma forma de silicone. Tentarei novamente depois.</summary>
             <content type="html">&lt;p&gt;Nas ultimoas duas vezes que fiz essa receita, ele ficou muito mole não firmando o torrão que deveria se tornar. Eu imagino que a causa seja eu ter esquentado o açucar menos do que deveria. Outra possibilidade foi que na segunda vez eu não utilizei um recipiente firme com papel anti aderente ao final, usei uma forma de silicone. Tentarei novamente depois.&lt;/p&gt;
@@ -792,86 +823,10 @@ Because in practice, all we really needed was:&lt;/p&gt;
         </entry>
     
         <entry>
-            <title>Bolo japonês abrasileirado sem glútem</title>
-            <link rel="alternate" href="/pessoal/receitas/sobremesas/bolo-japones-abrasileirado-sem-gluten/" type="text/html" />
-            <id>/pessoal/receitas/sobremesas/bolo-japones-abrasileirado-sem-gluten/</id>
-            <updated>2025-07-29T23:04:00Z</updated>
-
-            <summary type="html">Com a receita original desse bolo, achei muito sem sabor e não consegui firmar bem, ficando quase um mingau, então modifiquei algumas coisas para abrasileirar e ficou bem melhor e mais firme, embora ainda um bolo bem suave.</summary>
-            <content type="html">&lt;p&gt;Com a receita original desse bolo, achei muito sem sabor e não consegui firmar bem, ficando quase um mingau, então modifiquei algumas coisas para abrasileirar e ficou bem melhor e mais firme, embora ainda um bolo bem suave.&lt;/p&gt;
-
-&lt;h2&gt;Igredientes&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;3 gemas de ovo&lt;/li&gt;
-&lt;li&gt;50g de farinha de arroz&lt;/li&gt;
-&lt;li&gt;50g de açucar refinado&lt;/li&gt;
-&lt;li&gt;500ml de leite&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Preparo&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Misture a farinha, o açucar e o leite&lt;/li&gt;
-&lt;li&gt;Coe as gemas de ovo para tirar as partes meio durinhas e misture&lt;/li&gt;
-&lt;li&gt;Leve a fogo baixo e mexendo constantemente até formar um creme homogêneo&lt;/li&gt;
-&lt;li&gt;Leve a geladeira por 2 a 3 horas.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;No futuro vou testar trocar o açucar por stevia para fazer uma versão além de sem glutem, também light.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DEk5Z0GyTWy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
-            <title>Cenoura deliciosa sem gosto de cenoura</title>
-            <link rel="alternate" href="/pessoal/receitas/refeies/cenoura-deliciosa-sem-gosto-cenoura/" type="text/html" />
-            <id>/pessoal/receitas/refeies/cenoura-deliciosa-sem-gosto-cenoura/</id>
-            <updated>2025-07-29T23:02:00Z</updated>
-
-            <summary type="html">Eu gosto de cenoura, mas essa receita é também pra quem não gosta de cenoura. O sabor é totalmente diferente de cenoura e fica delicioso.</summary>
-            <content type="html">&lt;p&gt;Eu gosto de cenoura, mas essa receita é também pra quem não gosta de cenoura. O sabor é totalmente diferente de cenoura e fica delicioso.&lt;/p&gt;
-
-&lt;h2&gt;Igredientes&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;3 cenoura médias (Eu usei 1 cenoura e meia grande)&lt;/li&gt;
-&lt;li&gt;2 colher de chá de manteiga&lt;/li&gt;
-&lt;li&gt;1 colher de sopa de raspas de casca de laranja&lt;/li&gt;
-&lt;li&gt;1 colher de sopa de gengibre ralado&lt;/li&gt;
-&lt;li&gt;1 colher de sopa de alho picado&lt;/li&gt;
-&lt;li&gt;200ml suco de laranja&lt;/li&gt;
-&lt;li&gt;Uma pitada de páprica picante&lt;/li&gt;
-&lt;li&gt;Sal&lt;/li&gt;
-&lt;li&gt;Uma pitada de pimenta calabresa&lt;/li&gt;
-&lt;li&gt;1 colher de chá de missô&lt;/li&gt;
-&lt;li&gt;2 colheres de sopa de mel&lt;/li&gt;
-&lt;li&gt;Gergelim&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Preparo&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Emulsione a manteiga com um pouco de água&lt;/li&gt;
-&lt;li&gt;Salteie as cenouras nessa emulsão com páprica até elas começarem a dourar&lt;/li&gt;
-&lt;li&gt;Adicione o alho, gengibre e as raspas da casca de limão e doure por mais um minuto&lt;/li&gt;
-&lt;li&gt;Coloque o suco de laranja, o missô, o mel, a pimenta calabresa e o sal&lt;/li&gt;
-&lt;li&gt;Quando as cenouras estiverem macias, mas não moles, retire-as do liquido&lt;/li&gt;
-&lt;li&gt;Coe o liquido com uma peneira&lt;/li&gt;
-&lt;li&gt;Leve o liquido coado a fogo baixo para reduzir e se tornar um molho&lt;/li&gt;
-&lt;li&gt;Sirva as cenouras com um pouco desse molho por cima e gergelim para decorar&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DLigHGYychx/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
             <title>Cookies rápidos com gotas de chocolate, ou não</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/cookies-rapidos-chocolate-ou-nao/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/cookies-rapidos-chocolate-ou-nao/</id>
-            <updated>2025-07-29T22:54:00Z</updated>
+            <updated>2025-07-29T15:06:00Z</updated>
 
             <summary type="html">Essa receita eu fiz com gota de chocolate e sem. Eu preferi sem gota de chocolate, para sentir o sabor apenas do biscoito. Mas de ambas formas fica boa.</summary>
             <content type="html">&lt;p&gt;Essa receita eu fiz com gota de chocolate e sem. Eu preferi sem gota de chocolate, para sentir o sabor apenas do biscoito. Mas de ambas formas fica boa.&lt;/p&gt;
@@ -911,10 +866,86 @@ Because in practice, all we really needed was:&lt;/p&gt;
         </entry>
     
         <entry>
+            <title>Cenoura deliciosa sem gosto de cenoura</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/cenoura-deliciosa-sem-gosto-cenoura/" type="text/html" />
+            <id>/pessoal/receitas/refeies/cenoura-deliciosa-sem-gosto-cenoura/</id>
+            <updated>2025-07-29T15:06:00Z</updated>
+
+            <summary type="html">Eu gosto de cenoura, mas essa receita é também pra quem não gosta de cenoura. O sabor é totalmente diferente de cenoura e fica delicioso.</summary>
+            <content type="html">&lt;p&gt;Eu gosto de cenoura, mas essa receita é também pra quem não gosta de cenoura. O sabor é totalmente diferente de cenoura e fica delicioso.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3 cenoura médias (Eu usei 1 cenoura e meia grande)&lt;/li&gt;
+&lt;li&gt;2 colher de chá de manteiga&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de raspas de casca de laranja&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de gengibre ralado&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de alho picado&lt;/li&gt;
+&lt;li&gt;200ml suco de laranja&lt;/li&gt;
+&lt;li&gt;Uma pitada de páprica picante&lt;/li&gt;
+&lt;li&gt;Sal&lt;/li&gt;
+&lt;li&gt;Uma pitada de pimenta calabresa&lt;/li&gt;
+&lt;li&gt;1 colher de chá de missô&lt;/li&gt;
+&lt;li&gt;2 colheres de sopa de mel&lt;/li&gt;
+&lt;li&gt;Gergelim&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Emulsione a manteiga com um pouco de água&lt;/li&gt;
+&lt;li&gt;Salteie as cenouras nessa emulsão com páprica até elas começarem a dourar&lt;/li&gt;
+&lt;li&gt;Adicione o alho, gengibre e as raspas da casca de limão e doure por mais um minuto&lt;/li&gt;
+&lt;li&gt;Coloque o suco de laranja, o missô, o mel, a pimenta calabresa e o sal&lt;/li&gt;
+&lt;li&gt;Quando as cenouras estiverem macias, mas não moles, retire-as do liquido&lt;/li&gt;
+&lt;li&gt;Coe o liquido com uma peneira&lt;/li&gt;
+&lt;li&gt;Leve o liquido coado a fogo baixo para reduzir e se tornar um molho&lt;/li&gt;
+&lt;li&gt;Sirva as cenouras com um pouco desse molho por cima e gergelim para decorar&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DLigHGYychx/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Bolo japonês abrasileirado sem glútem</title>
+            <link rel="alternate" href="/pessoal/receitas/sobremesas/bolo-japones-abrasileirado-sem-gluten/" type="text/html" />
+            <id>/pessoal/receitas/sobremesas/bolo-japones-abrasileirado-sem-gluten/</id>
+            <updated>2025-07-29T15:06:00Z</updated>
+
+            <summary type="html">Com a receita original desse bolo, achei muito sem sabor e não consegui firmar bem, ficando quase um mingau, então modifiquei algumas coisas para abrasileirar e ficou bem melhor e mais firme, embora ainda um bolo bem suave.</summary>
+            <content type="html">&lt;p&gt;Com a receita original desse bolo, achei muito sem sabor e não consegui firmar bem, ficando quase um mingau, então modifiquei algumas coisas para abrasileirar e ficou bem melhor e mais firme, embora ainda um bolo bem suave.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3 gemas de ovo&lt;/li&gt;
+&lt;li&gt;50g de farinha de arroz&lt;/li&gt;
+&lt;li&gt;50g de açucar refinado&lt;/li&gt;
+&lt;li&gt;500ml de leite&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Misture a farinha, o açucar e o leite&lt;/li&gt;
+&lt;li&gt;Coe as gemas de ovo para tirar as partes meio durinhas e misture&lt;/li&gt;
+&lt;li&gt;Leve a fogo baixo e mexendo constantemente até formar um creme homogêneo&lt;/li&gt;
+&lt;li&gt;Leve a geladeira por 2 a 3 horas.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;No futuro vou testar trocar o açucar por stevia para fazer uma versão além de sem glutem, também light.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DEk5Z0GyTWy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Salada mexicana clássica de milho</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/salada-mexicana-classica-milho/" type="text/html" />
             <id>/pessoal/receitas/refeies/salada-mexicana-classica-milho/</id>
-            <updated>2025-07-05T22:41:00Z</updated>
+            <updated>2025-07-05T15:06:00Z</updated>
 
             <summary type="html">Essa aqui eu já fiz com salsinha e com coentro. Com coentro ficou mil vezes melhor. Mas na falta, vai de salsinha mesmo. Ainda não experimentei com jalapeño.</summary>
             <content type="html">&lt;p&gt;Essa aqui eu já fiz com salsinha e com coentro. Com coentro ficou mil vezes melhor. Mas na falta, vai de salsinha mesmo. Ainda não experimentei com jalapeño.&lt;/p&gt;
@@ -955,52 +986,10 @@ Because in practice, all we really needed was:&lt;/p&gt;
         </entry>
     
         <entry>
-            <title>Bean-fu da Birmânia de lentilha ou ervilha</title>
-            <link rel="alternate" href="/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/" type="text/html" />
-            <id>/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/</id>
-            <updated>2025-06-30T17:25:00Z</updated>
-
-            <summary type="html">Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.</summary>
-            <content type="html">&lt;p&gt;Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.&lt;/p&gt;
-
-&lt;h2&gt;Igredientes&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;200g de lentilha, lentilha rosa ou ervilha&lt;/li&gt;
-&lt;li&gt;200ml de água&lt;/li&gt;
-&lt;li&gt;3 colheres de chá de sal&lt;/li&gt;
-&lt;li&gt;Azeite de oliva&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Preparo inicial&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Deixe de molho por 12 horas a leguminosa&lt;/li&gt;
-&lt;li&gt;Escorra a água do molho lavando as leguminosas&lt;/li&gt;
-&lt;li&gt;Bata no liquidificador a legminosa com 200ml de água e o sal até ficar bem homogêneo&lt;/li&gt;
-&lt;li&gt;Derrame a mistura em uma panela&lt;/li&gt;
-&lt;li&gt;Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem problema.&lt;/li&gt;
-&lt;li&gt;Quando estiver quase firme, derrame em um recipiente de forma que fique com um dedo de altura&lt;/li&gt;
-&lt;li&gt;Coloque na geladeira&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Preparo final&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;O bean-fu já estará firme e pode ser retirado do recipiente como um blocão&lt;/li&gt;
-&lt;li&gt;Corte em cubinhos, pincele com azeite de oliva&lt;/li&gt;
-&lt;li&gt;Coloque na airfryer por mais ou menos 10 minutos&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DExcXTjJShy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
-</content>
-        </entry>
-    
-        <entry>
             <title>Lasanha de de banana da terra com carne de soja</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/lasanha-banana-terra-carne-soja/" type="text/html" />
             <id>/pessoal/receitas/refeies/lasanha-banana-terra-carne-soja/</id>
-            <updated>2025-06-30T11:29:00Z</updated>
+            <updated>2025-06-30T15:06:00Z</updated>
 
             <summary type="html">Essa receita rendeu tanta lasanha que tive que congelar, na próxima vez tentarei fazer em menor quantidade e anotar o quanto de cada igrediente.</summary>
             <content type="html">&lt;p&gt;Essa receita rendeu tanta lasanha que tive que congelar, na próxima vez tentarei fazer em menor quantidade e anotar o quanto de cada igrediente.&lt;/p&gt;
@@ -1067,10 +1056,52 @@ Because in practice, all we really needed was:&lt;/p&gt;
         </entry>
     
         <entry>
+            <title>Bean-fu da Birmânia de lentilha ou ervilha</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/" type="text/html" />
+            <id>/pessoal/receitas/refeies/bean-fu-lentilha-ervilha/</id>
+            <updated>2025-06-30T15:06:00Z</updated>
+
+            <summary type="html">Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.</summary>
+            <content type="html">&lt;p&gt;Bean-fu é o tofu feito com outras leguminosas. Ainda não testei com feijão fradinho ou branco, e nem com milho. Mas testarei.&lt;/p&gt;
+
+&lt;h2&gt;Igredientes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;200g de lentilha, lentilha rosa ou ervilha&lt;/li&gt;
+&lt;li&gt;200ml de água&lt;/li&gt;
+&lt;li&gt;3 colheres de chá de sal&lt;/li&gt;
+&lt;li&gt;Azeite de oliva&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo inicial&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Deixe de molho por 12 horas a leguminosa&lt;/li&gt;
+&lt;li&gt;Escorra a água do molho lavando as leguminosas&lt;/li&gt;
+&lt;li&gt;Bata no liquidificador a legminosa com 200ml de água e o sal até ficar bem homogêneo&lt;/li&gt;
+&lt;li&gt;Derrame a mistura em uma panela&lt;/li&gt;
+&lt;li&gt;Em fogo baixo, cozinhe essa mistura mexendo o tempo todo tentando fazer não grudar na panela. Se grudar também não tem problema.&lt;/li&gt;
+&lt;li&gt;Quando estiver quase firme, derrame em um recipiente de forma que fique com um dedo de altura&lt;/li&gt;
+&lt;li&gt;Coloque na geladeira&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Preparo final&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;O bean-fu já estará firme e pode ser retirado do recipiente como um blocão&lt;/li&gt;
+&lt;li&gt;Corte em cubinhos, pincele com azeite de oliva&lt;/li&gt;
+&lt;li&gt;Coloque na airfryer por mais ou menos 10 minutos&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.instagram.com/reel/DExcXTjJShy/&#34;&gt;Receita original&lt;/a&gt;&lt;/p&gt;
+</content>
+        </entry>
+    
+        <entry>
             <title>Creme de tomate com capeleti e espinafre</title>
             <link rel="alternate" href="/pessoal/receitas/refeies/creme-tomate-capeleti-espinafre/" type="text/html" />
             <id>/pessoal/receitas/refeies/creme-tomate-capeleti-espinafre/</id>
-            <updated>2025-06-29T10:45:00Z</updated>
+            <updated>2025-06-29T15:06:00Z</updated>
 
             
             <content type="html">&lt;h2&gt;Igredientes&lt;/h2&gt;
@@ -1119,7 +1150,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Bolo de chocolate: Melhor receita de 2024</title>
             <link rel="alternate" href="/pessoal/receitas/sobremesas/bolo-chocolate-melhor-receita-2024/" type="text/html" />
             <id>/pessoal/receitas/sobremesas/bolo-chocolate-melhor-receita-2024/</id>
-            <updated>2025-06-28T19:24:00Z</updated>
+            <updated>2025-06-28T15:06:00Z</updated>
 
             <summary type="html">Bolo fácil de fazer, 5 minutos de microondas. Eleita a melhor receita de 2024 pelo NYT!</summary>
             <content type="html">&lt;p&gt;Bolo fácil de fazer, 5 minutos de microondas. Eleita a melhor receita de 2024 pelo NYT!&lt;/p&gt;
@@ -1167,7 +1198,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>The Journey to Hybrid Search at OLX Brasil</title>
             <link rel="alternate" href="/work/olxbrasil/search/jouney-hybrid-search/" type="text/html" />
             <id>/work/olxbrasil/search/jouney-hybrid-search/</id>
-            <updated>2025-06-07T23:36:00Z</updated>
+            <updated>2025-06-07T15:06:00Z</updated>
 
             <summary type="html">This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.</summary>
             <content type="html">&lt;p&gt;This is the story of how we improved the search experience at OLX Brasil in early 2024 by introducing semantic search.&lt;/p&gt;
@@ -1310,7 +1341,7 @@ Because in practice, all we really needed was:&lt;/p&gt;
             <title>Patching scikit-learn to improve API performance</title>
             <link rel="alternate" href="/work/willbank/account/patching-scikit-learn-improve-api-performance/" type="text/html" />
             <id>/work/willbank/account/patching-scikit-learn-improve-api-performance/</id>
-            <updated>2025-02-27T13:49:00Z</updated>
+            <updated>2025-02-27T15:06:00Z</updated>
 
             <summary type="html">This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.</summary>
             <content type="html">&lt;p&gt;This week at Will Bank, we deployed a new machine learning model to compete with the one we introduced into production late last year. Offline evaluations showed promising results, with a 35% improvement in the target metric and a cumulative gain of 60% compared to the solution that preceded last year’s model.&lt;/p&gt;
@@ -1404,7 +1435,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Resources that help me to learn data science</title>
             <link rel="alternate" href="/work/general/articles/resources-help-learn-data-science/" type="text/html" />
             <id>/work/general/articles/resources-help-learn-data-science/</id>
-            <updated>2024-11-30T10:56:00Z</updated>
+            <updated>2024-11-30T15:06:00Z</updated>
 
             <summary type="html">In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.</summary>
             <content type="html">&lt;p&gt;In this article, I list and comment on books and courses that helped me learn the discipline of data science as a developer.&lt;/p&gt;
@@ -1447,7 +1478,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>No one cared about Multi Armed Bandit’s tech</title>
             <link rel="alternate" href="/work/globocom/recommendation/no-one-cared-about-multi-armed-bandit-tech/" type="text/html" />
             <id>/work/globocom/recommendation/no-one-cared-about-multi-armed-bandit-tech/</id>
-            <updated>2024-09-28T10:56:00Z</updated>
+            <updated>2024-09-28T15:06:00Z</updated>
 
             <summary type="html">In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.</summary>
             <content type="html">&lt;p&gt;In mid-2017, inspired by the book &amp;ldquo;Bandit Algorithms for Website Optimization&amp;rdquo; by John Myles White, I decided to implement a service allowing Globo.com products to use Multi Armed Bandit algorithms to optimize their usability.&lt;/p&gt;
@@ -1486,7 +1517,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Delaying the launch of a model inspired by Turing</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/delaying-launch-model-inspired-by-turing/</id>
-            <updated>2024-08-03T10:56:00Z</updated>
+            <updated>2024-08-03T15:06:00Z</updated>
 
             <summary type="html">This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.</summary>
             <content type="html">&lt;p&gt;This is the story of how we built a machine learning model factory, and inspired by the movie &amp;ldquo;The Imitation Game,&amp;rdquo; we decided not to launch it until another change was made. This second change had such a positive outcome that the factory achieved a much lower result than we had originally programmed, but without it, we would not have completed the journey. This case occurred between the first and second quarter of 2023.&lt;/p&gt;
@@ -1525,7 +1556,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Podium: The algorithm that defeated BM25</title>
             <link rel="alternate" href="/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/" type="text/html" />
             <id>/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/</id>
-            <updated>2024-06-08T10:56:00Z</updated>
+            <updated>2024-06-08T15:27:00Z</updated>
 
             <summary type="html">This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.</summary>
             <content type="html">&lt;p&gt;This article explains Podium, a search relevance algorithm created by the OLX Brazil Search team to replace the globally renowned BM25. It resulted in increased clicks, contact intentions, and reduced complaints about search quality, and was launched in April 2021.&lt;/p&gt;
@@ -1585,7 +1616,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
 
 &lt;p&gt;More recently we lauched a new version of Podium, the Podium-N. In this update, we solved the issue of ads that should have the same relevance but didn&amp;rsquo;t with the original Podium. Example: &amp;ldquo;Vendo samsung galaxy&amp;rdquo; and &amp;ldquo;Vendo galaxy da samsung&amp;rdquo; for the search &amp;ldquo;Galaxy&amp;rdquo;. But that&amp;rsquo;s for another post.&lt;/p&gt;
 
-&lt;p&gt;In addition, we are finalizing the integration of semantic search together with Podiun-N, in a hybrid search, which is already showing great results. But that will also be discussed in a future post.&lt;/p&gt;
+&lt;p&gt;In addition, we are finalizing the integration of semantic search together with Podiun-N, in a &lt;a href=&#34;/work/olxbrasil/search/jouney-hybrid-search/&#34;&gt;hybrid search&lt;/a&gt;, which is already showing great results. But that will also be discussed in a future post.&lt;/p&gt;
 
 &lt;p&gt;Podium was a collaborative solution made by &lt;a href=&#34;https://www.linkedin.com/in/timotta/&#34;&gt;me&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/leonardowajnsztok/&#34;&gt;Leonardo Wajnsztok&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/filipecasal/&#34;&gt;Filipe Casal&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/daniel-correa-araujo/&#34;&gt;Daniel Araújo&lt;/a&gt;. The engineering manager at the time was &lt;a href=&#34;https://www.linkedin.com/in/rogeriofrodrigues/&#34;&gt;Rogério Rodrigues&lt;/a&gt; followed by &lt;a href=&#34;https://www.linkedin.com/in/gumaestri/&#34;&gt;Gustavo Maestri&lt;/a&gt; and the product manager and who gave the name for the child was &lt;a href=&#34;https://www.linkedin.com/in/pedrotangari/&#34;&gt;Pedro Tangari&lt;/a&gt;. Please accept my apologies if I inadvertently leave anyone out. It happened three years ago&amp;hellip;&lt;/p&gt;
 </content>
@@ -1595,7 +1626,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Random recommendation due to concurrency</title>
             <link rel="alternate" href="/work/globocom/recommendation/random-recommendation-due-to-concurrency/" type="text/html" />
             <id>/work/globocom/recommendation/random-recommendation-due-to-concurrency/</id>
-            <updated>2024-03-31T10:56:00Z</updated>
+            <updated>2024-03-31T15:06:00Z</updated>
 
             <summary type="html">This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.</summary>
             <content type="html">&lt;p&gt;This is the story of how a simple mitigation solution led us to discover the root cause of a difficult-to-replicate bug, originating from a lack of knowledge about a technology.&lt;/p&gt;
@@ -1644,7 +1675,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>The rise, peak and downfall of Web Democracy</title>
             <link rel="alternate" href="/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/" type="text/html" />
             <id>/work/personal/webdemocracy/the-rise-peak-and-downfall-of-web-democracy/</id>
-            <updated>2023-12-26T10:56:00Z</updated>
+            <updated>2023-12-26T15:06:00Z</updated>
 
             <summary type="html">This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.</summary>
             <content type="html">&lt;p&gt;This is the story about the rise, peak, and downfall of a politicians&amp;#39; rating app that I created and maintained for years as a pet project, along with an explanation of why it was shut down.&lt;/p&gt;
@@ -1693,7 +1724,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>How I invented Ajax despite it already existing</title>
             <link rel="alternate" href="/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/" type="text/html" />
             <id>/work/indata/angaturama/how-i-invented-ajax-despite-it-already-existing/</id>
-            <updated>2023-11-15T10:56:00Z</updated>
+            <updated>2023-11-15T15:06:00Z</updated>
 
             <summary type="html">This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.</summary>
             <content type="html">&lt;p&gt;This is the story of how I invented Ajax (Asynchronous JavaScript + XML) despite it already existing, and how a junior developer would greatly benefit from mentorship at the beginning of their career.&lt;/p&gt;
@@ -1732,7 +1763,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>Collecting data to identify data collect</title>
             <link rel="alternate" href="/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/" type="text/html" />
             <id>/work/olxbrasil/trustandsafety/collecting-data-to-indentify-data-collection/</id>
-            <updated>2023-08-19T10:56:00Z</updated>
+            <updated>2023-08-19T15:06:00Z</updated>
 
             <summary type="html">This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!</summary>
             <content type="html">&lt;p&gt;This is the story of how we managed to prevent &amp;ldquo;data collect&amp;rdquo; fraud through a data collection!&lt;/p&gt;
@@ -1769,7 +1800,7 @@ def new_target_encoder_transform(self, *args, **kwargs):
             <title>The fantastic widget factory</title>
             <link rel="alternate" href="/work/globocom/webmedia/the-fantastic-widget-factory/" type="text/html" />
             <id>/work/globocom/webmedia/the-fantastic-widget-factory/</id>
-            <updated>2023-04-29T10:56:00Z</updated>
+            <updated>2023-04-29T15:06:00Z</updated>
 
             <summary type="html">This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.</summary>
             <content type="html">&lt;p&gt;This is the story of how we performed a series of workarounds to overcome the rigidity of an extremely controlled production environment, and successfully deliver a product and platform solution.&lt;/p&gt;
