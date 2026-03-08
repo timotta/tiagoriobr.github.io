@@ -53,7 +53,7 @@ After extensive experimentation, we concluded that a hybrid search strategy offe
 
 <h2>Engineering the Hybrid Search Algorithm</h2>
 
-![/assets/images/podium-math.gif](/assets/images/hybrid-search.png)
+![/assets/images/hybrid-search.png](/assets/images/hybrid-search.png)
 
 Once the concept was validated, we moved into an intensive algorithm analysis phase. We ran over 40 offline experiments, evaluating key relevance metrics such as freshness, diversity and [R-DCG (ranking-aware precision)](https://medium.com/grupoolxtech/uma-nova-m%C3%A9trica-para-calcular-relev%C3%A2ncia-de-busca-65372f154f8f). During this phase, we validated several crucial parameters:
 
