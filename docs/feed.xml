@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2026-03-08T02:44:06Z</updated>
+    <updated>2026-03-17T15:23:54Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -13,6 +13,64 @@
         <uri>/</uri>
     </author>
 
+    
+        <entry>
+            <title>Tofu chicloso e pirão asiático</title>
+            <link rel="alternate" href="/pessoal/receitas/refeies/tofu-chicloso/" type="text/html" />
+            <id>/pessoal/receitas/refeies/tofu-chicloso/</id>
+            <updated>2026-03-17T15:23:00Z</updated>
+
+            
+            <content type="html">&lt;h2&gt;Igredientes para a bolinha&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;250g de tofu firme&lt;/li&gt;
+&lt;li&gt;60g de farinha de arroz&lt;/li&gt;
+&lt;li&gt;50g de farinha de maizena&lt;/li&gt;
+&lt;li&gt;Pitada de sal&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Igredientes para finalização&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;100ml de shoyo&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de vinagre&lt;/li&gt;
+&lt;li&gt;1 colher de sopa de mel&lt;/li&gt;
+&lt;li&gt;1 dente de alho picado&lt;/li&gt;
+&lt;li&gt;1 pedacinho de gengibre ralado&lt;/li&gt;
+&lt;li&gt;Gergelim preto e gergelim branco&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Preparo das bolinhas&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Seque bem o tofu e esmigalhe ele&lt;/li&gt;
+&lt;li&gt;Junte as farinhas e a pitada de sal ao tofu e aperte até virar uma massa homogênea&lt;/li&gt;
+&lt;li&gt;Faça bolinhas de 14g cada&lt;/li&gt;
+&lt;li&gt;Aqueça água em uma panela, e pouco antes de ferver, coloque as bolinhas nela&lt;/li&gt;
+&lt;li&gt;Assim que começar a ver soltando pedaços da massa aguarde 2 minutos e depois cuidadosamente tire as bolinhas de lá&lt;/li&gt;
+&lt;li&gt;Aqui neste momento vai parecer que desandou pois parte da massa ficou solta na água, mas está tudo bem, reserve isso&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Preparo final&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Em uma frigideira grande junte todos os igredientes da finalização (exceto o gergelim) e ferva um pouco&lt;/li&gt;
+&lt;li&gt;Coloque cuidadosamente as bolinhas na frigideira e deixe fervendo&lt;/li&gt;
+&lt;li&gt;Vá girando as bolinhas para que o molhe pinte todas as bolinhas&lt;/li&gt;
+&lt;li&gt;Coloque as bolinhas em um prato e decore com gergelim preto e branco&lt;/li&gt;
+&lt;li&gt;Deixe o restante do molho na frigideira para o pirão&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;O pirão&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Parte da massa ficou na água da panela, usando uma peneira separe todas as partes sólidas&lt;/li&gt;
+&lt;li&gt;Jogue essa parte sólida no restante do molho da frigideira&lt;/li&gt;
+&lt;li&gt;Ferva e misture bem&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        </entry>
     
         <entry>
             <title>A Week Trying to Vibe Code, and Getting Addicted #4</title>
