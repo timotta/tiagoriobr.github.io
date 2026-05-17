@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2026-03-17T15:23:54Z</updated>
+    <updated>2026-05-17T23:56:01Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -13,6 +13,137 @@
         <uri>/</uri>
     </author>
 
+    
+        <entry>
+            <title>The LLM Looked Smart. The Metrics Disagreed</title>
+            <link rel="alternate" href="/work/general/articles/llm-looked-smart-metrics-disagreed/" type="text/html" />
+            <id>/work/general/articles/llm-looked-smart-metrics-disagreed/</id>
+            <updated>2026-05-17T23:55:00Z</updated>
+
+            <summary type="html">This case from early 2025 is an interesting reminder that, even in this brave new world where models are increasingly commoditized through transformers and LLMs, the old concepts of data science still stubbornly refuse to die.</summary>
+            <content type="html">&lt;p&gt;This case from early 2025 is an interesting reminder that, even in this brave new world where models are increasingly commoditized through transformers and LLMs, the old concepts of data science still stubbornly refuse to die.&lt;/p&gt;
+
+&lt;p&gt;Back then, Will Bank had one clear mission: credit. That was about to change.&lt;/p&gt;
+
+&lt;p&gt;I was hired to help expand the product by offering free digital bank accounts, even to people who wouldn’t qualify for credit. I already touched on part of this story in &lt;a href=&#34;/work/willbank/account/approval-model-finally-approved/&#34;&gt;&amp;ldquo;An Approval Model That Finally Got Approved&amp;rdquo;&lt;/a&gt;, but this chapter came with an entirely different headache.&lt;/p&gt;
+
+&lt;p&gt;Among many operational issues, there was one problem loud enough to echo through every metrics dashboard: public brand backlash.&lt;/p&gt;
+
+&lt;p&gt;People who were approved for a digital account without credit complained, loudly, across every imaginable channel. Social media, review platforms, app stores. The result? Lower brand affinity and, naturally, a bruised App Store rating. Because if there’s one thing users love, it’s receiving almost what they wanted.&lt;/p&gt;
+
+&lt;p&gt;This backlash represented a major risk.&lt;/p&gt;
+
+&lt;p&gt;On one side, we were carefully expanding account approvals using machine learning models and improving the app experience to make account conditions clearer. On the other side, we desperately needed to monitor whether this public frustration was quietly snowballing into another brand disaster.&lt;/p&gt;
+
+&lt;h2&gt;The &amp;ldquo;Simple&amp;rdquo; Solution&lt;/h2&gt;
+
+&lt;p&gt;At first glance, the solution seemed trivial: Why not use an LLM to read reviews and complaints from multiple channels and classify whether each one was specifically about being approved for a digital account without credit?&lt;/p&gt;
+
+&lt;p&gt;In fact, the company had just hired an AI vendor to classify reviews using nothing more than prompt engineering. And, honestly, the results looked promising. Through the tool’s interface, the segment of complaints we cared about looked coherent. Very few absurd classifications. Anecdotally, the mistakes even felt reasonable.&lt;/p&gt;
+
+&lt;p&gt;Which, as every data scientist learns sooner or later, is exactly when you should become suspicious.&lt;/p&gt;
+
+&lt;h2&gt;The Question Nobody Was Asking&lt;/h2&gt;
+
+&lt;p&gt;The visualization clearly suggested that the LLM + prompt setup had decent precision. But what about recall? In other words: were we actually capturing most real cases, or were we simply getting a polished-looking subset while missing the majority of the problem?&lt;/p&gt;
+
+&lt;p&gt;Time for some good old-fashioned manual labor. I downloaded a random sample of 750 reviews and manually labeled them in a spreadsheet.&lt;/p&gt;
+
+&lt;p&gt;Yes, manually.&lt;/p&gt;
+
+&lt;p&gt;No magic. No AI. Just me, a spreadsheet, and the growing realization that perhaps the robots weren’t replacing us that quickly. Then I ran the company’s shiny AI classifier and calculated precision and recall. The results?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Precision: 85%&lt;/li&gt;
+&lt;li&gt;Recall: a painful 42%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In plain English: when it flagged a complaint, it was usually right. The problem was that it simply missed most of them.&lt;/p&gt;
+
+&lt;h2&gt;A Subtle but Important Confusion&lt;/h2&gt;
+
+&lt;p&gt;While annotating the data, I noticed something interesting, there was another very common complaint that looked almost identical: Customers who wanted a digital account but got rejected because they weren’t eligible for credit were often being confused with customers who received a digital account but no credit.&lt;/p&gt;
+
+&lt;p&gt;The wording was remarkably similar. At that point, I made a deliberate modeling decision: treat both complaints as the same category.&lt;/p&gt;
+
+&lt;p&gt;Why?&lt;/p&gt;
+
+&lt;p&gt;Because what we were doing could increase complaints about not receiving credit. But if, at the same time, it reduced complaints from people being denied accounts altogether, we could reasonably argue that this wasn’t net brand deterioration.&lt;/p&gt;
+
+&lt;p&gt;Conveniently, the model’s inability to perfectly distinguish between both complaint types suddenly became less of a bug and more of a feature. The precision and recall numbers mentioned above already reflect this revised manual labeling strategy.&lt;/p&gt;
+
+&lt;h2&gt;Prompt Engineering Hits a Wall&lt;/h2&gt;
+
+&lt;p&gt;I tried tuning the original prompt. Some improvements here, some regressions there, the familiar short blanket problem we had already discussed in the article about &lt;a href=&#34;/work/olxbrasil/search/podium-the-algorithm-that-defeated-bm25/&#34;&gt;Podium: cover one side, expose the other&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The tuning became increasingly specific. And the more specific it got, the more uncomfortable I became. At some point, I realized I was effectively handcrafting the logic the machine was supposed to learn by itself. It started feeling suspiciously like overfitting, except I was the one being overfit to the dataset.&lt;/p&gt;
+
+&lt;p&gt;It was time to stop pretending prompts were enough and build an actual model.&lt;/p&gt;
+
+&lt;h2&gt;Building a Real Classifier&lt;/h2&gt;
+
+&lt;p&gt;I downloaded 3,000 additional random samples and labeled them manually.&lt;/p&gt;
+
+&lt;p&gt;Again.&lt;/p&gt;
+
+&lt;p&gt;Because apparently my relationship with spreadsheets had become serious.&lt;/p&gt;
+
+&lt;p&gt;I tested a few relatively simple classification approaches. The best-performing one used XGBoost with text embeddings generated through a BERT model from Sentence Transformers. The results improved:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Precision: 81%&lt;/li&gt;
+&lt;li&gt;Recall: 65%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Better. Still not good enough.&lt;/p&gt;
+
+&lt;h2&gt;Fine-Tuning an LLM (Properly This Time)&lt;/h2&gt;
+
+&lt;p&gt;Then I thought:&lt;/p&gt;
+
+&lt;p&gt;What if I fine-tuned GPT to behave like a classifier instead of trying to bully it into becoming one through prompts?&lt;/p&gt;
+
+&lt;p&gt;OpenAI allows fine-tuning through its interface. Token costs are higher for fine-tuned models, which initially looked concerning, but the experiment felt worth running. I created a very simple dataset:&lt;/p&gt;
+
+&lt;p&gt;Input: review text
+Output: one of only two words: &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;We fine-tuned the model using those 3,000 labeled samples. The results on the test set were excellent:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Precision: 91%&lt;/li&gt;
+&lt;li&gt;Recall: 86%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally, something good enough for monitoring purposes.&lt;/p&gt;
+
+&lt;h2&gt;The Cost (Surprisingly) Wasn&amp;rsquo;t the Problem&lt;/h2&gt;
+
+&lt;p&gt;Ironically, cost turned out to be the least interesting part of the story. Yes, token pricing for a fine-tuned GPT model was higher. But because the model had effectively learned to respond with a single token, inference became absurdly cheap.&lt;/p&gt;
+
+&lt;p&gt;The fine-tuning itself cost around $9 (mostly because we ran several experiments), and the monthly cost of evaluating new reviews stayed below $1. For a problem tied to brand reputation, that was practically pocket change.&lt;/p&gt;
+
+&lt;h2&gt;The Most Boring Ending Possible&lt;/h2&gt;
+
+&lt;p&gt;We automated the classification of incoming reviews.&lt;/p&gt;
+
+&lt;p&gt;The data became a dashboard.&lt;/p&gt;
+
+&lt;p&gt;We checked it daily.&lt;/p&gt;
+
+&lt;p&gt;Then weekly.&lt;/p&gt;
+
+&lt;p&gt;Then monthly.&lt;/p&gt;
+
+&lt;p&gt;And eventually, we forgot it existed.&lt;/p&gt;
+
+&lt;p&gt;Which, in observability, is often the happiest ending you can hope for.&lt;/p&gt;
+
+&lt;p&gt;Because by then, we had gained enough confidence that with all the changes we were doing in the app, opening digital accounts without credit was not creating the same brand backlash that had happened in the past.&lt;/p&gt;
+
+&lt;p&gt;And sometimes, success looks suspiciously like becoming boring.&lt;/p&gt;
+</content>
+        </entry>
     
         <entry>
             <title>Tofu chicloso e pirão asiático</title>
