@@ -97,11 +97,16 @@ We fine-tuned the model using those 3,000 labeled samples. The results on the te
 
 Finally, something good enough for monitoring purposes.
 
+
+![/assets/images/llmrecall.png](/assets/images/llmrecall.png)
+
+
 <h2>The Cost (Surprisingly) Wasn't the Problem</h2>
 
 Ironically, cost turned out to be the least interesting part of the story. Yes, token pricing for a fine-tuned GPT model was higher. But because the model had effectively learned to respond with a single token, inference became absurdly cheap.
 
 The fine-tuning itself cost around $9 (mostly because we ran several experiments), and the monthly cost of evaluating new reviews stayed below $1. For a problem tied to brand reputation, that was practically pocket change.
+
 
 <h2>The Most Boring Ending Possible</h2>
 
