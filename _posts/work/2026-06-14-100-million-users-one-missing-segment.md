@@ -7,7 +7,7 @@ path2: globocom
 path3: profile
 ---
 
-This is the history about a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.
+This is the history about how a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.
 
 Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren't particularly interested in buying impressions for "100 million humans of unknown characteristics." They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.
 
@@ -75,13 +75,13 @@ No measurable improvement whatsoever.
 
 To this day, I don't know whether the failure was due to an implementation issue, a flawed modeling assumption, or simply because the universe decided we'd had enough success already.
 
-Unfortunately, that became my final project at Globo.com, so I never got the chance to investigate further.
+Unfortunately, I never got the chance to investigate further since after this experiment I have joined in my new adventure to work in [OLX Brasil](/archives/olxbrasil/).
 
 <h2>The Email I Still Keep</h2>
 
 One of my favorite career souvenirs is an email forwarded by Paulo Azize from the commercial team.
 
-It contained feedback from advertisers after the improvements we had made:
+It contained some feedback from the commercial team after the improvements we had made:
 
 * Due to the results of this campaign, the client requested a new proposal and invested even more during the same month.
 
@@ -89,7 +89,7 @@ It contained feedback from advertisers after the improvements we had made:
 
 * We've noticed a significant improvement in the quality of Globo.com's traffic. We want to work even more closely together to generate additional insights.
 
-To be clear, these comments weren't solely about gender segmentation. The team was simultaneously improving multiple audience segment. But gender was by far the most visible challenge. It was the segment advertisers cared about most, and the one that had spent the longest time below the auditor's benchmark.
+To be fair, these comments weren't solely about gender segmentation. The team was simultaneously improving multiple audience segment. But gender was by far the most visible challenge. It was the segment advertisers cared about most, and the one that had spent the longest time below the auditor's benchmark.
 
 <h2>Credits</h2>
 
