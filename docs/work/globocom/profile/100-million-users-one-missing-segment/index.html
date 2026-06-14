@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="Tiago Albineli Motta">
+
+<meta name="generator" content="mynt v0.4">
+
+<link rel="alternate" href="/feed.xml" type="application/atom+xml">
+<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/assets/css/screen.css">
+
+
+    <title>100 Million Users and One Missing Segment – tiago.rio.br</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <h1 id="title"><a href="/">tiago.rio.br</a></h1>
+            
+        </div>
+
+        
+    <div id="breadcrumbs">
+        <a href="/">Home</a><span> » </span>
+        <a href="/archives/work/">work</a><span> » </span>
+        <a href="/archives/globocom/">globocom</a><span> » </span>
+        <a href="/archives/profile/">profile</a><span> » </span>
+    </div>
+
+
+        <div id="content">
+            
+    <div class="post">
+        <h1 class="post-title">100 Million Users and One Missing Segment</h1>
+        <p>This is the history about how a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.</p>
+
+<p>Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren&rsquo;t particularly interested in buying impressions for &ldquo;100 million humans of unknown characteristics.&rdquo; They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.</p>
+
+<h2>The Problem: 100 Million Users, 5 Million Labels</h2>
+
+<p>At the time, around 10 million users browsed Globo.com while logged in. Sounds great, right? Well, only about half of them had filled out their gender in their profile. To solve the problem, the Profile &amp; Segmentation team trained a machine learning model using the browsing behavior of those 5 million labeled users and applied it to everyone else.</p>
+
+<p>The model looked promising offline. Which, as every machine learning practitioner knows, is usually the beginning of the story, not the end. The model performed well in validation. Production disagreed.</p>
+
+<p>Fortunately, this wasn&rsquo;t caused by overfitting, data leakage, or somebody accidentally training on the target variable while pretending not to. The issue was simpler: the training population and the inference population were fundamentally different.</p>
+
+<p>The model was trained on users who logged in and voluntarily completed profile information. It was expected to predict anonymous users who did neither. Those populations don&rsquo;t exactly behave the same way.</p>
+
+<p>An external auditor, who had access to ground-truth demographic data for a subset of users, confirmed what advertisers were already telling us: the model wasn&rsquo;t good enough.</p>
+
+<p>That&rsquo;s when I joined the team.</p>
+
+<h2>First Attempt: More Features</h2>
+
+<p>Before joining Profile &amp; Segmentation, I had been working on video growth initiatives. Naturally, the team&rsquo;s first hypothesis was:</p>
+
+<ul>
+<li>Let&rsquo;s throw video consumption data at the problem.</li>
+</ul>
+
+<p>While exploring the existing model, I also noticed that hyperparameter optimization was being done through grid search. Grid search is great if you enjoy manually guessing where the optimum might be and then asking a computer to confirm your guesses.</p>
+
+<p>We replaced it with Bayesian optimization and incorporated video consumption features. According to the external audit, precision increased by 10% and 9% for the male and female segments respectively.</p>
+
+<p>Good improvement. Still below the benchmark.</p>
+
+<h2>The &ldquo;Wait, We Have Their Names&rdquo; Moment</h2>
+
+<p>In parallel with the ongoing work to improve the model, I started investigating a much simpler idea. Of the 10 million logged-in users, 5 million had gender information and 5 million did not. But almost all of them had names.</p>
+
+<p>And we had access to Brazilian census data containing aggregated statistics about names and gender distributions. So we asked a very simple question: if a name is overwhelmingly associated with one gender, why not use that information?</p>
+
+<p>By selecting only names whose gender distribution exceeded a very high confidence threshold, we were able to infer gender for almost all registered users with remarkable accuracy. Suddenly we had almost 5 million additional labeled examples.</p>
+
+<p>The funny thing is that our expectation wasn&rsquo;t that the model needed more data. Five million training examples is already enough data to make most machine learning engineers smile and infrastructure engineers start checking cloud bills. The real hypothesis was different: users with incomplete profiles were probably more similar to anonymous users than users with fully completed profiles. And that hypothesis turned out to be correct.</p>
+
+<p>After retraining the model using both the original labels and the census-inferred labels, we finally exceeded the external auditor&rsquo;s minimum market benchmark. Unfortunately, I no longer have the exact improvement percentage recorded anywhere.</p>
+
+<h2>Then We Realized We Were Training on People and Predicting Devices</h2>
+
+<p>With one problem solved, another became obvious. Logged-in users behave like people. Anonymous users behave like devices. A logged-in user might browse from a phone, a home desktop, and a work laptop. The system knows it&rsquo;s the same person. Anonymous traffic doesn&rsquo;t get that luxury. The same human becomes three different devices, three different users, and apparently three different personalities.</p>
+
+<p>This difference wasn&rsquo;t just conceptual. When we measured similarity between the training and inference datasets, the device-level dataset was significantly closer to production reality. On average, it was 15% more similar according to the Kolmogorov-Smirnov metric and 23% more similar according to cosine similarity than the user-level dataset.</p>
+
+<p>In other words, we had been training on people and predicting devices. Unsurprisingly, the devices refused to behave like people. So we switched training from a user-based approach to a device-based approach. The impact was immediate. Predictions changed for roughly 11% of anonymous users, and the external audit reported a 6% increase in accuracy.</p>
+
+<p>Not bad for changing the definition of a row.</p>
+
+<p><img src="/assets/images/advseg.jpg" alt="/assets/images/advseg.jpg"></p>
+
+<h2>The Clever Idea That Failed Completely</h2>
+
+<p>Every project has one. This was ours. The hypothesis was simple: if making the training dataset more similar to the inference dataset helped in the case of users vs device, why not explicitly model the inference population and train against that structure?</p>
+
+<p>We trained a clustering model on anonymous-user data and then applied that clustering model to the training dataset, effectively stratifying it according to the structure of the anonymous population.</p>
+
+<p>On paper, it was beautiful.</p>
+
+<p>The resulting training process looked sophisticated. The diagrams looked sophisticated. The presentations looked sophisticated. The results did not.</p>
+
+<p>No measurable improvement whatsoever.</p>
+
+<p>To this day, I don&rsquo;t know whether the failure was due to an implementation issue, a flawed modeling assumption, or simply because the universe decided we&rsquo;d had enough success already.</p>
+
+<p>Unfortunately, I never got the chance to investigate further since after this experiment I have joined in my new adventure to work in <a href="/archives/olxbrasil/">OLX Brasil</a>.</p>
+
+<h2>The Email I Still Keep</h2>
+
+<p>One of my favorite career souvenirs is an email forwarded by Paulo Azize from the commercial team.</p>
+
+<p>It contained some feedback from the commercial team after the improvements we had made:</p>
+
+<ul>
+<li><p>Due to the results of this campaign, the client requested a new proposal and invested even more during the same month.</p></li>
+<li><p>The client said she didn&rsquo;t believe Globo would be able to deliver this level of performance, but the results are proving otherwise.</p></li>
+<li><p>We&rsquo;ve noticed a significant improvement in the quality of Globo.com&rsquo;s traffic. We want to work even more closely together to generate additional insights.</p></li>
+</ul>
+
+<p>To be fair, these comments weren&rsquo;t solely about gender segmentation. The team was simultaneously improving multiple audience segment. But gender was by far the most visible challenge. It was the segment advertisers cared about most, and the one that had spent the longest time below the auditor&rsquo;s benchmark.</p>
+
+<h2>Credits</h2>
+
+<p>This achievement was only possible because of the incredible team assembled by <a href="https://www.linkedin.com/in/brunofms/">Bruno Souza</a> in the Profiling &amp; Segmentation group. Alongside Bruno, <a href="https://www.linkedin.com/in/timotta/">I</a> had the privilege of working with <a href="https://www.linkedin.com/in/paulo-azize-ab478b30/">Paulo Azize</a>, <a href="https://www.linkedin.com/in/dmvieira/">Diogo Munaro</a>, <a href="https://www.linkedin.com/in/fernanda-rabelo-445974114/">Fernanda Rabelo</a>, <a href="https://www.linkedin.com/in/paola-benchimol-01524135/">Paola Benchimol</a>, <a href="https://www.linkedin.com/in/gabrielcard/">Gabriel Faleiro</a>, <a href="https://www.linkedin.com/in/arnour/">Arnour Sabino</a>, and many others whose names I may unfortunately have forgotten over the years. This happened eight years ago, and my memory has never exactly been optimized for long-term retention. Some of the names above I only managed to recover thanks to old email backups.</p>
+
+<p>What I haven&rsquo;t forgotten is how much fun it was working with a team that was willing to challenge assumptions, question models, and occasionally solve machine learning problems with census spreadsheets.</p>
+
+        <h2 class="post-meta">Tiago Albineli Motta @ 2026-06-14</h2>
+    </div>
+
+        </div>
+
+        <div id="footer">
+            
+            © 2026 Tiago Albineli Motta
+        </div>
+    </div>
+</body>
+</html>
