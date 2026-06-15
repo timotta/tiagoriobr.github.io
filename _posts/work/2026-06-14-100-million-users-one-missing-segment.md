@@ -7,8 +7,6 @@ path2: globocom
 path3: profile
 ---
 
-This is the history about how a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.
-
 Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren't particularly interested in buying impressions for "100 million humans of unknown characteristics." They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.
 
 <h2>The Problem: 100 Million Users, 5 Million Labels</h2>

@@ -5,7 +5,7 @@
     <link rel="alternate" href="/" />
     <link rel="self" href="/feed.xml" type="application/atom+xml" />
     <id>/</id>
-    <updated>2026-06-14T22:31:21Z</updated>
+    <updated>2026-06-15T01:49:11Z</updated>
 
     <author>
         <name>Tiago Albineli Motta</name>
@@ -18,12 +18,10 @@
             <title>100 Million Users and One Missing Segment</title>
             <link rel="alternate" href="/work/globocom/profile/100-million-users-one-missing-segment/" type="text/html" />
             <id>/work/globocom/profile/100-million-users-one-missing-segment/</id>
-            <updated>2026-06-14T22:29:00Z</updated>
+            <updated>2026-06-14T01:48:00Z</updated>
 
-            <summary type="html">This is the history about how a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.</summary>
-            <content type="html">&lt;p&gt;This is the history about how a combination of machine learning, census data, and a healthy distrust of offline metrics helped Globo.com solve one of its biggest advertising problems.&lt;/p&gt;
-
-&lt;p&gt;Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren&amp;rsquo;t particularly interested in buying impressions for &amp;ldquo;100 million humans of unknown characteristics.&amp;rdquo; They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.&lt;/p&gt;
+            <summary type="html">Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren&amp;rsquo;t particularly interested in buying impressions for &amp;ldquo;100 million humans of unknown characteristics.&amp;rdquo; They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.</summary>
+            <content type="html">&lt;p&gt;Back in 2018, Globo.com had what many companies would consider a nice problem to have: we had about 100 million users. Unfortunately, advertisers weren&amp;rsquo;t particularly interested in buying impressions for &amp;ldquo;100 million humans of unknown characteristics.&amp;rdquo; They wanted targeting. And the most basic targeting segment of all, the gender, was exactly where we had a problem.&lt;/p&gt;
 
 &lt;h2&gt;The Problem: 100 Million Users, 5 Million Labels&lt;/h2&gt;
 
